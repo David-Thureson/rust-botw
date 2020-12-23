@@ -40,54 +40,103 @@ fn try_load() {
     let mut model = Model::new();
     util::format::print_elapsed_from_start(true, "new", "", start);
 
-    model.try_load();
+    // model.try_load();
     dbg!(&model);
 }
 
 #[derive(Debug)]
 pub struct Model {
-    pub components: BTreeMap<String, Component>,
+    pub characters: BTreeMap<String, Rc<RefCell<Character>>>,
+    pub locations: BTreeMap<String, Rc<RefCell<Location>>>,
+    pub quests: BTreeMap<String, Rc<RefCell<Quest>>>,
 }
 
 #[derive(Debug)]
-pub struct Component {
+pub struct Character {
     pub name: String,
+    pub race: Race,
+    pub main: bool,
+    pub champion: bool,
+    pub merchant: bool,
+    pub alive: bool,
     pub mentioned: bool,
-    pub type_: ComponentType,
+    pub met: bool,
+    pub met_in_flashback: bool,
+    pub mentioned_time: usize,
+    pub met_time: usize,
+    pub met_in_flashback_time: usize,
 }
 
 #[derive(Debug)]
-pub enum ComponentType {
-    Character {
-        race: Race,
-        main: bool,
-        champion: bool,
-        merchant: bool,
-        alive: bool,
-        met: bool,
-        met_in_flashback: bool,
-    },
-    Location {
-        region: Region,
-        discovered: bool,
-        type_: LocationType,
-    },
-    /*
-    Item {
-        type_: ItemType,
-        quantity: usize,
-        needed: usize,
-        effect: Option<Effect>,
-        upgrade_level: usize,
-        prices: Vec<Price>,
-        is_monster_part: bool,
-        mon_sell_price: Option<usize>,
-    },
-    */
-    Quest {
-        type_: QuestType,
+pub struct Location {
+    pub name: String,
+    pub region: Region,
+    pub discovered: bool,
+    pub discovered_time: usize,
+    pub typ: LocationType,
+}
+
+#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum LocationType {
+    Shrine {
+        challenge: String,
         started: bool,
         completed: bool,
+        started_time: usize,
+        completed_time: usize,
+    },
+    Tower,
+    Town,
+    Stable,
+}
+
+/*
+pub struct Item {
+    pub name: String,
+    pub typ: ItemType,
+    pub quantity: usize,
+    pub needed: usize,
+    pub effect: Option<Effect>,
+    pub upgrade_level: usize,
+    pub prices: Vec<Price>,
+    pub is_monster_part: bool,
+    pub mon_sell_price: Option<usize>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum ItemType {
+    Money,
+    Weapon,
+    Bow,
+    Arrow,
+    Shield,
+    Armor,
+    Material,
+    Food,
+    KeyItem,
+}
+
+*/
+
+#[derive(Debug)]
+pub struct Quest {
+    name: String,
+    typ: QuestType,
+    started: bool,
+    completed: bool,
+    started_time: usize,
+    completed_time: usize,
+}
+
+#[derive(Clone, Debug)]
+// #[derive(EnumString)]
+pub enum QuestType {
+    Main,
+    Side {
+        notes: Option<String>,
+    },
+    Shrine {
+        shrine: Rc<RefCell<Location>>,
     },
 }
 
@@ -114,41 +163,6 @@ pub enum Effect {
     Stealth,
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum ItemType {
-    Money,
-    Weapon,
-    Bow,
-    Arrow,
-    Shield,
-    Armor,
-    Material,
-    Food,
-    KeyItem,
-}
-
-#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum LocationType {
-    Shrine {
-        challenge: String,
-        completed: bool,
-    },
-    Tower,
-    Town,
-    Stable,
-}
-
-#[derive(Clone, Debug, EnumString)]
-pub enum QuestType {
-    Main,
-    Side {
-        notes: Option<String>,
-    },
-    Shrine {
-        shrine_name: String,
-    },
-}
-
 #[derive(Clone, Debug, EnumString, Eq, Ord, PartialEq, PartialOrd)]
 pub enum Race {
     Amiibo,
@@ -168,7 +182,7 @@ pub enum Race {
     Zora,
 }
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub enum Region {
     Akkala,
     Central,
@@ -190,17 +204,40 @@ pub enum Region {
 
 impl Model {
     pub fn new() -> Self {
-        let mut model = Model {
-            components: BTreeMap::new(),
+        let mut model = Self {
+            characters: Default::default(),
+            locations: Default::default(),
+            quests: Default::default()
         };
         parse::load_characters(&mut model);
-        parse::load_shrines(&mut model);
-        parse::load_locations(&mut model);
-        parse::load_quests(&mut model);
+        // parse::load_shrines(&mut model);
+        // parse::load_locations(&mut model);
+        // parse::load_quests(&mut model);
         // parse::load_items(&mut model);
 
         // Shrine::load_shrines(&mut model);
         model
+    }
+
+    pub fn add_character(&mut self, character: Character) {
+        let key = character.name.clone();
+        assert!(key.trim().len() == key.len(), "character name \"{}\" is not trimmed.", &key);
+        assert!(!self.characters.contains_key(&key));
+        self.characters.insert(key, Rc::new(RefCell::new(character)));
+    }
+
+    pub fn add_location(&mut self, location: Location) {
+        let key = location.name.clone();
+        assert!(key.trim().len() == key.len(), "location name \"{}\" is not trimmed.", &key);
+        assert!(!self.locations.contains_key(&key));
+        self.locations.insert(location.name.clone(), Rc::new(RefCell::new(location)));
+    }
+
+    pub fn add_quest(&mut self, quest: Quest) {
+        let key = quest.name.clone();
+        assert!(key.trim().len() == key.len(), "quest name \"{}\" is not trimmed.", &key);
+        assert!(!self.quests.contains_key(&key));
+        self.quests.insert(quest.name.clone(), Rc::new(RefCell::new(quest)));
     }
 
     pub fn try_load(&mut self) {
@@ -219,11 +256,79 @@ impl Model {
         // model.report_upgrade_and_acquire();
     }
 
-    pub fn add_component(&mut self, component: Component) {
-        let key = component.name.clone();
-        assert!(key.trim().len() == key.len(), "component name \"{}\" is not trimmed.", &key);
-        assert!(!self.components.contains_key(&key));
-        self.components.insert(key, component);
+}
+
+impl Character {
+    pub fn new(name: &str, race: &Race, main: bool, champion: bool, merchant: bool, alive: bool) -> Self {
+        Self {
+            name: name.to_string(),
+            race: race.clone(),
+            main,
+            champion,
+            merchant,
+            alive,
+            mentioned: false,
+            met: false,
+            met_in_flashback: false,
+            mentioned_time: 0,
+            met_time: 0,
+            met_in_flashback_time: 0,
+        }
+    }
+}
+
+impl Location {
+    pub fn new(name: &str, region: &Region, typ: LocationType) -> Self {
+        Self {
+            name: name.to_string(),
+            region: region.clone(),
+            discovered: false,
+            discovered_time: 0,
+            typ,
+        }
+    }
+}
+
+impl LocationType {
+    pub fn new_shrine(challenge: &str) -> Self {
+        Self::Shrine {
+            challenge: challenge.to_string(),
+            started: false,
+            completed: false,
+            started_time: 0,
+            completed_time: 0,
+        }
+    }
+}
+
+impl Quest {
+    pub fn new(name: &str, typ: QuestType) -> Self {
+        Self {
+            name: name.to_string(),
+            typ,
+            started: false,
+            completed: false,
+            started_time: 0,
+            completed_time: 0
+        }
+    }
+}
+
+impl QuestType {
+    pub fn new_main() -> Self {
+        Self::Main {}
+    }
+
+    pub fn new_side(notes: Option<String>) -> Self {
+        Self::Side {
+            notes,
+        }
+    }
+
+    pub fn new_shrine(shrine: Rc<RefCell<Location>>) -> Self {
+        Self::Shrine {
+            shrine,
+        }
     }
 }
 

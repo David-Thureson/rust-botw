@@ -4,7 +4,7 @@ use std::str::FromStr;
 
 use crate::*;
 use super::*;
-use crate::model_2::ComponentType::{Location, Quest};
+use crate::model_2::model::*;
 
 pub const PREFIX_HEADER: &str = "#";
 // pub const PREFIX_LF_SUBHEAD: &str = "\n>";
@@ -23,7 +23,6 @@ pub fn load_characters(model: &mut Model) {
     let file = File::open(FILE_NAME_CHARACTERS).unwrap();
     let reader = BufReader::new(file);
     let mut race = None;
-    let mut v = vec![];
     for line in reader.lines()
             .map(|line| line.unwrap().trim().to_string())
             .filter(|line| !line.is_empty())
@@ -39,24 +38,9 @@ pub fn load_characters(model: &mut Model) {
             } else {
                 (false, false, false, true)
             };
-            v.push(Component {
-                name: first.to_string(),
-                mentioned: false,
-                type_: ComponentType::Character {
-                    race: race.clone().unwrap(),
-                    main,
-                    champion,
-                    merchant,
-                    alive,
-                    met: false,
-                    met_in_flashback: false,
-                }
-            });
+            let name = first;
+            model.add_character(Character::new(name, &(race.as_ref().unwrap().clone()), main, champion, merchant, alive));
         }
-    }
-    //v.sort_by_key(|x| &x.name);
-    for component in v.drain(..) {
-        model.add_component(component);
     }
 }
 
@@ -68,18 +52,9 @@ pub fn load_shrines(model: &mut Model) {
             .filter(|line| !line.is_empty())
             .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
         let (name, challenge) = util::parse::split_2(&line, ":");
-        model.add_component(Component {
-            name: name.trim().to_string(),
-            mentioned: false,
-            type_: ComponentType::Location {
-                region: Region::ShrinePlaceholder,
-                discovered: false,
-                type_: LocationType::Shrine {
-                    challenge: challenge.trim().to_string(),
-                    completed: false,
-                }
-            }
-        });
+        let name = name.trim().to_string();
+        let challenge = challenge.trim().to_string();
+        model.add_location(Location::new(&name, &Region::ShrinePlaceholder, LocationType::new_shrine(&challenge)));
     }
 }
 
@@ -95,46 +70,20 @@ pub fn load_quests(model: &mut Model) {
         if line.starts_with(PREFIX_HEADER) {
             quest_type_name = Some(line.replace(PREFIX_HEADER, ""));
         } else {
-            model.add_component(match quest_type_name.clone().unwrap().as_ref() {
-                "Main" => Component {
-                    name: line,
-                    mentioned: false,
-                    type_: Quest {
-                        type_: QuestType::Main,
-                        started: false,
-                        completed: false,
-                    }
-                },
+            let quest = match quest_type_name.clone().unwrap().as_ref() {
+                "Main" => Quest::new(&line, QuestType::new_main()),
                 "Side" => {
                     let (name, notes) = util::parse::extract_optional(&line, "(", ")");
-                    Component {
-                        name: name.trim().to_string(),
-                        mentioned: false,
-                        type_: Quest {
-                            type_: QuestType::Side {
-                                notes,
-                            },
-                            started: false,
-                            completed: false,
-                        }
-                    }
+                    Quest::new(name.trim(), QuestType::new_side(notes))
                 },
                 "Shrine" => {
                     let (name, shrine_name) = util::parse::split_2(&line, ":");
-                    Component {
-                        name: name.to_string(),
-                        mentioned: false,
-                        type_: Quest {
-                            type_: QuestType::Shrine {
-                                shrine_name: shrine_name.to_string(),
-                            },
-                            started: false,
-                            completed: false,
-                        }
-                    }
+                    let shrine = model.locations.get(name).unwrap().clone();
+                    Quest::new(name, QuestType::new_shrine(shrine))
                 },
                 _ => panic!()
-            });
+            };
+            model.add_quest(quest);
         }
     }
 }
@@ -247,14 +196,6 @@ pub fn load_locations(model: &mut Model) {
     add_location(model, "Woodland Stable", LocationType::Stable, Region::Woodland);
 }
 
-fn add_location(model: &mut Model, name: &str, type_: LocationType, region: Region) {
-    model.add_component(Component {
-        name: name.to_string(),
-        mentioned: false,
-        type_: Location {
-            region,
-            discovered: false,
-            type_: LocationType::Tower
-        }
-    })
+fn add_location(model: &mut Model, name: &str, typ: LocationType, region: Region) {
+    model.add_location(Location::new(name, &region, typ));
 }
