@@ -5,16 +5,28 @@ use std::str::FromStr;
 use crate::*;
 use crate::model_2::model::*;
 use util_rust::parse;
+use std::cell::RefCell;
+use std::rc::Rc;
 
 pub const PREFIX_HEADER: &str = "#";
-// pub const PREFIX_LF_SUBHEAD: &str = "\n>";
+pub const PREFIX_SUBHEADER: &str = ">";
+//pub const PREFIX_LF_SUBHEAD: &str = "\n>";
 pub const PREFIX_COMMENT: &str = "//";
+pub const SUFFIX_TOWN: &str = " (town)";
+pub const SUFFIX_SHRINE: &str = " Shrine";
+pub const SUFFIX_STABLE: &str = " Stable";
+pub const SUFFIX_TOWER: &str = " Tower";
+pub const SUFFIX_TECH_LAB: &str = " Tech Lab";
 #[allow(dead_code)]
 const FILE_NAME_CHARACTERS: &str = "Breath of the Wild Characters.txt";
 #[allow(dead_code)]
 const FILE_NAME_ITEMS: &str = "Breath of the Wild Items.txt";
 #[allow(dead_code)]
 const FILE_NAME_INVENTORY: &str = "Breath of the Wild Inventory.txt";
+#[allow(dead_code)]
+const FILE_NAME_LOCATIONS: &str = "Breath of the Wild Locations.txt";
+#[allow(dead_code)]
+const FILE_NAME_DOG_TREASURES: &str = "Breath of the Wild Dog Treasures.txt";
 #[allow(dead_code)]
 const FILE_NAME_SHRINES: &str = "Breath of the Wild Shrines.txt";
 #[allow(dead_code)]
@@ -49,6 +61,7 @@ pub fn load_characters(model: &mut Model) {
     }
 }
 
+/*
 pub fn load_shrines(model: &mut Model) {
     let file = File::open(FILE_NAME_SHRINES).unwrap();
     let reader = BufReader::new(file);
@@ -62,6 +75,7 @@ pub fn load_shrines(model: &mut Model) {
         model.add_location(Location::new(&name, &Region::ShrinePlaceholder, LocationType::new_shrine(&challenge)));
     }
 }
+*/
 
 pub fn load_quests(model: &mut Model) {
     let file = File::open(FILE_NAME_QUESTS).unwrap();
@@ -154,6 +168,61 @@ pub fn rsplit_2<'a>(line: &'a str, pat: &str) -> (&'a str, &'a str) {
 */
 
 pub fn load_locations(model: &mut Model) {
+    let file = File::open(FILE_NAME_LOCATIONS).unwrap();
+    let reader = BufReader::new(file);
+    let mut region = None;
+    let mut area = None;
+    for line in reader.lines()
+            .map(|line| line.unwrap().trim().to_string())
+            .filter(|line| !line.is_empty())
+            .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
+        println!("{}", line);
+        if line.starts_with(PREFIX_HEADER) {
+            let name = line.replace(PREFIX_HEADER, "");
+            let region_rc = Rc::new(RefCell::new(Location::new(&name, None, LocationType::Region)));
+            region = Some(region_rc.clone());
+            model.add_location(region_rc);
+        } else if line.starts_with(PREFIX_SUBHEADER) {
+            let name = line.replace(PREFIX_SUBHEADER, "");
+            match region {
+                Some(ref region_rc) => {
+                    let area_rc = Rc::new(RefCell::new(Location::new(&name, None, LocationType::Area)));
+                    // let area_rc = Rc::new(RefCell::new(Location::new(&name, Some(region_rc.clone()), LocationType::Area)));
+                    area = Some(area_rc.clone());
+                    RefCell::borrow_mut(&region_rc).add_location(area_rc.clone());
+                    model.add_location(area_rc);
+                },
+                None => panic!()
+            }
+        } else {
+            let (name, location_type) = if line.ends_with(SUFFIX_TOWN) {
+                (line.replace(SUFFIX_TOWN, ""), LocationType::Town)
+            } else if line.ends_with(SUFFIX_SHRINE) {
+                (line, LocationType::new_shrine(""))
+            } else if line.ends_with(SUFFIX_TOWER) {
+                (line, LocationType::Tower)
+            } else if line.ends_with(SUFFIX_TECH_LAB) {
+                (line, LocationType::new_tech_lab())
+            } else if line.ends_with(SUFFIX_STABLE) {
+                (line, LocationType::Stable)
+            } else {
+                (line, LocationType::Normal)
+            };
+            match area {
+                Some(ref area_rc) => {
+                    let location_rc = Rc::new(RefCell::new(Location::new(&name, None, location_type)));
+                    // let location_rc = Rc::new(RefCell::new(Location::new(&name, Some(area_rc.clone()), location_type)));
+                    RefCell::borrow_mut(&area_rc).add_location(location_rc.clone());
+                    model.add_location(location_rc);
+                },
+                None => panic!()
+            }
+        }
+    }
+}
+
+/*
+pub fn load_locations(model: &mut Model) {
     add_location(model, "Akkala Tower", LocationType::Tower, Region::Akkala);
     add_location(model, "Central Tower", LocationType::Tower, Region::Central);
     add_location(model, "DuelingPeaks Tower", LocationType::Tower, Region::DuelingPeaks);
@@ -204,3 +273,4 @@ pub fn load_locations(model: &mut Model) {
 fn add_location(model: &mut Model, name: &str, typ: LocationType, region: Region) {
     model.add_location(Location::new(name, &region, typ));
 }
+*/

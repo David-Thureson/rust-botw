@@ -75,24 +75,37 @@ pub struct Character {
 #[derive(Debug)]
 pub struct Location {
     pub name: String,
-    pub region: Region,
+    pub parent: Option<Rc<RefCell<Location>>>,
     pub discovered: bool,
-    pub discovered_time: usize,
     pub typ: LocationType,
+    pub has_dog_treasure: bool,
+    pub dog_treasure_found: bool,
+    pub discovered_time: usize,
+    pub dog_treasure_found_time: usize,
+    pub locations: BTreeMap<String, Rc<RefCell<Location>>>,
 }
 
-#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+// #[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Debug)]
 pub enum LocationType {
+    Region,
+    Area,
     Shrine {
         challenge: String,
+        quest: Option<Rc<RefCell<Quest>>>,
         started: bool,
         completed: bool,
         started_time: usize,
         completed_time: usize,
     },
     Tower,
+    TechLab {
+        flame_lit: bool,
+        flame_lit_time: usize,
+    },
     Town,
     Stable,
+    Normal,
 }
 
 /*
@@ -187,6 +200,7 @@ pub enum Race {
     Zora,
 }
 
+/*
 #[derive(Clone, Debug)]
 pub enum Region {
     Akkala,
@@ -206,6 +220,7 @@ pub enum Region {
     Wasteland,
     ShrinePlaceholder,
 }
+*/
 
 impl Model {
     pub fn new() -> Self {
@@ -215,8 +230,8 @@ impl Model {
             quests: Default::default()
         };
         // parse::load_characters(&mut model);
-        parse::load_shrines(&mut model);
-        // parse::load_locations(&mut model);
+        parse::load_locations(&mut model);
+        // parse::load_shrines(&mut model);
         // parse::load_quests(&mut model);
         // parse::load_items(&mut model);
 
@@ -234,18 +249,18 @@ impl Model {
         self.characters.insert(key, Rc::new(RefCell::new(character)));
     }
 
-    pub fn add_location(&mut self, location: Location) {
-        let key = location.name.clone();
+    pub fn add_location(&mut self, location: Rc<RefCell<Location>>) {
+        let key = RefCell::borrow(&location).name.clone();
         assert!(key.trim().len() == key.len(), "location name \"{}\" is not trimmed.", &key);
-        assert!(!self.locations.contains_key(&key));
-        self.locations.insert(location.name.clone(), Rc::new(RefCell::new(location)));
+        assert!(!self.locations.contains_key(&key), format!("Location {} already exists.", key));
+        self.locations.insert(key, location);
     }
 
     pub fn add_quest(&mut self, quest: Quest) {
         let key = quest.name.clone();
         assert!(key.trim().len() == key.len(), "quest name \"{}\" is not trimmed.", &key);
         assert!(!self.quests.contains_key(&key));
-        self.quests.insert(quest.name.clone(), Rc::new(RefCell::new(quest)));
+        self.quests.insert(key, Rc::new(RefCell::new(quest)));
     }
 
     pub fn try_load(&mut self) {
@@ -301,14 +316,25 @@ impl Character {
 }
 
 impl Location {
-    pub fn new(name: &str, region: &Region, typ: LocationType) -> Self {
+    pub fn new(name: &str, parent: Option<Rc<RefCell<Location>>>, typ: LocationType) -> Self {
         Self {
             name: name.to_string(),
-            region: region.clone(),
+            parent,
             discovered: false,
             discovered_time: 0,
             typ,
+            has_dog_treasure: false,
+            dog_treasure_found: false,
+            dog_treasure_found_time: 0,
+            locations: Default::default(),
         }
+    }
+
+    pub fn add_location(&mut self, location: Rc<RefCell<Location>>) {
+        let key = RefCell::borrow(&location).name.clone();
+        assert!(key.trim().len() == key.len(), "location name \"{}\" is not trimmed.", &key);
+        assert!(!self.locations.contains_key(&key), format!("Location {} already exists.", key));
+        self.locations.insert(key, location);
     }
 }
 
@@ -316,10 +342,18 @@ impl LocationType {
     pub fn new_shrine(challenge: &str) -> Self {
         Self::Shrine {
             challenge: challenge.to_string(),
+            quest: None,
             started: false,
             completed: false,
             started_time: 0,
             completed_time: 0,
+        }
+    }
+
+    pub fn new_tech_lab() -> Self {
+        Self::TechLab {
+            flame_lit: false,
+            flame_lit_time: 0
         }
     }
 }

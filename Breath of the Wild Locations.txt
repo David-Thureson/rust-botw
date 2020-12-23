@@ -12,7 +12,7 @@ Akkala Tower
 Dah Hesho Shrine
 East Akkala Plains
 East Sokkala Bridge
-Great Fairy Fountain
+Akkala Great Fairy Fountain
 Kaepora Pass
 Kanalet Ridge
 Ke'nai Shakah Shrine
@@ -57,11 +57,11 @@ Tumlea Heights
 Tutsuwa Nima Shrine
 Zuna Kai Shrine
 
->Tarrey Town
-Inn
+>Tarrey Town (town)
+Tarry Town Inn
 Ore and More
 Rhondson Armor Boutique
-Slippery Falcon
+Slippery Falcon (Tarry Town)
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -148,7 +148,7 @@ West Passage
 
 #Dueling Peaks
 
->Dueling Peaks
+>Dueling Peaks (area)
 Ash Swamp
 Batrea Lake
 Big Twin Bridge
@@ -160,7 +160,7 @@ Dueling Peaks Stable
 Dueling Peaks Tower
 Eagus Bridge
 Floret Sandbar
-Great Fairy Fountain
+Dueling Peaks Great Fairy Fountain
 Ha Dahamar Shrine
 Hickaly Woods
 Hila Rao Shrine
@@ -190,7 +190,7 @@ Squabble River
 Ta'loh Naeg Shrine
 Toto Sah Shrine
 
->Kakariko Village
+>Kakariko Village (town)
 Enchanted
 Fang and Bone
 High Spirits Produce
@@ -244,7 +244,7 @@ Lake Darman
 Eldin Great Skeleton
 Eldin's Flank
 
->Goron City
+>Goron City (town)
 Goron Gusto Shop
 Protein Palace
 Ripped and Shredded
@@ -256,9 +256,8 @@ Stolock Bridge
 
 #Faron
 
->Main
+>Faron (area)
 Angel Peak
-Aris Beach
 Atun Valley
 Breman Peak
 Bronas Forest
@@ -308,11 +307,11 @@ Uten Marsh
 Yah Rin Shrine
 Yambi Lake
 
->Lurelin Village
+>Lurelin Village (town)
 General Store
 Inn
 
->Necluda Sea
+>Necluda Sea (Faron)
 Aris Beach
 Cape Cresia
 Clarnet Coast
@@ -330,7 +329,7 @@ Toronbo Beach
 
 #Gerudo Highlands
 
->Main
+>Gerudo Highlands (area)
 Birida Lookout
 Cliffs of Ruvara
 Gerudo Summit
@@ -376,10 +375,10 @@ Gerudo Canyon Stable
 Gerudo Desert Gateway
 Gerudo Great Skeleton
 Great Cliffs
-Great Fairy Fountain
+Gerudo Wasteland Great Fairy Fountain
 Hawa Koth Shrine
 Jee Noh Shrine
-Kara Kara Bazaar
+Kara Kara Bazaar (town)
 Karusa Valley
 Kay Noh Shrine
 Kema Zoos Shrine
@@ -397,7 +396,6 @@ Southern Oasis
 Spectacle Rock
 Stalry Plateau
 Suma Sahma Shrine
-Taafei Hill
 Tho Kayu Shrine
 Toruma Dunes
 Wasteland Tower
@@ -406,7 +404,7 @@ West Gerudo Ruins
 Yarna Valley
 Yiga Clan Hideout
 
->Gerudo Town
+>Gerudo Town (town)
 Arrow Specialty Shop
 Fashion Passion
 Hotel Oasis
@@ -446,10 +444,10 @@ West Deplian Badlands
 Woodland Stable
 Woodland Tower
 
->Great Hyrule Forest
+>Great Hyrule Forest (area)
 Daag Chokah Shrine
 Keo Ruug Shrine
-Korok Forest
+Korok Forest (town)
 General Shoppe
 Great Deku Tree's Navel
 Spore Store
@@ -465,7 +463,7 @@ Mido Swamp
 
 #Great Plateau
 
->Main
+>Great Plateau (area)
 Eastern Abbey
 Forest of Spirits
 Great Plateau Tower
@@ -529,14 +527,14 @@ Trotter's Downfall
 Walnot Mountain
 Zelkoa Pond
 
->Hateno Village
+>Hateno Village (town)
 East Wind
 Kochi Dye Shop
 Link's House
 The Great Ton Pu Inn
 Ventest Clothing Boutique
 
->Necluda Sea
+>Necluda Sea (Hateno)
 Chaas Qeta Shrine
 Deepback Bay
 Hateno Bay
@@ -736,7 +734,7 @@ Wetland Stable
 Zauz Island
 Zelo Pond
 
->Zora's Domain
+>Zora's Domain (town)
 Coral Reef
 Ne'ez Yohma Shrine
 Seabed Inn
@@ -794,7 +792,7 @@ Dragon Bone Mire
 Dronoc's Pass
 Flight Range
 Gisa Crater
-Great Fairy Fountain
+Tabantha Great Fairy Fountain
 Hebra Plunge
 Hebra Trailhead Lodge
 Kah Okeo Shrine
@@ -805,7 +803,6 @@ Passer Hill
 Piper Ridge
 Rayne Highlands
 Rito Stable
-Rospro Pass
 Sha Warvo Shrine
 Strock Lake
 Tabantha Tower
@@ -813,9 +810,9 @@ Tena Ko'sah Shrine
 Voo Lota Shrine
 Warbler's Nest
 
->Rito Village
+>Rito Village (town)
 Akh Va'quot Shrine
 Brazen Beak
 Revali's Landing
-Slippery Falcon
+Slippery Falcon (Rito Village)
 Swallow's Roost
