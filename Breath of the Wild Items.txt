@@ -1,0 +1,1244 @@
+// Breath of the Wild Items.txt
+
+#Items in Order
+// https://www.reddit.com/r/Breath_of_the_Wild/comments/6okfqz/is_there_a_list_of_every_material_you_can_collect/
+// https://docs.google.com/spreadsheets/d/1slSDnN-y8G-tGBK6QXlEzyoANPRaKoUQHpQRq8hXvX8/edit#gid=1876574363
+>Money
+Rupee
+Mon
+>Materials
+Hearty Durian
+Palm Fruit
+Apple
+Wildberry
+Hydromelon
+Spicy Pepper
+Voltfruit
+Fleet-Lotus Seeds
+Mighty Bananas
+Big Hearty Truffle
+Hearty Truffle
+Endura Shroom
+Hylian Shroom
+Stamella Shroom
+Chillshroom
+Sunshroom
+Zapshroom
+Rushroom
+Razorshroom
+Ironshroom
+Silent Shroom
+Big Hearty Radish
+Hearty Radish
+Endura Carrot
+Hyrule Herb
+Swift Carrot
+Fortified Pumpkin
+Cool Safflina
+Warm Safflina
+Electric Safflina
+Swift Violet
+Mighty Thistle
+Armoranth
+Blue Nightshade
+Silent Princess
+Raw Gourmet Meat
+Raw Whole Bird
+Raw Prime Meat
+Raw Bird Thigh
+Raw Meat
+Raw Bird Drumstick
+Courser Bee Honey
+Hylian Rice
+Bird Egg
+Tabantha Wheat
+Fresh Milk
+Acorn
+Chickaloo Tree Nut
+Cane Sugar
+Goat Butter
+Goron Spice
+Rock Salt
+Monster Extract
+Star Fragment
+Dinraal's Scale
+Dinraal's Claw
+Shard of Dinraal's Fang
+Shard of Dinraal's Horn
+Farosh's Scale
+Farosh's Claw
+Shard of Farosh's Fang
+Shard of Farosh's Horn
+Naydra's Scale
+Naydra's Claw
+Shard of Naydra's Fang
+Shard of Naydra's Horn
+Hearty Salmon
+Hearty Blueshell Snail
+Hearty Bass
+Hyrule Bass
+Staminoka Bass
+Chillfin Trout
+Sizzlefin Trout
+Voltfin Trout
+Stealthfin Trout
+Mighty Carp
+Armored Carp
+Sanke Carp
+Mighty Porgy
+Armored Porgy
+Sneaky River Snail
+Razorclaw Crab
+Ironshell Crab
+Bright-Eyed Crab
+Fairy
+Winterwing Butterfly
+Summerwing Butterfly
+Thunderwing Butterfly
+Smotherwing Butterfly
+Cold Darner
+Warm Darner
+Electric Darner
+Restless Cricket
+Bladed Rhino Beetle
+Rugged Rhino Beetle
+Energetic Rhino Beetle
+Sunset Firefly
+Hot-Footed Frog
+Tireless Frog
+Hightail Lizard
+Hearty Lizard
+Fireproof Lizard
+Flint
+Amber
+Opal
+Luminous Stone
+Topaz
+Ruby
+Sapphire
+Diamond
+Bokoblin Horn
+Bokoblin Fang
+Bokoblin Guts
+Moblin Horn
+Moblin Fang
+Moblin Guts
+Lizalfos Horn
+Lizalfos Talon
+Lizalfos Tail
+Icy Lizalfos Tail
+Red Lizalfos Tail
+Yellow Lizalfos Tail
+Lynel Horn
+Lynel Hoof
+Lynel Guts
+Chuchu Jelly
+White Chuchu Jelly
+Red Chuchu Jelly
+Yellow Chuchu Jelly
+Keese Wing
+Ice Keese Wing
+Fire Keese Wing
+Electric Keese Wing
+Keese Eyeball
+Octorok Tentacle
+Octorok Eyeball
+Octo Balloon
+Molduga Fin
+Molduga Guts
+Hinox Toenail
+Hinox Tooth
+Hinox Guts
+Ancient Screw
+Ancient Spring
+Ancient Gear
+Ancient Shaft
+Ancient Core
+Giant Ancient Core
+Wood
+
+>Weapons
+Master Sword
+Tree Branch
+Torch
+Soup Ladle
+Boomerang
+Spring-Loaded Hammer
+Traveler's Sword
+Soldier's Broadsword
+Knight's Broadsword
+Royal Broadsword
+Forest Dweller's Sword
+Zora Sword
+Feathered Edge
+Gerudo Scimitar
+Moonlight Scimitar
+Scimitar of the Seven
+Eightfold Blade
+Ancient Short Sword
+Rusty Broadsword
+Royal Guard's Sword
+Flameblade
+Frostblade
+Thunderblade
+Goddess Sword (Amiibo)
+Sword (Amiibo)
+Sea-Breeze Boomerang (Amiibo)
+Boko Club
+Spiked Boko Club
+Dragonbone Boko Club
+Lizal Boomerang
+Lizal Forked Boomerang
+Lizal Tri-Boomerang
+Guardian Sword
+Guardian Sword+
+Guardian Sword++
+Lynel Sword
+Mighty Lynel Sword
+Savage Lynel Sword
+Fire Rod
+Meteor Rod
+Ice Rod
+Blizzard Rod
+Lightning Rod
+Thunderstorm Rod
+Vicious Sickle
+Demon Carver
+Bokoblin Arm
+Lizalfos Arm
+
+Korok Leaf
+Farming Hoe
+Boat Oar
+Woodcutter's Axe
+Double Axe
+Iron Sledgehammer
+Giant Boomerang
+Traveler's Claymore
+Soldier's Claymore
+Knight's Claymore
+Royal Claymore
+Silver Longsword
+Cobble Crusher
+Stone Smasher
+Boulder Breaker
+Golden Claymore
+Eightfold Longblade
+Edge of Duality
+Ancient Bladesaw
+Rusty Claymore
+Royal Guard's Claymore
+Great Flameblade
+Great Frostblade
+Great Thunderblade
+Sword of the Six Sages (Amiibo)
+Biggoron's Sword (Amiibo)
+Fierce Deity Sword (Amiibo)
+Boko Bat
+Spiked Boko Bat
+Dragonbone Boko Bat
+Moblin Club
+Spiked Moblin Club
+Dragonbone Moblin Club
+Ancient Battle Axe
+Ancient Battle Axe+
+Ancient Battle Axe++
+Lynel Crusher
+Mighty Lynel Crusher
+Savage Lynel Crusher
+Windcleaver
+Moblin Arm
+
+Wooden Mop
+Farmer's Pitchfork
+Fishing Harpoon
+Throwing Spear
+Traveler's Spear
+Soldier's Spear
+Knight's Halberd
+Royal Halberd
+Forest Dweller's Spear
+Zora Spear
+Silverscale Spear
+Ceremonial Trident
+Lightscale Trident
+Drillshaft
+Feathered Spear
+Gerudo Spear
+Serpentine Spear
+Ancient Spear
+Rusty Halberd
+Royal Guard's Spear
+Flamespear
+Frostspear
+Thunderspear
+Boko Spear
+Spiked Boko Spear
+Dragonbone Boko Spear
+Moblin Spear
+Spiked Moblin Spear
+Dragonbone Moblin Spear
+Lizal Spear
+Enhanced Lizal Spear
+Forked Lizal Spear
+Guardian Spear
+Guardian Spear+
+Guardiant Spear++
+Lynel Spear
+Mighty Lynel Spear
+Savage Lynel Spear
+
+>Bows
+Wooden Bow
+Traveler's Bow
+Soldier's Bow
+Knight's Bow
+Royal Bow
+Forest Dweller's Bow
+Silver Bow
+Swallow Bow
+Falcon Bow
+Great Eagle Bow
+Golden Bow
+Phrenic Bow
+Ancient Bow
+Royal Guard's Bow
+Twilight Bow (Amiibo)
+Boko Bow
+Spiked Boko Bow
+Dragonbone Boko Bow
+Lizal Bow
+Strengthened Lizal Bow
+Steel Lizal Bow
+Lynel Bow
+Mighty Lynel Bow
+Savage Lynel Bow
+Duplex Bow
+
+>Arrows
+Arrow
+Fire Arrow
+Ice Arrow
+Shock Arrow
+Bomb Arrow
+Ancient Arrow
+
+>Shields
+Hylian Shield
+Pot Lid
+Wooden Shield
+Emblazoned Shield
+Hunter's Shield
+Fisherman's Shield
+Traveler's Shield
+Soldier's Shield
+Knight's Shield
+Royal Shield
+Forest Dweller's Shield
+Silver Shield
+Kite Shield
+Gerudo Shield
+Radiant Shield
+Daybreaker
+Shield of the Mind's Eye
+Ancient Shield
+Rusty Shield
+Royal Guard's Shield
+Hero's Shield (Amiibo)
+Boko Shield
+Spiked Boko Shield
+Dragonbone Boko Shield
+Lizal Shield
+Reinforced Lizal Shield
+Steel Lizal Shield
+Guardian Shield
+Guardian Shield+
+Guardian Shield++
+Lynel Shield
+Mighty Lynel Shield
+Savage Lynel Shield
+
+>Armor
+Old Shirt
+Well-Worn Trousers
+Champion's Tunic
+Hylian Hood
+Hylian Tunic
+Hylian Trousers
+Soldier's Helm
+Soldier's Armor
+Soldier's Greaves
+Amber Earrings
+Warm Doublet
+Ruby Circlet
+Snowquill Headdress
+Snowquill Tunic
+Snowquill Trousers
+Sapphire Circlet
+Desert Voe Headband
+Desert Voe Spaulder
+Desert Voe Trousers
+Gerudo Veil
+Gerudo Top
+
+Gerudo Sirwal
+Topaz Earrings
+Rubber Helm
+Rubber Armor
+Rubber Tights
+Flamebreaker Helm
+Flamebreaker Armor
+Flamebreaker Boots
+Opal Earrings
+Zora Helm
+Zora Armor
+Zora Greaves
+Stealth Mask
+Stealth Chest Guard
+Stealth Tights
+Sheik's Mask (Amiibo)
+Thunder Helm
+Climber's Bandanna
+Climbing Gear
+Climbing Boots
+Barbarian Helm
+Barbarian Armor
+Barbarian Leg Wraps
+Fierce Deity Mask (Amiibo)
+Fierce Deity Armor (Amiibo)
+Fierce Deity Boots (Amiibo)
+Radiant Mask
+Radiant Shirt
+Radiant Tights
+Diamond Circlet
+Ancient Helm
+Ancient Curiass
+Ancient Greaves
+Sand Boots
+Snow Boots
+Bokoblin Mask
+Moblin Mask
+Lizalfos Mask
+Lynel Mask
+Dark Hood
+Dark Tunic
+Dark Trousers
+Cap of Time (Amiibo)
+Tunic of Time (Amiibo)
+Trousers of Time (Amiibo)
+Cap of the Wind (Amiibo)
+Tunic of the Wind (Amiibo)
+Trousers of the Wind (Amiibo)
+Cap of Twilight (Amiibo)
+Tunic of Twilight (Amiibo)
+Trousers of Twilight (Amiibo)
+Cap of the Sky (Amiibo)
+Tunic of the Sky (Amiibo)
+Trousers of the Sky (Amiibo)
+Cap of the Hero (Amiibo)
+Tunic of the Hero (Amiibo)
+Trousers of the Hero (Amiibo)
+Cap of the Wild
+Tunic of the Wild
+Trousers of the Wild
+Nintendo Switch Shirt (DLC)
+Korok Mask (DLC)
+Majora's Mask (DLC)
+Tingle's Hood (DLC)
+Tingle's Shirt (DLC)
+Tingle's Tights (DLC)
+Midna's Helmet (DLC)
+Phantom Helmet (DLC)
+Phantom Armor (DLC)
+Phantom Greaves (DLC)
+Island Lobster Shirt (DLC)
+Ravio's Hood (DLC)
+Zant's Helmet (DLC)
+Royal Guard Cap (DLC)
+Royal Guard Uniform (DLC)
+Royal Guard Boots (DLC)
+Phantom Ganon Skull (DLC)
+Phantom Ganon Armor (DLC)
+Phantom Ganon Greaves (DLC)
+Vah Ruta Divine Helm (Amiibo)
+Vah Medoh Divine Helm (Amiibo)
+Vah Rudania Divine Helm (Amiibo)
+Vah Naboris Divine Helm (Amiibo)
+Salvager Headwear (Free DLC)
+Salvager Vest (Free DLC)
+Salvager Trousers (Free DLC)
+
+>Dishes
+Simmered Fruit	Apple
+Copious Simmered Fruit	Apple, Wildberry, Hydromelon, Voltfruit
+Mushroom Skewer	Hylian Shroom
+Copious Mushroom Skewers	Hylian Shroom, Chillshroom, Sunshroom, Zapshroom
+Fried Wild Greens	Hyrule Herb
+Copious Fried Wild Greens	Hyrule Herb, Warm Safflina, Cool Safflina, Electric Safflina
+Fish Skewer	Hyrule Bass
+Seafood Skewer	Razorclaw Crab
+Copious Seafood Skewers	Hyrule Bass, Chillfin Trout, Sizzlefin Trout, Voltfin Trout
+Meat Skewer	Raw Meat
+Copious Meat Skewers	Raw Prime Meat, Raw Bird Thigh, Raw Meat, Raw Bird Drumstick
+Fruit and Mushroom Mix	Apple, Hylian Shroom
+Fish and Mushroom Skewer	Hylian Shroom, Hyrule Bass
+Meat and Mushroom Skewer	Hylian Shroom, Raw Meat
+	
+Steamed Fruit	Apple, Hyrule Herb
+Steamed Mushrooms	Hylian Shroom, Hyrule Herb
+Steamed Fish	Hyrule Herb, Hyrule Bass
+Steamed Meat	Hyrule Herb, Raw Meat
+	
+Salt-Grilled Mushrooms	Hylian Shroom, Rock Salt
+Salt-Grilled Greens	Hyrule Herb, Rock Salt
+Salt-Grilled Fish	Rock Salt, Hyrule Bass
+Salt-Grilled Crab	Rock Salt, Razorclaw Crab
+Salt-Grilled Meat	Raw Meat, Rock Salt
+Salt-Grilled Prime Meat	Raw Prime Meat, Rock Salt
+Salt-Grilled Gourmet Meat	Raw Gourmet Meat, Rock Salt
+	
+Crab Stir-Fry	Goron Spice, Razorclaw Crab
+Peppered Seafood	Spicy Pepper, Hyrule Bass
+Pepper Steak	Spicy Pepper, Raw Meat
+Meat and Seafood Fry	Raw Meat, Hyrule Bass
+Prime Meat and Seafood Fry	Raw Prime Meat, Hyrule Bass
+Gourmet Meat and Seafood Fry	Raw Gourmet Meat, Hyrule Bass
+	
+Spiced Meat Skewer	Raw Meat, Goron Spice
+Prime Spiced Meat Skewer	Raw Prime Meat, Goron Spice
+Gourmet Spiced Meat Skewer	Raw Gourmet Meat, Goron Spice
+	
+Fragrant Mushroom Sauté	Hylian Shroom, Goron Spice
+Herb Sauté	Hyrule Herb, Goron Spice
+Meat-Stuffed Pumpkin	Fortified Pumpkin, Raw Meat
+Sautéed Peppers	Spicy Pepper
+Sautéed Nuts	Acorn
+Omelet	Bird Egg
+	
+Glazed Mushrooms	Hylian Shroom, Courser Bee Honey
+Glazed Veggies	Hyrule Herb, Courser Bee Honey
+Glazed Seafood	Courser Bee Honey, Hyrule Bass
+Glazed Meat	Raw Meat, Courser Bee Honey
+	
+Seafood Meunière	Tabantha Wheat, Goat Butter, Hyrule Bass
+Porgy Meunière	Tabantha Wheat, Goat Butter, Mighty Porgy
+Salmon Meunière	Tabantha Wheat, Goat Butter, Hearty Salmon
+	
+Seafood Fried Rice	Hylian Rice, Rock Salt, Mighty Porgy
+Crab Omelet with Rice	Hylian Rice, Bird Egg, Rock Salt, Razorclaw Crab
+Seafood Paella	Hylian Rice, Goat Butter, Rock Salt, Hearty Blueshell Snail, Mighty Porgy
+Poultry Pilaf	Raw Bird Drumstick, Hylian Rice, Bird Egg, Goat Butter
+Prime Poultry Pilaf	Raw Bird Thigh, Hylian Rice, Bird Egg, Goat Butter
+Gourmet Poultry Pilaf	Raw Whole Bird, Hylian Rice, Bird Egg, Goat Butter
+Curry Pilaf	Hylian Rice, Goat Butter, Goron Spice
+Fried Egg and Rice	Hylian Rice, Bird Egg
+	
+Mushroom Risotto	Hylian Shroom, Hylian Rice, Goat Butter, Rock Salt
+Vegetable Risotto	Swift Carrot, Hylian Rice, Goat Butter, Rock Salt
+Salmon Risotto	Hylian Rice, Goat Butter, Rock Salt, Hearty Salmon
+Crab Risotto	Hylian Rice, Goat Butter, Rock Salt, Razorclaw Crab
+	
+Cream of Vegetable Soup	Hyrule Herb, Fresh Milk, Rock Salt
+Cream of Mushroom Soup	Hylian Shroom, Hyrule Herb, Fresh Milk, Rock Salt
+Veggie Cream Soup	Swift Carrot, Fresh Milk, Rock Salt
+Creamy Heart Soup	Hydromelon, Voltfruit, Hearty Radish, Fresh Milk
+Creamy Seafood Soup	Hyrule Herb, Fresh Milk, Rock Salt, Hyrule Bass
+Creamy Meat Soup	Hyrule Herb, Raw Meat, Fresh Milk, Rock Salt
+Monster Soup	Tabantha Wheat, Fresh Milk, Goat Butter, Monster Extract
+	
+Carrot Stew	Swift Carrot, Tabantha Wheat, Fresh Milk, Goat Butter
+Pumpkin Stew	Fortified Pumpkin, Tabantha Wheat, Fresh Milk, Goat Butter
+Clam Chowder	Tabantha Wheat, Fresh Milk, Goat Butter, Hearty Blueshell Snail
+Meat Stew	Raw Meat, Tabantha Wheat, Fresh Milk, Goat Butter
+Prime Meat Stew	Raw Prime Meat, Tabantha Wheat, Fresh Milk, Goat Butter
+Gourmet Meat Stew	Raw Gourmet Meat, Tabantha Wheat, Fresh Milk, Goat Butter
+Monster Stew	Raw Meat, Monster Extract, Hyrule Bass
+	
+Curry Rice	Hylian Rice, Goron Spice
+Vegetable Curry	Swift Carrot, Hylian Rice, Goron Spice
+Seafood Curry	Hylian Rice, Goron Spice, Mighty Porgy
+Poultry Curry	Raw Bird Drumstick, Hylian Rice, Goron Spice
+Prime Poultry Curry	Raw Bird Thigh, Hylian Rice, Goron Spice
+Gourmet Poultry Curry	Raw Whole Bird, Hylian Rice, Goron Spice
+Meat Curry	Raw Meat, Hylian Rice, Goron Spice
+Prime Meat Curry	Raw Prime Meat, Hylian Rice, Goron Spice
+Gourmet Meat Curry	Raw Gourmet Meat, Hylian Rice, Goron Spice
+Monster Curry	Hylian Rice, Goron Spice, Monster Extract
+	
+Mushroom Omelet	Hylian Shroom, Bird Egg, Goat Butter, Rock Salt
+Vegetable Omelet	Hyrule Herb, Bird Egg, Goat Butter, Rock Salt
+	
+Mushroom Rice Balls	Hylian Shroom, Hylian Rice
+Veggie Rice Balls	Hyrule Herb, Hylian Rice
+Seafood Rice Balls	Hylian Rice, Hyrule Bass
+Meaty Rice Balls	Raw Meat, Hylian Rice
+Monster Rice Balls	Hylian Rice, Rock Salt, Monster Extract
+	
+Meat and Rice Bowl	Raw Meat, Hylian Rice, Rock Salt
+Prime Meat and Rice Bowl	Raw Prime Meat, Hylian Rice, Rock Salt
+Gourmet Meat and Rice Bowl	Raw Gourmet Meat, Hylian Rice, Rock Salt
+	
+Wheat Bread	Tabantha Wheat, Rock Salt
+Nutcake	Tabantha Wheat, Acorn, Cane Sugar, Goat Butter
+Fruitcake	Apple, Wildberry, Tabantha Wheat, Cane Sugar
+Carrot Cake	Swift Carrot, Tabantha Wheat, Cane Sugar, Goat Butter
+Pumpkin Pie	Fortified Pumpkin, Tabantha Wheat, Cane Sugar, Goat Butter
+Monster Cake	Tabantha Wheat, Cane Sugar, Goat Butter, Monster Extract
+	
+Plain Crepe	Bird Egg, Tabantha Wheat, Fresh Milk, Cane Sugar
+Wildberry Crepe	Wilberry, Bird Egg, Tabantha Wheat, Fresh Milk, Cane Sugar
+Honey Crepe	Courser Bee Honey, Bird Egg, Tabantha Wheat, Fresh Milk, Cane Sugar
+	
+Fruit Pie	Wildberry, Tabantha Wheat, Cane Sugar, Goat Butter
+Apple Pie	Apple, Tabantha Wheat, Cane Sugar, Goat Butter
+Fish Pie	Tabantha Wheat, Goat Butter, Rock Salt, Hyrule Bass
+Meat Pie	Raw Meat, Tabantha Wheat, Goat Butter, Rock Salt
+Egg Tart	Bird Egg, Tabantha Wheat, Cane Sugar, Goat Butter
+	
+Honey Candy	Courser Bee Honey
+Honeyed Fruits	Wildberry, Courser Bee Honey
+Honeyed Apple	Apple, Courser Bee Honey
+Hot Buttered Apple	Apple, Goat Butter
+Fried Bananas	Mighty Bananas, Tabantha Wheat, Cane Sugar
+Egg Pudding	Bird Egg, Fresh Milk, Cane Sugar
+Milk	Fresh Milk
+	
+Fairy Tonic	Fairy
+Dubious Food	Hot-Footed Frog
+Rock-Hard Food	Flint
+
+>Elixers
+Hearty Elixir
+Energizing Elixir
+Enduring Elixir
+Lv. 3 Hasty Elixir
+Lv. 2 Hasty Elixir
+Lv. 1 Hasty Elixir
+Lv. 2 Fireproof Elixir
+Lv. 1 Fireproof Elixir
+Lv. 2 Spicy Elixir
+Lv. 1 Spicy Elixir
+Lv. 2 Chilly Elixir
+Lv. 1 Chilly Elixir
+Lv. 3 Electro Elixir
+Lv. 2 Electro Elixir
+Lv. 1 Electro Elixir
+Lv. 3 Mighty Elixir
+Lv. 2 Mighty Elixir
+Lv. 1 Mighty Elixir
+Lv. 3 Tough Elixir
+Lv. 2 Tough Elixir
+Lv. 1 Tough Elixir
+Lv. 3 Sneaky Elixir
+Lv. 2 Sneaky Elixir
+Lv. 1 Sneaky Elixir
+
+>Roasted Foods
+Baked Apple	Apple set on fire.
+Baked Palm Fruit	Palm Fruit set on fire.
+Roasted Wildberry	Wildberry set on fire.
+Roasted Acorn	Acorn set on fire.
+Roasted Tree Nut	Chickaloo Tree Nut set on fire.
+Roasted Hearty Durian	Hearty Durian set on fire.
+Roasted Hydromelon	Hydromelon set on fire.
+Charred Pepper	Spicy Pepper set on fire.
+Roasted Voltfruit	Voltfruit set on fire.
+Roasted Lotus Seeds	Fleet-Lotus Seeds set on fire.
+Roasted Mighty Bananas	Mighty Bananas set on fire.
+	
+Toasty Hylian Shroom	Hylian Shroom set on fire.
+Toasty Endura Shroom	Endura Shroom set on fire.
+Toasty Stamella Shroom	Stamella Shroom set on fire.
+Toasted Hearty Truffle	Hearty Truffle set on fire.
+Toasted Big Hearty Truffle	Big Hearty Truffle set on fire.
+Toasty Chillshroom	Chillshroom set on fire.
+Toasty Sunshroom	Sunshroom set on fire.
+Toasty Zapshroom	Zapshroom set on fire.
+Toasty Rushroom	Rushroom set on fire.
+Toasty Razorshroom	Razorshroom set on fire.
+Toasty Ironshroom	Ironshroom set on fire.
+Toasty Silent Shroom	Silent Shroom set on fire.
+	
+Roasted Radish	Hearty Radish set on fire.
+Roasted Big Radish	Big Hearty Radish set on fire.
+Roasted Swift Carrot	Swift Carrot set on fire.
+Roasted Endura Carrot	Endura Carrot set on fire.
+Baked Fortified Pumpkin	Fortified Pumpkin set on fire.
+Roasted Mighty Thistle	Mighty Thistle set on fire.
+Roasted Armoranth	Armoranth set on fire.
+	
+Campfire Egg	Bird Egg set on fire.
+Hard-Boiled Egg	Bird Egg placed in boiling water.
+	
+Seared Steak	Raw Meat set on fire.
+Seared Prime Steak	Raw Prime Meat set on fire.
+Seared Gourmet Steak	Raw Gourmet Meat set on fire.
+Roasted Bird Drumstick	Bird Drumstick set on fire.
+Roasted Bird Thigh	Bird Thigh set on fire.
+Roasted Whole Bird	Whole Bird set on fire.
+	
+Roasted Bass	Hyrule Cass/Staminoka Bass set on fire.
+Roasted Hearty Bass	Hearty Bass set on fire.
+Roasted Hearty Salmon	Hearty Salmon set on fire.
+Roasted Trout	Chillfin Trout/Sizzlefin Trout/Voltfin Trout/Stealthfin Trout set on fire.
+Roasted Carp	Mighty Carp/Armored Carp/Sanke Carp set on fire.
+Roasted Porgy	Mighty Porgy/Armored Porgy set on fire.
+Sneaky River Escargot	Sneaky River Snail set on fire.
+Blueshell Escargot	Hearty Blueshell Snail set on fire.
+Blackened Crab	Razorclaw Crab/Ironshell Crab/Bright-Eyed Crab set on fire.
+
+
+>Frozen Foods
+Icy Meat	Raw Meat frozen.
+Icy Prime Meat	Raw Prime Meat frozen.
+Icy Gourmet Meat	Raw Gourmet Meat frozen.
+Frozen Bird Drumstick	Raw Bird Drumstick frozen.
+Frozen Bird Thigh	Raw Bird Thigh frozen.
+Frozen Whole Bird	Raw Whole Bird frozen.
+	
+Frozen Bass	Hyrule Bass/Staminoka Bass frozen.
+Frozen Hearty Bass	Hearty Bass frozen.
+Frozen Hearty Salmon	Hearty Salmon frozen.
+Frozen Trout	Chillfin Trout/Sizzlefin Trout/Voltfin Trout/Stealthfin Trout frozen.
+Frozen Carp	Mighty Carp/Armored Carp/Sanke Carp frozen.
+Frozen Porgy	Mighty Porgy/Armored Porgy frozen.
+Frozen Crab	Razorclaw Crab/Ironshell Crab/Bright-Eyed Crab frozen.
+Frozen River Snail	Sneaky River Snail frozen.
+Icy Hearty Blueshell Snail	Hearty Blueshell Snail frozen.
+
+
+>Key Items
+Sheikah Slate
+Mipha's Grace
+Revali's Gale
+Daruk's Protection
+Urbosa's Fury
+
+Paraglider
+Korok Seed x459
+Classified Envelope
+Hestu's Gift
+Medal of Honor: Talus
+
+Medal of Honor: Hinox
+Medal of Honor: Molduga
+Traveler's Bridle (Amiibo)
+Knight's Bridle
+Royal Bridle
+
+Extravagant Bridle
+Monster Bridle
+Ancient Bridle (DLC)
+Traveler's Saddle (Amiibo)
+Knight's Saddle
+
+Royal Saddle
+Extravagant Saddle
+Monster Saddle
+Ancient Saddle (DLC)
+Travel Medallion (DLC)
+
+Sheikah Sensor +
+Remote Bomb +
+Stasis +
+
+#Item Effects
+Acorn	hearts restored
+Apple	hearts restored
+Armored Carp	defense increased
+Armored Porgy	defense increased
+Big Hearty Radish	hearts restored + temporary additional hearts
+Big Hearty Truffle	hearts restored + temporary additional hearts
+Bird Egg	hearts restored
+Bright-Eyed Crab	stamina restored
+Chickaloo Tree Nut	hearts restored
+Chillfin Trout	heat resistance
+Chillshroom	heat resistance
+Courser Bee Honey	stamina restored
+Endura Shroom	temporary stamina increase
+Fleet-Lotus Seeds	movement speed increased
+Fresh Milk	hearts restored
+Goat Butter	ingredient for special recipes
+Goron Spice	ingredient for special recipes
+Hearty Bass	hearts restored + temporary additional hearts
+Hearty Blueshell Snail	hearts restored + temporary additional hearts
+Hearty Durian	hearts restored + temporary additional hearts
+Hearty Radish	hearts restored + temporary additional hearts
+Hearty Salmon	hearts restored + temporary additional hearts
+Hearty Truffle	hearts restored + temporary additional hearts
+Hydromelon	heat resistance
+Hylian Shroom	hearts restored
+Hyrule Bass	hearts restored
+Ironshell Crab	defense increased
+Ironshroom	defense increased
+Mighty Bananas	attack damage increased
+Mighty Carp	attack damage increased
+Mighty Porgy	attack damage increased
+Monster Extract	ingredient in special recipes
+Palm Fruit	hearts restored
+Raw Bird Drumstick	hearts restored
+Raw Bird Thigh	hearts restored
+Raw Gourmet Meat	hearts restored
+Raw Meat	hearts restored
+Raw Prime Meat	hearts restored
+Raw Whole Bird	hearts restored
+Razorclaw Crab	attack damage increased
+Razorshroom	attack damage increased
+Rock Salt	ingredient for special recipes
+Rushroom	movement speed increased
+Sanke Carp	hearts restored
+Silent Shroom	stealth increased
+Sizzlefin Trout	cold resistance
+Sneaky River Snail	stealth increased
+Spicy Pepper	cold resistance
+Stamella Shroom	stamina restored
+Staminoka Bass	stamina restored
+Stealthfin Trout	stealth increased
+Sunshroom	cold resistance
+Voltfin Trout	electricity resistance
+Voltfruit	electricity resistance
+Wildberry	hearts restored
+Zapshroom	electricity resistance
+
+//Plants
+Armoranth	Cook with food to increase defense
+Blue Nightshade	Cook with food to increase stealth
+Cane Sugar	Cook with food to increase the number of hearts restored
+Cool Safflina	Cook with food to add a heat resistance effect
+Electric Safflina	Cook with food to add an electricity resistance effect
+Endura Carrot	Cook with food to increase temporary stamina
+Fortified Pumpkin	Cook with food to increase defense
+Hylian Rice	Cook with food to increase the number of hearts restored
+Hyrule Herb	Cook with food to increase the number of hearts restored
+Mighty Thistle	Cook with food to increase attack damage
+Silent Princess	Cook with food to increase stealth
+Swift Carrot	Cook with food to increase movement speed
+Swift Violet	Cook with food to increase movement speed
+Tabantha Wheat	Cook with food to increase the number of hearts restored
+Warm Safflina	Cook with food to add a cold resistance effect
+
+//Critters
+Bladed Rhino Beetle	attack boost elixir
+Cold Darner	heat resistance elixir
+Electric Darner	electric resistance elixir
+Energetic Rhino Beetle	stamina restoration elixir
+Fireproof Lizard	fireproof elixir
+Hearty Lizard	health boost elixir
+Hightail Lizard	movement speed boost elixir
+Hot-Footed Frog	movement speed boost elixir
+Restless Cricket	stamina restoration elixir
+Rugged Rhino Beetle	defense boost elixir
+Smotherwing Butterfly	fireproof elixir
+Summerwing Butterfly	cold resistance elixir
+Sunset Firefly	stealth elixir
+Thunderwing Butterfly	electric resistance elixir
+Tireless Frog	stamina boost elixir
+Warm Darner	cold resistance elixir
+Winterwing Butterfly	heat resistance elixir
+
+//Minerals
+Amber	Use to sell or in armor
+Diamond	Use to sell or in armor
+Flint	Use with Wood to make fire
+Luminous Stone	Use to sell or in armor
+Opal	Use to sell or in armor
+Ruby	Use to sell or in armor
+Sapphire	Use to sell or in armor
+Topaz	Use to sell or in armor
+
+//Monster Parts
+Ancient Core	Use at labs to make ancient armor or weapons
+Ancient Gear	Use at labs to make ancient armor or weapons
+Ancient Screw	Use at labs to make ancient armor or weapons
+Ancient Shaft	Use at labs to make ancient armor or weapons
+Ancient Spring	Use at labs to make ancient armor or weapons
+Bokoblin Fang	Cook to with ingredients to make an elixir
+Bokoblin Guts	Cook to with ingredients to make an elixir
+Bokoblin Horn	Cook to with ingredients to make an elixir
+Chuchu Jelly	Cook to with ingredients to make an elixir
+Electric Keese Wing	Cook to with ingredients to make an electric resistant elixir
+Fire Keese Wing	Cook to with ingredients to make a cold resistant elixir
+Giant Ancient Core	Use at labs to make ancient armor or weapons
+Hinox Guts	Cook to with ingredients to make an elixir or use in armor
+Hinox Toenail	Cook to with ingredients to make an elixir or use in armor
+Hinox Tooth	Cook to with ingredients to make an elixir or use in armor
+Ice Keese Wing	Cook to with ingredients to make a heat resistant elixir
+Icy Lizalfos Tail	Cook to with ingredients to make a heat resistant elixir
+Keese Eyeball	Cook to with ingredients to make an elixir
+Keese Wing	Cook to with ingredients to make an elixir
+Lizalfos Horn	Cook to with ingredients to make an elixir
+Lizalfos Tail	Cook to with ingredients to make an elixir
+Lizalfos Talon	Cook to with ingredients to make an elixir
+Lynel Guts	Cook to with ingredients to make an elixir or use in armor
+Lynel Hoof	Cook to with ingredients to make an elixir or use in armor
+Lynel Horn	Cook to with ingredients to make an elixir or use in armor
+Moblin Fang	Cook to with ingredients to make an elixir
+Molduga Fin	Cook to with ingredients to make an elixir or use in armor
+Moblin Guts	Cook to with ingredients to make an elixir
+Molduga Guts	Cook to with ingredients to make an elixir or use in armor
+Moblin Horn	Cook to with ingredients to make an elixir
+Octo Balloon	Attach to objects to make them float
+Octorok Eyeball	Cook to with ingredients to make an elixir
+Octorok Tentacle	Cook to with ingredients to make an elixir
+Red Chuchu Jelly	Cook to with ingredients to make a cold resistant elixir
+Red Lizalfos Tail	Cook to with ingredients to make a cold resistant elixir
+White Chuchu Jelly	Cook to with ingredients to make a heat resistant elixir
+Yellow Chuchu Jelly	Cook to with ingredients to make an electric resistant elixir
+Yellow Lizalfos Tail	Cook to with ingredients to make an electric resistant elixir
+
+#Purchase and Upgrade
+// https://www.zeldadungeon.net/wiki/Category:Breath_of_the_Wild_Armor#Armor Sets
+Champion's Tunic: Locked Mementos
+	1: 3 Silent Princess
+	2: 3 Silent Princess, 2 Shard of Dinraal's Horn
+	3: 3 Silent Princess, 2 Shard of Dinraal's Horn
+	4: 3 Silent Princess, 2 Shard of Dinraal's Horn
+Hylian Hood
+	1: 5 Bokoblin Horn
+	2: 8 Bokoblin Horn, 5 Bokoblin Fang
+	3: 10 Bokoblin Fang, 5 Bokoblin Guts
+	4: 15 Bokoblin Guts, 15 Amber
+Hylian Tunic: 120 Rupee
+	1: 5 Bokoblin Horn
+	2: 8 Bokoblin Horn, 5 Bokoblin Fang
+	3: 10 Bokoblin Fang, 5 Bokoblin Guts
+	4: 15 Bokoblin Guts, 15 Amber
+Hylian Trousers: 90 Rupee
+	1: 5 Bokoblin Horn
+	2: 8 Bokoblin Horn, 5 Bokoblin Fang
+	3: 10 Bokoblin Fang, 5 Bokoblin Guts
+	4: 15 Bokoblin Guts, 15 Amber
+Soldier's Helm: 180 Rupee
+	1: 5 Chuchu Jelly, 3 Bokoblin Guts
+	2: 3 Keese Eyeball, 3 Moblin Guts
+	3: 3 Lizalfos Tail, 1 Hinox Guts
+	4: 4 Lynel Hoof, 2 Lynel Guts
+Soldier's Armor: 250 Rupee
+	1: 5 Chuchu Jelly, 3 Bokoblin Guts
+	2: 3 Keese Eyeball, 3 Moblin Guts
+	3: 3 Lizalfos Tail, 1 Hinox Guts
+	4: 4 Lynel Hoof, 2 Lynel Guts
+Soldier's Greaves: 200 Rupee
+	1: 5 Chuchu Jelly, 3 Bokoblin Guts
+	2: 3 Keese Eyeball, 3 Moblin Guts
+	3: 3 Lizalfos Tail, 1 Hinox Guts
+	4: 4 Lynel Hoof, 2 Lynel Guts
+Amber Earrings: 100 Rupee, 10 Amber
+	1: 5 Amber, 3 Flint
+	2: 10 Amber, 3 Flint
+	3: 20 Amber, 3 Flint
+	4: 30 Amber, 3 Flint
+Ruby Circlet: 500 Rupee, 3 Ruby
+	1: 2 Ruby, 3 Flint
+	2: 4 Ruby, 3 Flint
+	3: 6 Ruby, 1 Star Fragment
+	4: 10 Ruby, 1 Star Fragment
+Snowquill Headdress: 1000 Rupee
+	1: 3 Red Chuchu Jelly
+	2: 5 Red Chuchu Jelly, 3 Warm Safflina
+	3: 8 Fire Keese Wing, 5 Sunshroom
+	4: 10 Red Lizalfos Tail, 5 Ruby
+Snowquill Tunic: 600 Rupee
+	1: 3 Red Chuchu Jelly
+	2: 5 Red Chuchu Jelly, 3 Warm Safflina
+	3: 8 Fire Keese Wing, 5 Sunshroom
+	4: 10 Red Lizalfos Tail, 5 Ruby
+Snowquill Trousers: 550 Rupee
+	1: 3 Red Chuchu Jelly
+	2: 5 Red Chuchu Jelly, 3 Warm Safflina
+	3: 8 Fire Keese Wing, 5 Sunshroom
+	4: 10 Red Lizalfos Tail, 5 Ruby
+Sapphire Circlet: 800 Rupee, 3 Sapphire
+	1: 2 Sapphire, 3 Flint
+	2: 4 Sapphire, 3 Flint
+	3: 6 Sapphire, 1 Star Fragment
+	4: 10 Sapphire, 1 Star Fragment
+Desert Voe Headband: 450 Rupee
+	1: 3 White Chuchu Jelly
+	2: 5 White Chuchu Jelly, 3 Ice Keese Wing
+	3: 8 Ice Keese Wing, 3 Icy Lizalfos Tail
+	4: 8 Icy Lizalfos Tail, 5 Sapphire
+Desert Voe Spaulder: 1300 Rupee
+	1: 3 White Chuchu Jelly
+	2: 5 White Chuchu Jelly, 3 Ice Keese Wing
+	3: 8 Ice Keese Wing, 3 Icy Lizalfos Tail
+	4: 8 Icy Lizalfos Tail, 5 Sapphire
+Desert Voe Trousers: 650 Rupee
+	1: 3 White Chuchu Jelly
+	2: 5 White Chuchu Jelly, 3 Ice Keese Wing
+	3: 8 Ice Keese Wing, 3 Icy Lizalfos Tail
+	4: 8 Icy Lizalfos Tail, 5 Sapphire
+Gerudo Veil: 180 Rupee
+Gerudo Top: 180 Rupee
+Gerudo Sirwal: 180 Rupee
+Topaz Earrings: 500 Rupee, 5 Topaz
+	1: 2 Topaz, 3 Flint
+	2: 4 Topaz, 3 Flint
+	3: 6 Topaz, 1 Star Fragment
+	4: 10 Topaz, 1 Star Fragment
+Rubber Helm: Thunder Magnet
+	1: 3 Yellow Chuchu Jelly
+	2: 5 Yellow Chuchu Jelly, 5 Voltfruit
+	3: 5 Zapshroom, 5 Yellow Lizalfos Tail
+	4: 10 Yellow Lizalfos Tail, 10 Topaz
+Rubber Armor: A Song of Storms
+	1: 3 Yellow Chuchu Jelly
+	2: 5 Yellow Chuchu Jelly, 5 Voltfruit
+	3: 5 Zapshroom, 5 Yellow Lizalfos Tail
+	4: 10 Yellow Lizalfos Tail, 10 Topaz
+Rubber Tights: Trial of Thunder
+	1: 3 Yellow Chuchu Jelly
+	2: 5 Yellow Chuchu Jelly, 5 Voltfruit
+	3: 5 Zapshroom, 5 Yellow Lizalfos Tail
+	4: 10 Yellow Lizalfos Tail, 10 Topaz
+Flamebreaker Helm: 2000 Rupee
+	1: 1 Fireproof Lizard, 2 Moblin Horn
+	2: 3 Fireproof Lizard, 4 Moblin Fang
+	3: 3 Smotherwing Butterfly, 3 Moblin Guts
+	4: 5 Smotherwing Butterfly, 2 Hinox Guts
+Flamebreaker Armor: Fireproof Lizard Roundup
+	1: 1 Fireproof Lizard, 2 Moblin Horn
+	2: 3 Fireproof Lizard, 4 Moblin Fang
+	3: 3 Smotherwing Butterfly, 3 Moblin Guts
+	4: 5 Smotherwing Butterfly, 2 Hinox Guts
+Flamebreaker Boots: 700 Rupee
+	1: 1 Fireproof Lizard, 2 Moblin Horn
+	2: 3 Fireproof Lizard, 4 Moblin Fang
+	3: 3 Smotherwing Butterfly, 3 Moblin Guts
+	4: 5 Smotherwing Butterfly, 2 Hinox Guts
+Opal Earrings: 200 Rupee, 8 Opal
+	1: 5 Opal, 3 Flint
+	2: 8 Opal, 3 Flint
+	3: 16 Opal, 3 Flint
+	4: 20 Opal, 3 Flint
+Zora Helm
+	1: 3 Lizalfos Horn
+	2: 5 Lizalfos Talon, 5 Hyrule Bass
+	3: 5 Lizalfos Tail, 5 Hearty Bass
+	4: 10 Lizalfos Tail, 15 Opal
+Zora Armor: Reach Zora's Domain
+	1: 3 Lizalfos Horn
+	2: 5 Lizalfos Talon, 5 Hyrule Bass
+	3: 5 Lizalfos Tail, 5 Hearty Bass
+	4: 10 Lizalfos Tail, 15 Opal
+Zora Greaves: Lynel Safari
+	1: 3 Lizalfos Horn
+	2: 5 Lizalfos Talon, 5 Hyrule Bass
+	3: 5 Lizalfos Tail, 5 Hearty Bass
+	4: 10 Lizalfos Tail, 15 Opal
+Stealth Mask: 500 Rupee
+	1: 3 Blue Nightshade
+	2: 5 Blue Nightshade, 5 Sunset Firefly
+	3: 8 Silent Shroom, 5 Sneaky River Snail
+	4: 10 Stealthfin Trout, 5 Silent Princess
+Stealth Chest Guard: 700 Rupee
+	1: 3 Blue Nightshade
+	2: 5 Blue Nightshade, 5 Sunset Firefly
+	3: 8 Silent Shroom, 5 Sneaky River Snail
+	4: 10 Stealthfin Trout, 5 Silent Princess
+Stealth Tights: 600 Rupee
+	1: 3 Blue Nightshade
+	2: 5 Blue Nightshade, 5 Sunset Firefly
+	3: 8 Silent Shroom, 5 Sneaky River Snail
+	4: 10 Stealthfin Trout, 5 Silent Princess
+Sheik's Mask (Amiibo)
+Thunder Helm: The Thunder Helm
+Climber's Bandanna
+	1: 3 Keese Wing, 3 Rushroom
+	2: 5 Electric Keese Wing, 5 Hightail Lizard
+	3: 8 Ice Keese Wing, 10 Hot-Footed Frog
+	4: 10 Fire Keese Wing, 15 Swift Violet
+Climbing Gear: Chaas Queta Shrine
+	1: 3 Keese Wing, 3 Rushroom
+	2: 5 Electric Keese Wing, 5 Hightail Lizard
+	3: 8 Ice Keese Wing, 10 Hot-Footed Frog
+	4: 10 Fire Keese Wing, 15 Swift Violet
+Climbing Boots: Tahno O'ah Shrine
+	1: 3 Keese Wing, 3 Rushroom
+	2: 5 Electric Keese Wing, 5 Hightail Lizard
+	3: 8 Ice Keese Wing, 10 Hot-Footed Frog
+	4: 10 Fire Keese Wing, 15 Swift Violet
+Barbarian Helm: Tu Ka'loh Shrine
+	1: 1 Lynel Horn
+	2: 3 Lynel Horn, 2 Lynel Hoof
+	3: 4 Lynel Hoof, 1 Lynel Guts
+	4: 2 Lynel Guts, 1 Shard of Dinraal's Horn
+Barbarian Armor: Dila Maag Shrine
+	1: 1 Lynel Horn
+	2: 3 Lynel Horn, 2 Lynel Hoof
+	3: 4 Lynel Hoof, 1 Lynel Guts
+	4: 2 Lynel Guts, 1 Shard of Farosh's Horn
+Barbarian Leg Wraps: Qaza Tokki Shrine
+	1: 1 Lynel Horn
+	2: 3 Lynel Horn, 2 Lynel Hoof
+	3: 4 Lynel Hoof, 1 Lynel Guts
+	4: 2 Lynel Guts, 1 Shard of Naydra's Horn
+Fierce Deity Mask (Amiibo)
+Fierce Deity Armor (Amiibo)
+Fierce Deity Boots (Amiibo)
+Radiant Mask: 800 Rupee, 3 Luminous Stone
+	1: 5 Luminous Stone, 3 Bokoblin Guts
+	2: 8 Luminous Stone, 3 Moblin Guts
+	3: 10 Luminous Stone, 2 Molduga Guts
+	4: 20 Luminous Stone, 1 Lynel Guts
+Radiant Shirt: 800 Rupee, 3 Luminous Stone
+	1: 5 Luminous Stone, 3 Bokoblin Guts
+	2: 8 Luminous Stone, 3 Moblin Guts
+	3: 10 Luminous Stone, 2 Molduga Guts
+	4: 20 Luminous Stone, 1 Lynel Guts
+Radiant Tights: 800 Rupee, 3 Luminous Stone
+	1: 5 Luminous Stone, 3 Bokoblin Guts
+	2: 8 Luminous Stone, 3 Moblin Guts
+	3: 10 Luminous Stone, 2 Molduga Guts
+	4: 20 Luminous Stone, 1 Lynel Guts
+Diamond Circlet: 1500 Rupee, 3 Diamond
+	1: 2 Diamond, 3 Flint
+	2: 4 Diamond, 3 Flint
+	3: 6 Diamond, 1 Star Fragment
+	4: 10 Diamond, 1 Star Fragment
+Ancient Helm: 2000 Rupee, 20 Ancient Gear, 5 Ancient Shaft, 3 Ancient Core
+	1: 5 Ancient Screw, 5 Ancient Spring
+	2: 15 Ancient Spring, 10 Ancient Gear
+	3: 15 Ancient Shaft, 5 Ancient Core
+	4: 1 Star Fragment, 2 Giant Ancient Core
+Ancient Curiass: 2000 Rupee, 20 Ancient Gear, 5 Ancient Shaft, 3 Ancient Core
+	1: 5 Ancient Screw, 5 Ancient Spring
+	2: 15 Ancient Spring, 10 Ancient Gear
+	3: 15 Ancient Shaft, 5 Ancient Core
+	4: 1 Star Fragment, 2 Giant Ancient Core
+Ancient Greaves: 2000 Rupee, 20 Ancient Gear, 5 Ancient Shaft, 3 Ancient Core
+	1: 5 Ancient Screw, 5 Ancient Spring
+	2: 15 Ancient Spring, 10 Ancient Gear
+	3: 15 Ancient Shaft, 5 Ancient Core
+	4: 1 Star Fragment, 2 Giant Ancient Core
+Sand Boots: The Eighth Heroine
+	1: 5 Molduga Fin, 10 Hightail Lizard
+	2: 10 Molduga Fin, 10 Swift Carrot
+	3: 2 Molduga Guts, 15 Rushroom
+	4: 4 Molduga Guts, 15 Swift Violet
+Snow Boots: The Eighth Heroine
+	1: 5 Octorok Tentacle, 10 Hightail Lizard
+	2: 5 Octo Balloon, 10 Swift Carrot
+	3: 5 Octorok Eyeball, 15 Rushroom
+	4: 2 Dinraal's Scale, 15 Swift Violet
+Bokoblin Mask: 99 Mon
+Moblin Mask: 199 Mon, Defeat One Divine Beast
+Lizalfos Mask: 299 Mon, Defeat Two Divine Beasts
+Lynel Mask: 999 Mon, Defeat Three Divine Beasts
+Dark Hood: 1999 Mon, Defeat All Four Divine Beasts
+Dark Tunic: 999 Mon, Defeat All Four Divine Beasts
+Dark Trousers: 999 Mon, Defeat All Four Divine Beasts
+Cap of Time (Amiibo)
+Tunic of Time (Amiibo)
+Trousers of Time (Amiibo)
+Cap of the Wind (Amiibo)
+Tunic of the Wind (Amiibo)
+Trousers of the Wind (Amiibo)
+Cap of Twilight (Amiibo)
+Tunic of Twilight (Amiibo)
+Trousers of Twilight (Amiibo)
+Cap of the Sky (Amiibo)
+Tunic of the Sky (Amiibo)
+Trousers of the Sky (Amiibo)
+Cap of the Hero (Amiibo)
+Tunic of the Hero (Amiibo)
+Trousers of the Hero (Amiibo)
+Cap of the Wild: Complete All Shrines
+	1: 10 Acorn, 2 Farosh's Scale
+	2: 5 Courser Bee Honey, 2 Farosh's Claw
+	3: 5 Energetic Rhino Beetle, 2 Shard of Farosh's Fang
+	4: 1 Star Fragment, 2 Shard of Farosh's Horn
+Tunic of the Wild: Complete All Shrines
+	1: 10 Acorn, 2 Naydra's Scale
+	2: 5 Courser Bee Honey, 2 Naydra's Claw
+	3: 5 Energetic Rhino Beetle, 2 Shard of Naydra's Fang
+	4: 1 Star Fragment, 2 Shard of Naydra's Horn
+Trousers of the Wild: Complete All Shrines
+	1: 10 Acorn, 2 Dinraal's Scale
+	2: 5 Courser Bee Honey, 2 Dinraal's Claw
+	3: 5 Energetic Rhino Beetle, 2 Shard of Dinraal's Fang
+	4: 1 Star Fragment, 2 Shard of Dinraal's Horn
+Nintendo Switch Shirt (DLC)
+Korok Mask (DLC)
+Majora's Mask (DLC)
+Tingle's Hood (DLC)
+Tingle's Shirt (DLC)
+Tingle's Tights (DLC): EX Treasure: Fairy Clothes
+Midna's Helmet (DLC): EX Treasure: Twilight Relic
+Phantom Helmet (DLC): EX Treasure: Phantasma
+Phantom Armor (DLC): EX Treasure: Phantasma
+Phantom Greaves (DLC): EX Treasure: Phantasma
+Island Lobster Shirt (DLC): EX Treasure: Garb of Winds
+Ravio's Hood (DLC): EX Treasure: Merchant Hood
+Zant's Helmet (DLC): EX Treasure: Usurper King
+Royal Guard Cap (DLC)
+Royal Guard Uniform (DLC)
+Royal Guard Boots (DLC)
+Phantom Ganon Skull (DLC)
+Phantom Ganon Armor (DLC)
+Phantom Ganon Greaves (DLC)
+Vah Ruta Divine Helm (Amiibo)
+Vah Medoh Divine Helm (Amiibo)
+Vah Rudania Divine Helm (Amiibo)
+Vah Naboris Divine Helm (Amiibo)
+Salvager Headwear (Free DLC)
+Salvager Vest (Free DLC)
+Salvager Trousers (Free DLC)
+Monster Extract: 9 Mon
+Wooden Mop: 9 Mon
+Monster Saddle: 299 Mon, Defeat Two Divine Beasts
+Monster Bridle: 399 Mon, Defeat Two Divine Beasts
+Ancient Arrow: 400 Rupee, 5 Ancient Spring, 5 Ancient Shaft, 5 Arrow
+Ancient Short Sword: 15 Ancient Spring, 5 Ancient Shaft, 2 Ancient Core
+Ancient Shield: 10 Ancient Gear, 15 Ancient Spring, 1 Giant Ancient Core
+Ancient Bladesaw: 15 Ancient Screw, 5 Ancient Shaft, 2 Ancient Core
+Ancient Spear: 10 Ancient Gear, 5 Ancient Shaft, 2 Ancient Core
+Ancient Bow: 10 Ancient Gear, 15 Ancient Spring, 1 Giant Ancient Core
+Sheikah Sensor +: 3 Ancient Screw
+Remote Bomb +: 3 Ancient Shaft
+Stasis +: 3 Ancient Core
+
+#Mon Sell Prices
+Octo Balloon	1
+Moblin Horn	2
+Keese Wing	2
+Ancient Screw	2
+Monster Extract	2
+Bokoblin Horn	3
+Chuchu Jelly	3
+Bokoblin Fang	5
+Lizalfos Horn	5
+White Chuchu Jelly	5
+Red Chuchu Jelly	5
+Yellow Chuchu Jelly	5
+Octorok Tentacle	5
+Ancient Spring	5
+Moblin Fang	6
+Fire Keese Wing	6
+Electric Keese Wing	6
+Lizalfos Talon	8
+Bokoblin Guts	10
+Keese Eyeball	10
+Ancient Gear	10
+Moblin Guts	12
+Lizalfos Tail	12
+Octorok Eyeball	13
+Molduga Fin	15
+Hinox Toenail	15
+Icy Lizalfos Tail	16
+Red Lizalfos Tail	16
+Yellow Lizalfos Tail	16
+Hinox Tooth	18
+Lynel Horn	20
+Ancient Shaft	20
+Lynel Hoof	30
+Hinox Guts	40
+Ancient Core	40
+Dragon's Scale	60
+Lynel Guts	100
+Giant Ancient Core	100
+Shard of Dragon's Fang	110
+Shard of Dragon's Horn	150
+
+
+

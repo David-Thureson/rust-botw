@@ -1,0 +1,804 @@
+// https://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Locations_by_Region
+
+#Akkala
+
+>Akkala Highlands
+Akkala Bridge Ruins
+Akkala Citadel Ruins
+Akkala Falls
+Akkala Parade Ground Ruins
+Akkala Span
+Akkala Tower
+Dah Hesho Shrine
+East Akkala Plains
+East Sokkala Bridge
+Great Fairy Fountain
+Kaepora Pass
+Kanalet Ridge
+Ke'nai Shakah Shrine
+Lake Akkala
+Shadow Hamlet Ruins
+Shadow Pass
+Sokkala Bridge
+South Akkala Plains
+South Akkala Stable
+South Lake Akkala
+Spring of Power
+Ternio Trail
+Torin Wetland
+Ukuku Plains
+Ulri Mountain
+Ulria Grotto
+West Sokkala Bridge
+Ze Kasho Shrine
+
+>Akkala Sea
+East Akkala Beach
+Lomei Labyrinth Island
+Malin Bay
+North Akkala Beach
+Rist Peninsula
+Ritaag Zumo Shrine
+Tu Ka'loh Shrine
+
+>Deep Akkala
+Akkala Ancient Tech Lab
+Akkala Wilds
+Bloodleaf Lake
+East Akkala Stable
+Katosa Aug Shrine
+North Akkala Foothill
+North Akkala Valley
+Ordorac Quarry
+Rok Woods
+Skull Lake
+Tempest Gulch
+Tumlea Heights
+Tutsuwa Nima Shrine
+Zuna Kai Shrine
+
+>Tarrey Town
+Inn
+Ore and More
+Rhondson Armor Boutique
+Slippery Falcon
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Central Hyrule
+
+>Hyrule Field
+Ancient Tree Stump
+Applean Forest
+Aquame Bridge
+Aquame Lake
+Boneyard Bridge
+Bottomless Swamp
+Carok Bridge
+Castle Town Prison
+Castle Town Watchtower
+Central Square
+Central Tower
+Coliseum Ruins
+Crenel Hills
+Dah Kaso Shrine
+Digdogg Suspension Bridge
+East Castle Town
+East Post Ruins
+Exchange Ruins
+Forest of Time
+Gatepost Town Ruins
+Giant's Forest
+Gleeok Bridge
+Helmhead Bridge
+Hyrule Castle Moat
+Hyrule Castle Town Ruins
+Hyrule Cathedral
+Hyrule Forest Park
+Hyrule Garrison Ruins
+Kaam Ya'tak Shrine
+Katah Chuki Shrine
+Kolomo Garrison Ruins
+Lake Kolomo
+Mabe Prairie
+Mabe Village Ruins
+Manhala Bridge
+Moat Bridge
+Mount Daphnes
+Mount Gustaf
+Namika Ozz Shrine
+Noya Neha Shrine
+Orsedd Bridge
+Outskirt Stable
+Passeri Greenbelt
+Quarry Ruins
+Ranch Ruins
+Regencia River
+Riverside Stable
+Romani Plains
+Rota Ooh Shrine
+Sacred Ground Ruins
+Sage Temple Ruins
+Wahgo Katta Shrine
+Water Reservoir
+West Castle Town
+Whistling Hill
+Windvane Meadow
+Hyrule Castle
+Dining Hall
+Docks
+East Passage
+First Gatehouse
+Guards' Chamber
+King's Study
+Library
+Lockup
+Observation Room
+Princess Zelda's Room
+Princess Zelda's Study
+Sanctum
+- Hyrule Castle Underground
+- Laboratory
+Saas Ko'sah Shrine
+Second Gatehouse
+West Passage
+Dueling Peaks
+Dueling Peaks
+Ash Swamp
+Batrea Lake
+Big Twin Bridge
+Blatchery Plain
+Bonooru's Stand
+Bosh Kala Shrine
+Bubinga Forest
+Dueling Peaks Stable
+Dueling Peaks Tower
+Eagus Bridge
+Floret Sandbar
+Great Fairy Fountain
+Ha Dahamar Shrine
+Hickaly Woods
+Hila Rao Shrine
+Hills of Baumer
+Horwell Bridge
+Hylia River
+Kakariko Bridge
+Lake Siela
+Lakna Rokee Shrine
+Lantern Lake
+Little Twin Bridge
+Mable Ridge
+Mount Rozudo
+Nabi Lake
+Oakle's Navel
+Outpost Ruins
+Owlan Bridge
+Pillars of Levia
+Proxim Bridge
+Ree Dahee Shrine
+Sahasra Slope
+Scout's Hill
+Shee Vaneer Shrine
+Shee Venath Shrine
+South Nabi Lake
+Squabble River
+Ta'loh Naeg Shrine
+Toto Sah Shrine
+Kakariko Village
+- Enchanted
+- Fang and Bone
+- High Spirits Produce
+- Shuteye Inn
+- The Curious Quiver
+Eldin
+ADVERTISEMENT
+
+Eldin Canyon
+Abandoned North Mine
+Broca Island
+Cephla Lake
+Darunia Lake
+Eldin Tower
+Foothill Stable
+Gero Pond
+Golow River
+Gorae Torr Shrine
+Gorko Tunnel
+Goronbi Lake
+Goronbi River
+Gortram Cliff
+Gut Check Rock
+Isle of Rabac
+Kayra Mah Shrine
+Lake Ferona
+Lake Intenoch
+Maw of Death Mountain
+Medingo Pool
+Mo'a Keet Shrine
+Qua Raym Shrine
+Sah Dahaj Shrine
+Shora Hah Shrine
+Southern Mine
+Tah Muhl Shrine
+Trilby Valley
+Death Mountain
+Bridge of Eldin
+Daqa Koh Shrine
+Darb Pond
+Death Caldera
+Gorko Lake
+Goro Cove
+Goron Hot Springs
+Lake Darman
+Eldin Mountains
+Eldin Great Skeleton
+Eldin's Flank
+Goron City
+- Goron Gusto Shop
+- Protein Palace
+- Ripped and Shredded
+- Rollin' Inn
+Shae Mo'sah Shrine
+Stolock Bridge
+Faron
+Angel Peak
+Aris Beach
+Atun Valley
+Breman Peak
+Bronas Forest
+Calora Lake
+Cape Cales
+Corta Lake
+Courage Steppe
+Dunsel Plateau
+Ebara Forest
+Faron Tower
+Floria Bridge
+Floria Falls
+Gama Cove
+Hanu Pond
+Jia Highlands
+Kah Yah Shrine
+Kamah Plateau
+Keelay Plain
+Keya Pond
+Koto Pond
+Lake Floria
+Lakeside Stable
+Meda Mountain
+Mount Dunsel
+Mount Floria
+Mount Taran
+Muwo Jeem Shrine
+Palmorae Beach
+Palmorae Ruins
+Qukah Nata Shrine
+Rabella Wetlands
+Rassla Lake
+Riola Spring
+Rodai Lake
+Sarjon Bridge
+Sarjon Woods
+Shai Utoh Shrine
+Shoda Sah Shrine
+Stinger Cliffs
+Taran Pass
+Tawa Jinn Shrine
+Temto Hill
+Tobio's Hollow
+Tuft Mountain
+Ubota Point
+Uten Marsh
+Yah Rin Shrine
+Yambi Lake
+Lurelin Village
+- General Store
+- Inn
+Necluda Sea
+Aris Beach
+Cape Cresia
+Clarnet Coast
+Eventide Island
+Gogobi Shores
+Koholit Rock
+Korgu Chideh Shrine
+Korne Beach
+Martha's Landing
+Rimba Beach
+Soka Point
+Toronbo Beach
+Gerudo Highlands
+Birida Lookout
+Cliffs of Ruvara
+Gerudo Summit
+Gerudo Tower
+Hemaar's Descent
+Joloo Nah Shrine
+Keeha Yoog Shrine
+Kema Kosassa Shrine
+Kuh Takkar Shrine
+Laparoh Mesa
+Meadela's Mantle
+Mount Agaat
+Mystathi's Shelf
+Nephra Hill
+Risoka Snowfield
+Rutimala Hill
+Sapphia's Table
+Sasa Kai Shrine
+Sho Dantu Shrine
+Statue of the Eighth Heroine
+Taafei Hill
+Vatorsa Snowfield
+Zirco Mesa
+Gerudo Wasteland
+Gerudo Desert
+Arbiter's Grounds
+Champion's Gate
+Dako Tah Shrine
+Daqo Chisay Shrine
+Daval Peak
+Dila Maag Shrine
+Dragon's Exile
+East Barrens
+East Gerudo Mesa
+East Gerudo Ruins
+Gerudo Canyon
+Gerudo Canyon Pass
+Gerudo Canyon Stable
+Gerudo Desert Gateway
+Gerudo Great Skeleton
+Great Cliffs
+Great Fairy Fountain
+Hawa Koth Shrine
+Jee Noh Shrine
+Kara Kara Bazaar
+Karusa Valley
+Kay Noh Shrine
+Kema Zoos Shrine
+Korsh O'hu Shrine
+Koukot Plateau
+Misae Suma Shrine
+Mount Granajh
+Mount Nabooru
+Northern Icehouse
+Palu Wasteland
+Raqa Zunzo Shrine
+Sand-Seal Rally
+South Lomei Labyrinth
+Southern Oasis
+Spectacle Rock
+Stalry Plateau
+Suma Sahma Shrine
+Taafei Hill
+Tho Kayu Shrine
+Toruma Dunes
+Wasteland Tower
+West Barrens
+West Gerudo Ruins
+Yarna Valley
+Yiga Clan Hideout
+Gerudo Town
+Arrow Specialty Shop
+Fashion Passion
+Hotel Oasis
+Sand-Seal Rental Shop
+Starlight Memories
+The Noble Canteen
+Great Hyrule Forest - AKA Woodland
+Woodland
+Aldor Foothills
+Deplian Badlands
+Drenan Highlands
+East Deplian Badlands
+Elma Knolls
+Forgotten Temple
+Ketoh Wawai Shrine
+Maritta Exchange Ruins
+Military Training Camp
+Minshi Woods
+Mirro Shaz Shrine
+Mount Drena
+Monya Toma Shrine
+Pico Pond
+Rauru Hillside
+Rauru Settlement Ruins
+Rona Kachta Shrine
+Rowan Plain
+Salari Hill
+Salari Plain
+Serenne Stable
+Thyphlo Ruins
+Trilby Plain
+West Deplian Badlands
+Woodland Stable
+Woodland Tower
+Great Hyrule Forest
+Daag Chokah Shrine
+Keo Ruug Shrine
+Korok Forest
+- General Shoppe
+- Great Deku Tree's Navel
+- Spore Store
+Kuhn Sidajj Shrine
+Lake Mekar
+Lake Saria
+Lost Woods
+Maag Halan Shrine
+Mekar Island
+Mido Swamp
+Great Plateau
+Eastern Abbey
+Forest of Spirits
+Great Plateau Tower
+Hopper Pond
+Ja Baij Shrine
+Keh Namut Shrine
+Mount Hylia
+Oman Au Shrine
+Owa Daim Shrine
+River of the Dead
+Shrine of Resurrection
+Temple of Time
+Hateno - AKA East Necluda
+Mount Lanayru
+Camphor Pond
+Cliffs of Quince
+Dow Na'eh Shrine
+Ebon Mountain/Lovers Pond
+Fir River
+Firly Plateau
+Firly Pond
+Fort Hateno
+Ginner Woods
+Hateno Ancient Tech Lab
+Hateno Tower
+Jitan Sa'mi Shrine
+Kam Urog Shrine
+Lake Jarrah
+Lake Sumac
+Lanayru Bluff
+Lanayru Heights
+Lanayru Promenade
+Lanayru Range
+Lanayru Road - East Gate
+Lanayru Road - West Gate
+Madorna Mountain
+Marblod Plain
+Mezza Lo Shrine
+Midla Woods
+Myahm Agana Shrine
+Naydra Snowfield
+Nirvata Lake
+Nirvata Plateau
+Ovli Plain
+Peak of Awakening
+Phalian Highlands
+Pierre Plateau
+Purifier Lake
+Quatta's Shelf
+Rabia Plain
+Retsam Forest
+Robred Dropoff
+Solewood Range
+Spring of Wisdom
+Tahno O'ah Shrine
+Trotter's Downfall
+Walnot Mountain
+Zelkoa Pond
+Hateno Village
+- East Wind
+- Kochi Dye Shop
+Link's House
+- The Great Ton Pu Inn
+- Ventest Clothing Boutique
+Necluda Sea
+Chaas Qeta Shrine
+Deepback Bay
+Hateno Bay
+Hateno Beach
+Kitano Bay
+Loshlo Harbor
+Mapla Point
+Tenoko Island
+Hebra
+Hebra Mountains
+Biron Snowshelf
+Coldsnap Hollow
+Corvash Peak
+Goflam's Secret Hot Spring
+Goma Asaagh Shrine
+Hebra East Summit
+Hebra Great Skeleton
+Hebra North Crest
+Hebra North Summit
+Hebra Peak
+Hebra South Summit
+Hebra Tundra
+Hebra West Summit
+Hia Miu Shrine
+Icefall Foothills
+Lake Kilsie
+Maka Rah Shrine
+Mozo Shenno Shrine
+Pikida Stonegrove
+Rok Uwog Shrine
+Rospro Pass
+Selmie's Spot
+Shada Naw Shrine
+Sherfin's Secret Hot Spring
+Sturnida Basin
+Sturnida Secret Hot Spring
+Talonto Peak
+To Quomo Shrine
+Tabantha Tundra
+Dunba Taag Shrine
+Gee Ha'rah Shrine
+Hebra Falls
+Hebra Headspring
+Hebra Tower
+Kopeeki Drifts
+Lanno Kooh Shrine
+N. Tabantha Snowfield
+North Lomei Labyrinth
+Pondo's Lodge
+Qaza Tokki Shrine
+Rin Oyaa Shrine
+S. Tabantha Snowfield
+Sha Gehma Shrine
+Snowfield Stable
+Tabantha Hills
+Tabantha Village Ruins
+Tama Pond
+Lake
+Faron Grasslands
+Barula Plain
+Bridge of Hylia
+Cora Lake
+Damel Forest
+Deya Lake
+Deya Village Ruins
+Dracozu Lake
+Dracozu River
+Faron Woods
+Farosh Hills
+Finra Woods
+Fural Plain
+Grinnden Plain
+Guchini Plain
+Guchini Plain Barrows
+Haran Lake
+Harfin Valley
+Harker Lake
+Herin Lake
+Highland Stable
+Horse God Bridge
+Hylia Island
+Ishto Soh Shrine
+Ka'o Makagh Shrine
+Lake Hylia
+Lake of the Horse God
+Lake Tower
+Malanya Spring
+Menoat River
+Mount Faloraa
+Mounted Archery Camp
+Nautelle Wetlands
+Oseira Plains
+Pagos Woods
+Pappetto Grove
+Parache Plains
+Popla Foothills
+Pumaag Nitae Shrine
+Shae Katha Shrine
+Shoqa Tatone Shrine
+Spring of Courage
+Taobab Grassland
+Ya Naga Shrine
+Zokassa Ridge
+Zonai Ruins
+Faron Sea
+Darybon Plains
+Ibara Butte
+Komo Shoreline
+Laverra Beach
+Nette Plateau
+Puffer Beach
+Lanayru
+Lanayru Great Spring
+Bank of Wishes
+Brynna Plain
+East Reservoir Lake
+Great Zora Bridge
+Horon Lagoon
+Inogo Bridge
+Ja'Abu Ridge
+Lulu Lake
+Luto's Crossing
+Oren Bridge
+Ploymus Mountain
+Ralis Pond
+Rucco Maag Shrine
+Rutala Dam
+Ruto Mountain
+Samasa Plain
+Shatterback Point
+Tabahl Woods
+Tal Tal Peak
+Veiled Falls
+Zodobon Highlands
+Zora River
+Lanayru Sea
+Afromsia Coast
+Ankel Island
+Davdi Island
+Kah Mael Shrine
+Knuckel Island
+Lanayru Bay
+Lodrum Headland
+Shai Yota Shrine
+Spool Bight
+Talus Plateau
+Tarm Point
+Tingel Island
+Wintre Island
+Lanayru Wetlands
+Bannan Island
+Boné Pond
+Crenel Peak
+Dagah Keek Shrine
+Daka Tuss Shrine
+Goponga Island
+Goponga Village Ruins
+Kaya Wan Shrine
+Kincean Island
+Lanayru Tower
+Linebeck Island
+Mercay Island
+Mikau Lake
+Millennio Sandbar
+Molida Island
+Moor Garrison Ruins
+Rebonae Bridge
+Rikoka Hills
+Rutala River
+Ruto Lake
+Ruto Precipice
+Sheh Rata Shrine
+Shrine Island
+Soh Kofi Shrine
+Telta Lake
+Thims Bridge
+Toto Lake
+Upland Zorana
+Wes Island
+Wetland Stable
+Zauz Island
+Zelo Pond
+Zora's Domain
+- Coral Reef
+Ne'ez Yohma Shrine
+- Seabed Inn
+Ridgeland
+Hyrule Ridge
+Breach of Demise
+Dalite Forest
+Footrace Check-In
+Illumeni Plateau
+Irch Plain
+Jeddo Bridge
+Lake Illumeni
+Lindor's Brow
+Ludfo's Bog
+Maag No'rah Shrine
+Mijah Rokee Shrine
+Mogg Latan Shrine
+Mount Rhoam
+Nima Plain
+North Hyrule Plain
+Ridgeland Tower
+Royal Ancient Lab Ruins
+Rutile Lake
+Safula Hill
+Sanidin Park Ruins
+Satori Mountain
+Seres Scablands
+Shae Loya Shrine
+Sheem Dagoze Shrine
+Tabantha Bridge Stable
+Tabantha Great Bridge
+Tamio River
+Tanagar Canyon
+Tanagar Canyon Course
+Thundra Plateau
+Toh Yahsa Shrine
+Upland Lindor
+Washa's Bluff
+West Hyrule Plains
+Zalta Wa Shrine
+Tabantha
+Tabantha Frontier
+Ancient Columns
+Bareeda Naag Shrine
+Cuho Mountain
+Dragon Bone Mire
+Dronoc's Pass
+Flight Range
+Gisa Crater
+Great Fairy Fountain
+Hebra Plunge
+Hebra Trailhead Lodge
+Kah Okeo Shrine
+Kolami Bridge
+Lake Totori
+Nero Hill
+Passer Hill
+Piper Ridge
+Rayne Highlands
+Rito Stable
+Rospro Pass
+Sha Warvo Shrine
+Strock Lake
+Tabantha Tower
+Tena Ko'sah Shrine
+Voo Lota Shrine
+Warbler's Nest
+Rito Village
+Akh Va'quot Shrine
+- Brazen Beak
+- Revali's Landing
+- Slippery Falcon
+- Swallow's Roost
+Was this guide helpful?
+
+YESNO
+In This Wiki Guide
+The Legend of Zelda: Breath of the Wild Image
+The Legend of Zelda: Breath of the Wild
+Summary:Step into a world of discovery, exploration and adventure in The Legend of Zelda: Breath of the Wild, a boundary-breaking new game in the acclaimed series.
+Franchises:The Legend of Zelda
+Genres:Action, Adventure
+Fantasy Violence, Mild Suggestive Themes, Use of Alcohol
+Platforms:Wii U, Nintendo Switch
+Developers:Nintendo
+Publishers:Nintendo
+Features:Downloadable Content, amiibo, Labo
+Release Date:March 3, 2017
+Walmart $59.88
+
+PREVIOUS
+The Royal White Stallion
+
+NEXT
+Akkala
+
+WIKIS
+Animal Crossing Beginners Guide and Tips
+•
+Ghost of Tsushima Tips and Tricks
+•
+Things Ghost of Tsushima Doesn't Tell You
+•
+Every Modern Game IGN Has Given a 10/10
+•
+Animal Crossing Cheats and Secrets
+•
+Ghost of Tsushima: Things to do First
+•
+How to Get Every Weapon in FF7
+DEALS
+Best Switch Deal
+•
+PS4 Back Button
+•
+Black Friday Walmart
+•
+Best Xbox Deals
+•
+Best Apple Deals
+•
+Switch Deals
+•
+Disney+/ESPN/Hulu Bundle
+We encourage you to read our updated PRIVACY POLICY and COOKIE POLICY.
+

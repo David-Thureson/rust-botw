@@ -1,0 +1,152 @@
+#Main
+Destroy Ganon
+Divine Beast Vah Medoh
+Divine Beast Vah Naboris
+Divine Beast Vah Rudania
+Divine Beast Vah Ruta
+Free the Divine Beasts
+Locked Mementos
+Memories
+Seek Out Impa
+The Forbidden City
+The Great Plateau Tower
+The Isolated Plateau
+The Master Sword
+The Shrine of Resurrection
+Zora’s Domain
+
+#Shrine
+A Brother's Roast: Kayra Mah Shrine
+A Fragmented Monument: Kah Yah Shrine
+A Landscape of a Stable:Tah Muhl Shrine
+A Song of Storms: Qukah Nata Shrine
+Cliffside Etchings: Keeha Yoog Shrine
+Guardian Slideshow: Shoqa Tatone Shrine
+Into the Vortex: Ritaag Zumo Shrine
+Master of the Wind: Shai Yota Shrine
+Recital at Warbler's Nest: Voo Lota Shrine
+Secret of the Cedars: Tahno O'ah Shrine
+Secret of the Snowy Peaks: Suma Sahma Shrine
+Shrouded Shrine: Ketoh Wawai Shrine
+Sign of the Shadow: Sasa Kai Shrine
+Stranded on Eventide: Korgu Chideh Shrine
+Test of Will: Joloo Nah Shrine
+The Ancient Rito Song: Bareeda Naag Shrine
+The Bird in the Mountains: Mozo Shenno Shrine
+The Ceremonial Song: Dagah Keek Shrine
+The Crowned Beast: Mezza Lo Shrine
+The Cursed Statue: Kam Urog Shrine
+The Desert Labyrinth: Dila Maag Shrine
+The Eye of the Sandstorm: Dako Tah Shrine
+The Gut Check Challenge: Gorae Torr Shrine
+The Lost Pilgrimage: Daag Chokah Shrine
+The Perfect Drink: Misae Suma Shrine
+The Serpent's Jaw: Shae Katha Shrine
+The Seven Heroines: Korsh O'hu Shrine
+The Silent Swordswomen: Kema Zoos Shrine
+The Skull's Eye: Zuna Kai Shrine
+The Spring of Power: Tutsuwa Nima Shrine
+The Spring of Wisdom: Jitan Sa'mi Shrine
+The Stolen Heirloom: Lakna Rokee Shrine
+The Test of Wood: Maag Halan Shrine
+The Three Giant Brothers: Tawa Jinn Shrine
+The Two Rings: Sheem Dagoze Shrine
+The Undefeated Champ: Raqa Zunzo Shrine
+Trial of Second Sight: Kuhn Sidajj Shrine
+Trial of Thunder: Toh Yahsa Shrine
+Trial of the Labyrinth: Tu Ka'loh Shrine
+Trial on the Cliff: Qaza Tokki Shrine
+Under a Red Moon: Mijah Rokee Shrine
+Watch out for the Flowers: Hila Rao Shrine
+
+#Side
+A Freezing Rod (Requires starting The Hero’s Sword Main Quest)
+A Gift for My Beloved
+A Gift for the Great Fairy
+A Gift from the Monks (Requires completing all 120 Shrines)
+A Gift of Nightshade
+A Parent’s Love (Requires From the Ground Up)
+A Rare Find
+A Royal Recipe
+A Shady Customer (Requires Locked Mementos Main Quest)
+A Wife Washed Away (Requires Divine Beast Vah Ruta Main Quest)
+An Ice Guy
+Arrows of Burning Heat (Requires Seek Out Impa Main Quest)
+Balloon Flight
+By Firefly’s Light (Requires Flown the Coop, Find the Fairy Fountain Main Quest)
+Cooking with Koko (Requires Koko’s Kitchen)
+Curry for What Ails You
+Death Mountain’s Secret
+Diving is Beauty! (Requires starting the Divine Beast Vah Ruta Main Quest)
+EX Ancient Horse Rumors: Ancient Bridle, Ancient Saddle
+EX Royal Guard Rumors: Royal Guard Cap, Royal Guard Uniform, Royal Guard Boots
+EX Strange Mask Rumors: Korok Mask
+EX Teleportation Rumors: Travel Medallion
+EX Treasure: Ancient Mask: Majora's Mask
+EX Treasure: Dark Armor: Phantom Ganon Skull, Phantom Ganon Armor, Phantom Ganon Greaves
+EX Treasure: Fairy Clothes: Tingle's Hood, Tingle's Shirt, Tingle's Tights
+EX Treasure: Garb of the Winds: Island Lobster Shirt
+EX Treasure: Merchant Hood: Ravio's Hood
+EX Treasure: Phantasma: Phantom Helmet, Phantom Armor, Phantom Greaves
+EX Treasure: Twilight Relic: Midna's Helmet
+EX Treasure: Usurper King: Zant's Helmet
+EX Trial of the Sword: Fully Charged Master Sword
+Face the Frost Talus (Requires Divine Beast Vah Medoh Main Quest)
+Find Kheel (Requires Divine Beast Vah Medoh Main Quest)
+Fireproof Lizard Roundup
+Flown the Coop
+Frog Catching (Requires Divine Beast Vah Ruta Main Quest)
+From the Ground Up (Requires Hylian Homeowner)
+Good-Sized Horse
+Hobbies of the Rich (Requires From the Ground Up)
+Hunt for the Giant Horse
+Hylian Homeowner
+Koko Cuisine (Requires Cooking with Koko)
+Koko’s Kitchen
+Koko’s Specialty (Requires Koko Cuisine)
+Legendary Rabbit Trial (Requires starting The Hero’s Sword Main Quest, Locked Mementos Main Quest, starting The Priceless Maracas)
+Leviathan Bones (Requires Locked Mementos Main Quest)
+Little Sister’s Big Request
+Luminous Stone Gathering (Requires Divine Beast Vah Ruta Main Quest)
+Lynel Safari (Requires starting the Divine Beast Vah Ruta Main Quest, Locked Mementos Main Quest)
+Medicinal Molduga (Requires Forbidden City Entry Main Quest)
+Misko, the Great Bandit
+Missing in Action
+My Hero
+Playtime with Cottla
+Riddles of Hyrule (Requires starting The Hero’s Sword Main Quest)
+Riverbed Reward
+Robbie’s Research (Requires Locked Mementos Main Quest)
+Rushroom Rush!
+Slated for Upgrades (Requires Locked Mementos Main Quest)
+Special Delivery (Requires Divine Beast Vah Ruta Main Quest)
+Stalhorse: Pictured! (Requires Locked Mementos Main Quest)
+Sunken Treasure
+Sunshroom Sensing (Requires Sensor+ portion of Slated for Upgrades, Locked Mementos Main Quest)
+Take Back the Sea
+The Apple of My Eye
+The Eighth Heroine (Requires Forbidden City Entry Main Quest, Locked Mementos Main Quest)
+The Forgotten Sword (Requires The Eighth Heroine)
+The Giant of Ralis Pond (Requires Divine Beast Vah Ruta Main Quest)
+The Hero’s Cache
+The Horseback Hoodlums
+The Jewel Trade (Requires Divine Beast Vah Rudania Main Quest)
+The Korok Trials (Requires starting The Hero’s Sword Main Quest)
+The Mystery Polluter (Requires Divine Beast Vah Naboris Main Quest, starting The Thunder Helm)
+The Priceless Maracas
+The Road to Respect
+The Royal Guard’s Gear
+The Royal White Stallion
+The Search for Barta (Requires Divine Beast Vah Naboris Main Quest, starting The Thunder Helm)
+The Secret Club’s Secret (Requires Forbidden City Entry Main Quest)
+The Sheep Rustlers
+The Spark of Romance
+The Statue’s Bargain
+The Thunder Helm (Requires Divine Beast Vah Naboris Main Quest)
+The Weapon Connoisseur
+Thunder Magnet
+Tools of the Trade (Requires Forbidden City Entry Main Quest)
+What’s for Dinner?
+Wild Horses
+Xenoblade Chronicles 2 Gear
+Zora Stone Monuments (Requires Divine Beast Vah Ruta Main Quest)

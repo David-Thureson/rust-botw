@@ -1,0 +1,317 @@
+// https://zelda.fandom.com/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild_characters
+
+#Amiibo
+Epona
+Wolf Link
+
+#Hylian
+Agus
+Akrah
+Aliza
+Anly
+Ariane
+Armes
+Banji
+Baumer
+Beedle
+Benny
+Blynne
+Botrick
+Bozai
+Branli
+Brokka
+Bugut
+Calip
+Cambo
+Canolo
+Chessica
+Chorak
+Dai
+Danton
+Darton
+Dmitri
+Douma
+Ember
+Embry
+Ena
+Endai
+Falmark
+Fin
+Flaxel
+Gaille: merchant
+Galli
+Garadon
+Garill
+Garshon
+Gartan: merchant
+Gleema
+Glendo
+Gotter
+Harlow
+Hino
+Ivee
+Ivena
+Jogo
+Joute
+Juannelle
+Jules
+Kampo
+Kanny
+Kinov
+Kilton: merchant
+Konba
+Lester
+Link: main
+Magda
+Maypin: merchant
+Meeshy
+Meghyn
+Mezer: merchant
+Mimos
+Mina
+Mils
+Monkton
+Mubs
+Nat
+Nazbi
+Old Man: main, dead
+Onya
+Padok
+Palme
+Parcy
+Phanna
+Pitar
+Pondo
+Ponthos
+Quince
+Regan
+Rensa
+Rhoam Bosphoramus Hyrule: main, dead
+Rik
+Ronn
+Sagessa
+Sayge
+Selmie
+Shay
+Shibo
+Sho
+Spinch
+Sprinn
+Sophie
+Sorelia
+Tasseren
+Teli: merchant
+Toffa
+Toma
+Toren
+Traysi
+Trott
+Tye
+Varke
+Worten
+Yammo: merchant
+Zelda: main
+Zumi
+Zuta
+Zyle
+
+#Sheikah
+Cado
+Claree
+Cottla
+Dorian
+Granté
+Impa: main
+Jerrin
+Koko
+Lasli
+Mellie
+Nanna
+Olkin
+Ollie
+Paya: main
+Pikango
+Purah: main
+Robbie: main
+Rola
+Steen
+Symin
+Trissa
+
+#Sheikah Monk
+Akh Va'quot
+Bosh Kala
+Daag Chokah
+Dah Kaso
+Daka Tuss
+Dah Hesho
+Daqa Koh
+Ha Dahamar
+Ja Baij
+Jee Noh
+Jitan Sa'mi
+Ka'o Makagh
+Kah Mael
+Kam Urog
+Kaam Ya'tak
+Katah Chuki
+Kaya Wan
+Keh Namut
+Keo Ruug
+Kuhn Sidajj
+Maag Halan
+Maz Koshia: main
+Misae Suma
+Mo'a Keet
+Muwo Jeem
+Myahm Agana
+Noya Neha
+Ne'ez Yohma
+Oman Au
+Owa Daim
+Pumaag Nitae
+Qukah Nata
+Ree Dahee
+Rota Ooh
+Sha Warvo
+Shae Loya
+Shai Utoh
+Shee Venath
+Shee Vaneer
+Sheh Rata
+Soh Kofi
+Ta'loh Naeg
+Tahno O'ah
+Toh Yahsa
+Toto Sah
+Tena Ko'sah
+Wahgo Katta
+Yah Rin
+Zalta Wa
+Ze Kasho
+
+#Yiga
+Master Kohga: main
+
+#Great Fairy
+Cotera
+Kaysa
+Mija
+Tera
+
+#Deity
+Dinraal
+Farosh
+Great Deku Tree: main
+Hylia: main
+Malanya
+Naydra
+
+#Demon
+Calamity Ganon: main
+Fireblight Ganon
+Ganon
+Horned Statue
+Thunderblight Ganon
+Waterblight Ganon
+Windblight Ganon
+
+#Korok
+Chio
+Damia
+Daz
+Hestu: main
+Maca
+Natie
+Oaki
+Tasho
+Walton
+Zooki
+
+#Zora
+Dento
+Gruve
+King Dorephan: main
+Ledo
+Keye
+Kodah
+Marot
+Mipha: main, champion, dead
+Muzu
+Prince Sidon: main, champion
+Seggin
+Tona
+Torfeau
+Tottika
+
+#Goron
+Bayge
+Bludo
+Daruk: main, champion, dead
+Heehl
+Kabetta
+Kairo: merchant
+Reagah
+Strade
+Yunobo: main, champion
+
+#Gerudo
+Ashai
+Barta
+Buliara
+Calisa
+Dalia
+Greta
+Isha
+Kachoo
+Laroba
+Liana
+Malena
+Perda
+Pearle
+Ramella
+Riju: main, champion
+Spera
+Teake
+Urbosa: main, champion, dead
+
+#Rito
+Amali
+Bedoli
+Cecili
+Cree
+Fyson
+Genli
+Gesane
+Harth
+Huck
+Juney
+Kaneli
+Kheel
+Kotts
+Kass: main
+Laissa
+Mazli
+Mimo
+Misa
+Molli
+Nekk
+Notts
+Revali: main, champion, dead
+Saki
+Oliff
+Teba: main, champion
+Tulin
+Verla
+
+#Sand Seal
+Patricia
+Dogs
+Satty
+
+#Horse
+Bamboo
+Dauntless
+Harry
+Mary
+Spinch the Horse
