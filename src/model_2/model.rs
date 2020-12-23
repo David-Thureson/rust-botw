@@ -39,8 +39,11 @@ pub fn main() {
 
 fn try_load() {
     let start = std::time::Instant::now();
-    let model = Model::new();
+    let _model = Model::new();
     util_rust::format::print_elapsed_from_start(true, "new", "", start);
+
+
+    // model.report_characters();
 
     // model.try_load();
     //bg!(&model);
@@ -211,13 +214,16 @@ impl Model {
             locations: Default::default(),
             quests: Default::default()
         };
-        parse::load_characters(&mut model);
-        // parse::load_shrines(&mut model);
+        // parse::load_characters(&mut model);
+        parse::load_shrines(&mut model);
         // parse::load_locations(&mut model);
         // parse::load_quests(&mut model);
         // parse::load_items(&mut model);
 
         // Shrine::load_shrines(&mut model);
+
+        dbg!(&model);
+
         model
     }
 

@@ -124,7 +124,8 @@ Water Reservoir
 West Castle Town
 Whistling Hill
 Windvane Meadow
-Hyrule Castle
+
+>Hyrule Castle
 Dining Hall
 Docks
 East Passage
@@ -137,13 +138,17 @@ Observation Room
 Princess Zelda's Room
 Princess Zelda's Study
 Sanctum
-- Hyrule Castle Underground
-- Laboratory
+Hyrule Castle Underground
+Laboratory
 Saas Ko'sah Shrine
 Second Gatehouse
 West Passage
-Dueling Peaks
-Dueling Peaks
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Dueling Peaks
+
+>Dueling Peaks
 Ash Swamp
 Batrea Lake
 Big Twin Bridge
@@ -184,16 +189,19 @@ South Nabi Lake
 Squabble River
 Ta'loh Naeg Shrine
 Toto Sah Shrine
-Kakariko Village
-- Enchanted
-- Fang and Bone
-- High Spirits Produce
-- Shuteye Inn
-- The Curious Quiver
-Eldin
-ADVERTISEMENT
 
-Eldin Canyon
+>Kakariko Village
+Enchanted
+Fang and Bone
+High Spirits Produce
+Shuteye Inn
+The Curious Quiver
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Eldin
+
+>Eldin Canyon
 Abandoned North Mine
 Broca Island
 Cephla Lake
@@ -221,7 +229,8 @@ Shora Hah Shrine
 Southern Mine
 Tah Muhl Shrine
 Trilby Valley
-Death Mountain
+
+>Death Mountain
 Bridge of Eldin
 Daqa Koh Shrine
 Darb Pond
@@ -230,17 +239,24 @@ Gorko Lake
 Goro Cove
 Goron Hot Springs
 Lake Darman
-Eldin Mountains
+
+>Eldin Mountains
 Eldin Great Skeleton
 Eldin's Flank
-Goron City
-- Goron Gusto Shop
-- Protein Palace
-- Ripped and Shredded
-- Rollin' Inn
+
+>Goron City
+Goron Gusto Shop
+Protein Palace
+Ripped and Shredded
+Rollin' Inn
 Shae Mo'sah Shrine
 Stolock Bridge
-Faron
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Faron
+
+>Main
 Angel Peak
 Aris Beach
 Atun Valley
@@ -291,10 +307,12 @@ Ubota Point
 Uten Marsh
 Yah Rin Shrine
 Yambi Lake
-Lurelin Village
-- General Store
-- Inn
-Necluda Sea
+
+>Lurelin Village
+General Store
+Inn
+
+>Necluda Sea
 Aris Beach
 Cape Cresia
 Clarnet Coast
@@ -307,7 +325,12 @@ Martha's Landing
 Rimba Beach
 Soka Point
 Toronbo Beach
-Gerudo Highlands
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Gerudo Highlands
+
+>Main
 Birida Lookout
 Cliffs of Ruvara
 Gerudo Summit
@@ -331,8 +354,12 @@ Statue of the Eighth Heroine
 Taafei Hill
 Vatorsa Snowfield
 Zirco Mesa
-Gerudo Wasteland
-Gerudo Desert
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Gerudo Wasteland
+
+>Gerudo Desert
 Arbiter's Grounds
 Champion's Gate
 Dako Tah Shrine
@@ -378,15 +405,20 @@ West Barrens
 West Gerudo Ruins
 Yarna Valley
 Yiga Clan Hideout
-Gerudo Town
+
+>Gerudo Town
 Arrow Specialty Shop
 Fashion Passion
 Hotel Oasis
 Sand-Seal Rental Shop
 Starlight Memories
 The Noble Canteen
-Great Hyrule Forest - AKA Woodland
-Woodland
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Great Hyrule Forest
+
+>Woodland
 Aldor Foothills
 Deplian Badlands
 Drenan Highlands
@@ -413,13 +445,14 @@ Trilby Plain
 West Deplian Badlands
 Woodland Stable
 Woodland Tower
-Great Hyrule Forest
+
+>Great Hyrule Forest
 Daag Chokah Shrine
 Keo Ruug Shrine
 Korok Forest
-- General Shoppe
-- Great Deku Tree's Navel
-- Spore Store
+General Shoppe
+Great Deku Tree's Navel
+Spore Store
 Kuhn Sidajj Shrine
 Lake Mekar
 Lake Saria
@@ -427,7 +460,12 @@ Lost Woods
 Maag Halan Shrine
 Mekar Island
 Mido Swamp
-Great Plateau
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Great Plateau
+
+>Main
 Eastern Abbey
 Forest of Spirits
 Great Plateau Tower
@@ -440,8 +478,12 @@ Owa Daim Shrine
 River of the Dead
 Shrine of Resurrection
 Temple of Time
-Hateno - AKA East Necluda
-Mount Lanayru
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Hateno
+
+>Mount Lanayru
 Camphor Pond
 Cliffs of Quince
 Dow Na'eh Shrine
@@ -486,13 +528,15 @@ Tahno O'ah Shrine
 Trotter's Downfall
 Walnot Mountain
 Zelkoa Pond
-Hateno Village
-- East Wind
-- Kochi Dye Shop
+
+>Hateno Village
+East Wind
+Kochi Dye Shop
 Link's House
-- The Great Ton Pu Inn
-- Ventest Clothing Boutique
-Necluda Sea
+The Great Ton Pu Inn
+Ventest Clothing Boutique
+
+>Necluda Sea
 Chaas Qeta Shrine
 Deepback Bay
 Hateno Bay
@@ -501,8 +545,12 @@ Kitano Bay
 Loshlo Harbor
 Mapla Point
 Tenoko Island
-Hebra
-Hebra Mountains
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Hebra
+
+>Hebra Mountains
 Biron Snowshelf
 Coldsnap Hollow
 Corvash Peak
@@ -531,7 +579,8 @@ Sturnida Basin
 Sturnida Secret Hot Spring
 Talonto Peak
 To Quomo Shrine
-Tabantha Tundra
+
+>Tabantha Tundra
 Dunba Taag Shrine
 Gee Ha'rah Shrine
 Hebra Falls
@@ -550,8 +599,12 @@ Snowfield Stable
 Tabantha Hills
 Tabantha Village Ruins
 Tama Pond
-Lake
-Faron Grasslands
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Lake
+
+>Faron Grasslands
 Barula Plain
 Bridge of Hylia
 Cora Lake
@@ -597,15 +650,20 @@ Taobab Grassland
 Ya Naga Shrine
 Zokassa Ridge
 Zonai Ruins
-Faron Sea
+
+>Faron Sea
 Darybon Plains
 Ibara Butte
 Komo Shoreline
 Laverra Beach
 Nette Plateau
 Puffer Beach
-Lanayru
-Lanayru Great Spring
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Lanayru
+
+>Lanayru Great Spring
 Bank of Wishes
 Brynna Plain
 East Reservoir Lake
@@ -628,7 +686,8 @@ Tal Tal Peak
 Veiled Falls
 Zodobon Highlands
 Zora River
-Lanayru Sea
+
+>Lanayru Sea
 Afromsia Coast
 Ankel Island
 Davdi Island
@@ -642,7 +701,8 @@ Talus Plateau
 Tarm Point
 Tingel Island
 Wintre Island
-Lanayru Wetlands
+
+>Lanayru Wetlands
 Bannan Island
 Boné Pond
 Crenel Peak
@@ -675,12 +735,17 @@ Wes Island
 Wetland Stable
 Zauz Island
 Zelo Pond
-Zora's Domain
-- Coral Reef
+
+>Zora's Domain
+Coral Reef
 Ne'ez Yohma Shrine
-- Seabed Inn
-Ridgeland
-Hyrule Ridge
+Seabed Inn
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Ridgeland
+
+>Hyrule Ridge
 Breach of Demise
 Dalite Forest
 Footrace Check-In
@@ -716,8 +781,12 @@ Upland Lindor
 Washa's Bluff
 West Hyrule Plains
 Zalta Wa Shrine
-Tabantha
-Tabantha Frontier
+
+////////////////////////////////////////////////////////////////////////////////
+
+#Tabantha
+
+>Tabantha Frontier
 Ancient Columns
 Bareeda Naag Shrine
 Cuho Mountain
@@ -743,62 +812,10 @@ Tabantha Tower
 Tena Ko'sah Shrine
 Voo Lota Shrine
 Warbler's Nest
-Rito Village
+
+>Rito Village
 Akh Va'quot Shrine
-- Brazen Beak
-- Revali's Landing
-- Slippery Falcon
-- Swallow's Roost
-Was this guide helpful?
-
-YESNO
-In This Wiki Guide
-The Legend of Zelda: Breath of the Wild Image
-The Legend of Zelda: Breath of the Wild
-Summary:Step into a world of discovery, exploration and adventure in The Legend of Zelda: Breath of the Wild, a boundary-breaking new game in the acclaimed series.
-Franchises:The Legend of Zelda
-Genres:Action, Adventure
-Fantasy Violence, Mild Suggestive Themes, Use of Alcohol
-Platforms:Wii U, Nintendo Switch
-Developers:Nintendo
-Publishers:Nintendo
-Features:Downloadable Content, amiibo, Labo
-Release Date:March 3, 2017
-Walmart $59.88
-
-PREVIOUS
-The Royal White Stallion
-
-NEXT
-Akkala
-
-WIKIS
-Animal Crossing Beginners Guide and Tips
-•
-Ghost of Tsushima Tips and Tricks
-•
-Things Ghost of Tsushima Doesn't Tell You
-•
-Every Modern Game IGN Has Given a 10/10
-•
-Animal Crossing Cheats and Secrets
-•
-Ghost of Tsushima: Things to do First
-•
-How to Get Every Weapon in FF7
-DEALS
-Best Switch Deal
-•
-PS4 Back Button
-•
-Black Friday Walmart
-•
-Best Xbox Deals
-•
-Best Apple Deals
-•
-Switch Deals
-•
-Disney+/ESPN/Hulu Bundle
-We encourage you to read our updated PRIVACY POLICY and COOKIE POLICY.
-
+Brazen Beak
+Revali's Landing
+Slippery Falcon
+Swallow's Roost

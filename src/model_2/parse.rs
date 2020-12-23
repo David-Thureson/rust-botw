@@ -47,7 +47,6 @@ pub fn load_characters(model: &mut Model) {
             model.add_character(Character::new(name, &(race.as_ref().unwrap().clone()), main, champion, merchant, alive));
         }
     }
-    model.report_characters();
 }
 
 pub fn load_shrines(model: &mut Model) {
