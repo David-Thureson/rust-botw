@@ -4,8 +4,8 @@ use std::collections::BTreeMap;
 extern crate strum;
 extern crate strum_macros;
 
-extern crate util;
-pub use util::*;
+extern crate util_rust;
+pub use util_rust::*;
 // pub use util::format::*;
 // pub use util::parse::*;
 // use crate::model::PREFIX_COMMENT;

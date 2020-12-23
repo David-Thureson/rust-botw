@@ -3,16 +3,21 @@ use std::fs::File;
 use std::str::FromStr;
 
 use crate::*;
-use super::*;
 use crate::model_2::model::*;
+use util_rust::parse;
 
 pub const PREFIX_HEADER: &str = "#";
 // pub const PREFIX_LF_SUBHEAD: &str = "\n>";
 pub const PREFIX_COMMENT: &str = "//";
+#[allow(dead_code)]
 const FILE_NAME_CHARACTERS: &str = "Breath of the Wild Characters.txt";
+#[allow(dead_code)]
 const FILE_NAME_ITEMS: &str = "Breath of the Wild Items.txt";
+#[allow(dead_code)]
 const FILE_NAME_INVENTORY: &str = "Breath of the Wild Inventory.txt";
+#[allow(dead_code)]
 const FILE_NAME_SHRINES: &str = "Breath of the Wild Shrines.txt";
+#[allow(dead_code)]
 const FILE_NAME_QUESTS: &str = "Breath of the Wild Quests.txt";
 const AMIIBO: &str = "Amiibo";
 const SUFFIX_DLC: &str = " (DLC)";
@@ -32,7 +37,7 @@ pub fn load_characters(model: &mut Model) {
             let race_name = line.replace(PREFIX_HEADER, "");
             race = Some(Race::from_str(&race_name.replace(" ", "")).unwrap());
         } else {
-            let (first, second) = util::parse::split_1_or_2(&line, ":");
+            let (first, second) = parse::split_1_or_2(&line, ":");
             let (main, champion, merchant, alive) = if let Some(tags) = second {
                 (tags.contains("main"), tags.contains("champion"), tags.contains("merchant"), !tags.contains("dead"))
             } else {
@@ -42,6 +47,7 @@ pub fn load_characters(model: &mut Model) {
             model.add_character(Character::new(name, &(race.as_ref().unwrap().clone()), main, champion, merchant, alive));
         }
     }
+    model.report_characters();
 }
 
 pub fn load_shrines(model: &mut Model) {
@@ -51,7 +57,7 @@ pub fn load_shrines(model: &mut Model) {
             .map(|line| line.unwrap().trim().to_string())
             .filter(|line| !line.is_empty())
             .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
-        let (name, challenge) = util::parse::split_2(&line, ":");
+        let (name, challenge) = parse::split_2(&line, ":");
         let name = name.trim().to_string();
         let challenge = challenge.trim().to_string();
         model.add_location(Location::new(&name, &Region::ShrinePlaceholder, LocationType::new_shrine(&challenge)));
@@ -73,12 +79,12 @@ pub fn load_quests(model: &mut Model) {
             let quest = match quest_type_name.clone().unwrap().as_ref() {
                 "Main" => Quest::new(&line, QuestType::new_main()),
                 "Side" => {
-                    let (name, notes) = util::parse::extract_optional(&line, "(", ")");
+                    let (name, notes) = parse::extract_optional(&line, "(", ")");
                     Quest::new(name.trim(), QuestType::new_side(notes))
                 },
                 "Shrine" => {
-                    let (name, shrine_name) = util::parse::split_2(&line, ":");
-                    let shrine = model.locations.get(name).unwrap().clone();
+                    let (name, shrine_name) = parse::split_2(&line, ":");
+                    let shrine = model.locations.get(shrine_name).unwrap().clone();
                     Quest::new(name, QuestType::new_shrine(shrine))
                 },
                 _ => panic!()
@@ -106,7 +112,7 @@ pub fn break_into_sections(content: String, header_prefix: &str) -> BTreeMap<Str
         //rintln!("|{}|", &header);
         // let section_content = section_split.next().unwrap();
 
-        let (header, section_content) = util::parse::split_2(split, "\n");
+        let (header, section_content) = parse::split_2(split, "\n");
         map.insert(header.to_string(), section_content.to_string());
     }
     map

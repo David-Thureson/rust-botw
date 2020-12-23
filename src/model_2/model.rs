@@ -6,13 +6,15 @@ use std::cell::{RefCell, Ref};
 
 use strum;
 use strum_macros::EnumString;
+use strum_macros::ToString;
+use std::string::ToString;
 
 use std::borrow::Borrow;
 use std::collections::HashMap;
 use std::cmp::Ordering;
 use std::fs::File;
 use std::io::Write;
-use itertools::sorted;
+use itertools::{sorted, Itertools};
 use std::fmt::Display;
 use serde::export::Formatter;
 use serde::export::fmt::Error;
@@ -37,11 +39,11 @@ pub fn main() {
 
 fn try_load() {
     let start = std::time::Instant::now();
-    let mut model = Model::new();
-    util::format::print_elapsed_from_start(true, "new", "", start);
+    let model = Model::new();
+    util_rust::format::print_elapsed_from_start(true, "new", "", start);
 
     // model.try_load();
-    dbg!(&model);
+    //bg!(&model);
 }
 
 #[derive(Debug)]
@@ -163,7 +165,7 @@ pub enum Effect {
     Stealth,
 }
 
-#[derive(Clone, Debug, EnumString, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, EnumString, Eq, Ord, PartialEq, PartialOrd, ToString)]
 pub enum Race {
     Amiibo,
     GreatFairy,
@@ -243,7 +245,7 @@ impl Model {
     pub fn try_load(&mut self) {
         let start = std::time::Instant::now();
         // Item::load_inventory(self);
-        util::format::print_elapsed_from_start(true, "load inventory", "", start);
+        util_rust::format::print_elapsed_from_start(true, "load inventory", "", start);
 
         // let include_jewelry = false;
         // self.set_needed_items(include_jewelry);
@@ -254,6 +256,21 @@ impl Model {
         // model.report_effect(Effect::Stealth);
         // model.report_effect(Effect::MovementSpeed);
         // model.report_upgrade_and_acquire();
+    }
+
+    pub fn report_characters(&self) {
+        let mut grouper_race = util_rust::group::Grouper::new("Character Races");
+        let mut grouper_flag = util_rust::group::Grouper::new("Character Flags");
+        for character in self.characters.values() {
+            let character = RefCell::borrow(character);
+            grouper_race.record_entry(&character.race.to_string());
+            let flags = format::list_flags_with_not(
+                &["main", "champion", "merchant", "alive", "mentioned", "met", "met_in_flashback"],
+                &[character.main, character.champion, character.merchant, character.alive, character.mentioned, character.met, character.met_in_flashback]);
+            grouper_flag.record_entry(&flags);
+        }
+        grouper_race.print_by_count(0, None);
+        grouper_flag.print_by_count(0, None);
     }
 
 }

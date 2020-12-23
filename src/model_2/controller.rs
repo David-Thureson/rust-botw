@@ -1,4 +1,3 @@
-use std::fmt::Display;
 use std::time::SystemTime;
 
 #[derive(Debug)]
@@ -55,7 +54,7 @@ impl GameClock {
         Self::format_time(self.time())
     }
 
-    pub fn format_time(mut time: usize) -> String {
+    pub fn format_time(time: usize) -> String {
         let hours = time / (3_600);
         let time = time - (hours * 3_600);
         let minutes = time / 60;

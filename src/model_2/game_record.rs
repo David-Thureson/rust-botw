@@ -8,7 +8,7 @@ use super::controller::GameClock;
 
 #[derive(serde::Serialize)]
 #[derive(Debug)]
-pub struct Game_Record {
+pub struct GameRecord {
     pub name: String,
     pub events: Vec<GameEvent>,
 }
@@ -40,7 +40,7 @@ pub enum GameEventType {
     CharacterDeath,
 }
 
-impl Game_Record {
+impl GameRecord {
 
     pub fn new(name: &str) -> Self {
         Self {
