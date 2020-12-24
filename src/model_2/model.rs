@@ -78,7 +78,7 @@ pub struct Location {
     pub parent: Option<Rc<RefCell<Location>>>,
     pub discovered: bool,
     pub typ: LocationType,
-    pub has_dog_treasure: bool,
+    pub dog_treasure: Option<String>,
     pub dog_treasure_found: bool,
     pub discovered_time: usize,
     pub dog_treasure_found_time: usize,
@@ -237,7 +237,7 @@ impl Model {
 
         // Shrine::load_shrines(&mut model);
 
-        dbg!(&model);
+        //bg!(&model);
 
         model
     }
@@ -323,7 +323,7 @@ impl Location {
             discovered: false,
             discovered_time: 0,
             typ,
-            has_dog_treasure: false,
+            dog_treasure: None,
             dog_treasure_found: false,
             dog_treasure_found_time: 0,
             locations: Default::default(),

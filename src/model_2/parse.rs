@@ -173,20 +173,25 @@ pub fn load_locations(model: &mut Model) {
     let mut region = None;
     let mut area = None;
     for line in reader.lines()
-            .map(|line| line.unwrap().trim().to_string())
-            .filter(|line| !line.is_empty())
-            .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
-        println!("{}", line);
+        .map(|line| line.unwrap().trim().to_string())
+        .filter(|line| !line.is_empty())
+        .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
+        //rintln!("{}", line);
         if line.starts_with(PREFIX_HEADER) {
             let name = line.replace(PREFIX_HEADER, "");
             let region_rc = Rc::new(RefCell::new(Location::new(&name, None, LocationType::Region)));
             region = Some(region_rc.clone());
             model.add_location(region_rc);
         } else if line.starts_with(PREFIX_SUBHEADER) {
-            let name = line.replace(PREFIX_SUBHEADER, "");
+            let (name, location_type) = if line.ends_with(SUFFIX_TOWN) {
+                (line.replace(SUFFIX_TOWN, ""), LocationType::Town)
+            } else {
+                (line, LocationType::Area)
+            };
+            let name = name.replace(PREFIX_SUBHEADER, "");
             match region {
                 Some(ref region_rc) => {
-                    let area_rc = Rc::new(RefCell::new(Location::new(&name, None, LocationType::Area)));
+                    let area_rc = Rc::new(RefCell::new(Location::new(&name, None, location_type)));
                     // let area_rc = Rc::new(RefCell::new(Location::new(&name, Some(region_rc.clone()), LocationType::Area)));
                     area = Some(area_rc.clone());
                     RefCell::borrow_mut(&region_rc).add_location(area_rc.clone());
@@ -218,6 +223,28 @@ pub fn load_locations(model: &mut Model) {
                 None => panic!()
             }
         }
+    }
+    load_dog_treasures(model);
+}
+
+fn load_dog_treasures(model: &mut Model) {
+    let file = File::open(FILE_NAME_DOG_TREASURES).unwrap();
+    let reader = BufReader::new(file);
+    for line in reader.lines()
+        .map(|line| line.unwrap().trim().to_string())
+        .filter(|line| !line.is_empty()) {
+        //rintln!("{}", line);
+    let (name, treasure) = parse::split_2(&line, ": ");
+        dbg!(&name, &treasure);
+        let location_entry = model.locations.get(name);
+        let location_rc = location_entry.unwrap();
+        RefCell::borrow_mut(location_rc).dog_treasure = Some(treasure.to_string());
+    }
+    for location in model
+            .locations
+            .values()
+            .filter(|location_rc| RefCell::borrow(location_rc).dog_treasure.is_some()) {
+        dbg!(location);
     }
 }
 
