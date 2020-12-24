@@ -225,6 +225,7 @@ pub fn load_locations(model: &mut Model) {
         }
     }
     load_dog_treasures(model);
+    load_shrines(model);
 }
 
 fn load_dog_treasures(model: &mut Model) {
@@ -235,17 +236,59 @@ fn load_dog_treasures(model: &mut Model) {
         .filter(|line| !line.is_empty()) {
         //rintln!("{}", line);
     let (name, treasure) = parse::split_2(&line, ": ");
-        dbg!(&name, &treasure);
+        //bg!(&name, &treasure);
         let location_entry = model.locations.get(name);
         let location_rc = location_entry.unwrap();
         RefCell::borrow_mut(location_rc).dog_treasure = Some(treasure.to_string());
     }
+    /*
+    // Show the locations with dog treasures.
     for location in model
             .locations
             .values()
             .filter(|location_rc| RefCell::borrow(location_rc).dog_treasure.is_some()) {
         dbg!(location);
     }
+    */
+}
+
+fn load_shrines(model: &mut Model) {
+    let file = File::open(FILE_NAME_SHRINES).unwrap();
+    let reader = BufReader::new(file);
+    for line in reader.lines()
+        .map(|line| line.unwrap().trim().to_string())
+        .filter(|line| !line.is_empty())
+        .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
+
+        let (name, challenge) = parse::split_2(&line, ":");
+        let name = name.trim();
+        let challenge_value = challenge.trim().to_string();
+
+        let location_rc = model.locations.get(name).unwrap();
+        let mut location_borrow = RefCell::borrow_mut(location_rc);
+        match &mut location_borrow.typ {
+            LocationType::Shrine { ref mut challenge, .. } => {
+                *challenge = challenge_value
+            },
+            _ => {},
+        }
+    }
+    // let missing_challenge_count = model
+    for location in model
+        .locations
+        .values()
+        .filter(|location| {
+            let location_borrow = RefCell::borrow(location);
+            match &location_borrow.typ {
+                LocationType::Shrine { challenge, .. } => challenge.len() == 0,
+                _ => false,
+            }
+        }) {
+
+        dbg!(location);
+    }
+        //.count();
+    //bg!(&missing_challenge_count);
 }
 
 /*

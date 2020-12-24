@@ -39,11 +39,12 @@ pub fn main() {
 
 fn try_load() {
     let start = std::time::Instant::now();
-    let _model = Model::new();
+    let model = Model::new();
     util_rust::format::print_elapsed_from_start(true, "new", "", start);
 
-
     // model.report_characters();
+    model.report_location_types();
+    model.report_shrine_challenges();
 
     // model.try_load();
     //bg!(&model);
@@ -294,6 +295,38 @@ impl Model {
         grouper_flag.print_by_count(0, None);
     }
 
+    pub fn report_location_types(&self) {
+        let mut grouper = util_rust::group::Grouper::new("Location Types");
+        for type_name in self
+            .locations
+            .values()
+            .map(|location| RefCell::borrow(location).typ.variant_name()) {
+
+            grouper.record_entry(&type_name);
+        }
+        grouper.print_by_count(0, None);
+    }
+
+    pub fn report_shrine_challenges(&self) {
+        let mut grouper = util_rust::group::Grouper::new("Challenges");
+        for challenge in self
+            .locations
+            .values()
+            .map(|location| {
+                let location_borrow = RefCell::borrow(location);
+                match &location_borrow.typ {
+                    LocationType::Shrine { challenge, .. } => Some(challenge.to_string()),
+                    _ => None,
+                }
+            })
+            .filter(|challenge| challenge.is_some())
+            .map(|challenge| challenge.unwrap()) {
+
+            grouper.record_entry(&challenge);
+        }
+        grouper.print_by_count(0, None);
+    }
+
 }
 
 impl Character {
@@ -356,6 +389,20 @@ impl LocationType {
             flame_lit_time: 0
         }
     }
+
+    pub fn variant_name<'a>(&self) -> &'a str {
+        match self {
+            LocationType::Region => "Region",
+            LocationType::Area => "Area",
+            LocationType::Shrine { .. } => "Shrine",
+            LocationType::Tower => "Tower",
+            LocationType::TechLab { .. } => "TechLab",
+            LocationType::Town => "Town",
+            LocationType::Stable => "Stable",
+            LocationType::Normal => "Normal",
+        }
+    }
+
 }
 
 impl Quest {

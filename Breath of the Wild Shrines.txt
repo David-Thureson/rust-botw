@@ -10,6 +10,7 @@ Daka Tuss Shrine: Sunken Scoop
 Dako Tah Shrine: Electric Path
 Daqa Koh Shrine: Stalled Flight
 Daqo Chisay Shrine: The Whole Picture
+Dila Maag Shrine: Dila Maag's Blessing
 Dow Na'eh Shrine: Three Boxes
 Dunba Taag Shrine: Build and Release
 Gee Ha'rah Shrine: Tandem
@@ -19,6 +20,7 @@ Ha Dahamar Shrine: The Water Guides
 Hawa Koth Shrine: The Current Solution
 Hia Miu Shrine: A Major Test of Strength
 Hila Rao Shrine: Drifting
+Ishto Soh Shrine: Bravery's Grasp
 Ja Baij Shrine: Bomb Trial
 Jee Noh Shrine: On the Move
 Jitan Sa'mi Shrine: Jitan Sa'mi's Blessing
@@ -53,6 +55,7 @@ Maka Rah Shrine: Steady Thy Heart
 Mezza Lo Shrine: Ancient Trifecta
 Mijah Rokee Shrine: A Modest Test of Strength
 Mirro Shaz Shrine: Tempered Power
+Misae Suma Shrine: Misae Suma's Blessing
 Mo'a Keet Shrine: Metal Makes a Path
 Mogg Latan Shrine: Synced Swing
 Monya Toma Shrine: Drawing Parabolas
@@ -78,6 +81,7 @@ Rota Ooh Shrine: Passing of the Gates
 Rucco Maag Shrine: Five Flames
 Saas Ko'sah Shrine: A Major Test of Strength
 Sah Dahaj Shrine: Power of Fire
+Sasa Kai Shrine: A Modest Test of Strength
 Sha Gehma Shrine: Shift and Lock
 Sha Warvo Shrine: Path of Hidden Winds
 Shada Naw Shrine: Red Giveaway
@@ -89,10 +93,13 @@ Shai Yota Shrine: Shai Yota's Blessing
 Shee Vaneer Shrine: Twin Memories
 Shee Venath Shrine: Twin Memories
 Sheh Rata Shrine: Speed of Light
+Sheem Dagoze Shrine: Moving in Parallel
 Sho Dantu Shrine: Two Bombs
+Shoda Sah Shrine: Impeccable Timing
 Shoqa Tatone Shrine: A Modest Test of Strength
 Shora Hah Shrine: Blue Flame
 Soh Kofi Shrine: A Minor Test of Strength
+Suma Sahma Shrine: Suma Sahma's Blessing
 Tah Muhl Shrine: Passing the Flame
 Tahno O'ah Shrine: Tahno O'ah's Blessing
 Ta'loh Naeg Shrine: Ta'loh Naeg's Teaching
