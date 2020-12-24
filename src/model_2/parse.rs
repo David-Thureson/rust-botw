@@ -77,36 +77,6 @@ pub fn load_shrines(model: &mut Model) {
 }
 */
 
-pub fn load_quests(model: &mut Model) {
-    let file = File::open(FILE_NAME_QUESTS).unwrap();
-    let reader = BufReader::new(file);
-    let mut quest_type_name = None;
-    for line in reader.lines()
-        .map(|line| line.unwrap().trim().to_string())
-        .filter(|line| !line.is_empty())
-        .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
-
-        if line.starts_with(PREFIX_HEADER) {
-            quest_type_name = Some(line.replace(PREFIX_HEADER, ""));
-        } else {
-            let quest = match quest_type_name.clone().unwrap().as_ref() {
-                "Main" => Quest::new(&line, QuestType::new_main()),
-                "Side" => {
-                    let (name, notes) = parse::extract_optional(&line, "(", ")");
-                    Quest::new(name.trim(), QuestType::new_side(notes))
-                },
-                "Shrine" => {
-                    let (name, shrine_name) = parse::split_2(&line, ":");
-                    let shrine = model.locations.get(shrine_name).unwrap().clone();
-                    Quest::new(name, QuestType::new_shrine(shrine))
-                },
-                _ => panic!()
-            };
-            model.add_quest(quest);
-        }
-    }
-}
-
 pub fn read_file_into_sections(file_name: &str, header_prefix: &str) -> BTreeMap<String, String> {
     let content = fs::read_to_string(file_name).unwrap();
     break_into_sections(content, header_prefix)
@@ -289,6 +259,46 @@ fn load_shrines(model: &mut Model) {
     }
         //.count();
     //bg!(&missing_challenge_count);
+}
+
+pub fn load_quests(model: &mut Model) {
+    let file = File::open(FILE_NAME_QUESTS).unwrap();
+    let reader = BufReader::new(file);
+    let mut quest_type_name = None;
+    for line in reader.lines()
+        .map(|line| line.unwrap().trim().to_string())
+        .filter(|line| !line.is_empty())
+        .filter(|line| !line.starts_with(PREFIX_COMMENT)) {
+
+        if line.starts_with(PREFIX_HEADER) {
+            quest_type_name = Some(line.replace(PREFIX_HEADER, ""));
+        } else {
+            match quest_type_name.clone().unwrap().as_ref() {
+                "Main" => {
+                    model.add_quest(Rc::new(RefCell::new(Quest::new(&line, QuestType::new_main()))));
+                },
+                "Side" => {
+                    let (name, notes) = parse::extract_optional(&line, "(", ")");
+                    model.add_quest(Rc::new(RefCell::new(Quest::new(name.trim(), QuestType::new_side(notes)))));
+                },
+                "Shrine" => {
+                    let (name, shrine_name) = parse::split_2_trim(&line, ":");
+                    dbg!(shrine_name);
+                    let shrine_location_rc = model.locations.get(shrine_name).unwrap().clone();
+                    let quest_rc = Rc::new(RefCell::new(Quest::new(name, QuestType::new_shrine(shrine_location_rc.clone()))));
+                    let mut shrine_location_borrow = RefCell::borrow_mut(&shrine_location_rc);
+                    match &mut shrine_location_borrow.typ {
+                        LocationType::Shrine { challenge: _, ref mut quest, .. } => {
+                            *quest = Some(quest_rc.clone());
+                        },
+                        _ => {},
+                    }
+                    model.add_quest(quest_rc);
+                },
+                _ => panic!()
+            };
+        }
+    }
 }
 
 /*

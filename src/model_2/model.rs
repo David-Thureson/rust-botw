@@ -43,8 +43,9 @@ fn try_load() {
     util_rust::format::print_elapsed_from_start(true, "new", "", start);
 
     // model.report_characters();
-    model.report_location_types();
-    model.report_shrine_challenges();
+    // model.report_location_types();
+    model.report_shrines();
+    // model.report_quest_types();
 
     // model.try_load();
     //bg!(&model);
@@ -232,8 +233,7 @@ impl Model {
         };
         // parse::load_characters(&mut model);
         parse::load_locations(&mut model);
-        // parse::load_shrines(&mut model);
-        // parse::load_quests(&mut model);
+        parse::load_quests(&mut model);
         // parse::load_items(&mut model);
 
         // Shrine::load_shrines(&mut model);
@@ -257,11 +257,11 @@ impl Model {
         self.locations.insert(key, location);
     }
 
-    pub fn add_quest(&mut self, quest: Quest) {
-        let key = quest.name.clone();
+    pub fn add_quest(&mut self, quest: Rc<RefCell<Quest>>) {
+        let key = RefCell::borrow(&quest).name.clone();
         assert!(key.trim().len() == key.len(), "quest name \"{}\" is not trimmed.", &key);
         assert!(!self.quests.contains_key(&key));
-        self.quests.insert(key, Rc::new(RefCell::new(quest)));
+        self.quests.insert(key, quest);
     }
 
     pub fn try_load(&mut self) {
@@ -307,22 +307,37 @@ impl Model {
         grouper.print_by_count(0, None);
     }
 
-    pub fn report_shrine_challenges(&self) {
-        let mut grouper = util_rust::group::Grouper::new("Challenges");
-        for challenge in self
+    pub fn report_shrines(&self) {
+        let mut grouper_challenge = util_rust::group::Grouper::new("Shrine Challenges");
+        let mut grouper_has_quest = util_rust::group::Grouper::new("Shrine Has Quest");
+        for (challenge, has_quest) in self
             .locations
             .values()
             .map(|location| {
                 let location_borrow = RefCell::borrow(location);
                 match &location_borrow.typ {
-                    LocationType::Shrine { challenge, .. } => Some(challenge.to_string()),
+                    LocationType::Shrine { challenge, quest, .. } => Some((challenge.to_string(), quest.is_some())),
                     _ => None,
                 }
             })
-            .filter(|challenge| challenge.is_some())
-            .map(|challenge| challenge.unwrap()) {
+            .filter(|entry| entry.is_some())
+            .map(|entry| entry.unwrap()) {
 
-            grouper.record_entry(&challenge);
+            grouper_challenge.record_entry(&challenge);
+            grouper_has_quest.record_entry(&has_quest);
+        }
+        grouper_challenge.print_by_count(0, None);
+        grouper_has_quest.print_by_count(0, None);
+    }
+
+    pub fn report_quest_types(&self) {
+        let mut grouper = util_rust::group::Grouper::new("Quest Types");
+        for type_name in self
+            .quests
+            .values()
+            .map(|quest| RefCell::borrow(quest).typ.variant_name()) {
+
+            grouper.record_entry(&type_name);
         }
         grouper.print_by_count(0, None);
     }
@@ -402,7 +417,6 @@ impl LocationType {
             LocationType::Normal => "Normal",
         }
     }
-
 }
 
 impl Quest {
@@ -432,6 +446,14 @@ impl QuestType {
     pub fn new_shrine(shrine: Rc<RefCell<Location>>) -> Self {
         Self::Shrine {
             shrine,
+        }
+    }
+
+    pub fn variant_name<'a>(&self) -> &'a str {
+        match self {
+            QuestType::Main => "Main",
+            QuestType::Side { .. } => "Side",
+            QuestType::Shrine { .. } => "Shrine",
         }
     }
 }
