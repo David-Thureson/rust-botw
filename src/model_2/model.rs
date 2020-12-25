@@ -2,7 +2,7 @@
 #![allow(dead_code)]
 
 use std::rc::Rc;
-use std::cell::{RefCell, Ref};
+use std::cell::{RefCell, Ref, RefMut};
 
 use strum;
 use strum_macros::EnumString;
@@ -22,6 +22,8 @@ use std::{cmp, fmt};
 
 use crate::*;
 use super::parse;
+use super::game_record::GameEvent;
+use super::game_record::NULL_TIME;
 
 const QUEST_DEFEAT_ONE_DIVINE_BEAST: &str = "Defeat One Divine Beast";
 const QUEST_DEFEAT_TWO_DIVINE_BEASTS: &str = "Defeat Two Divine Beasts";
@@ -44,7 +46,7 @@ fn try_load() {
 
     // model.report_characters();
     // model.report_location_types();
-    model.report_shrines();
+    // model.report_shrines();
     // model.report_quest_types();
 
     // model.try_load();
@@ -53,6 +55,8 @@ fn try_load() {
 
 #[derive(Debug)]
 pub struct Model {
+    pub hearts: usize,
+    pub stamina: usize,
     pub characters: BTreeMap<String, Rc<RefCell<Character>>>,
     pub locations: BTreeMap<String, Rc<RefCell<Location>>>,
     pub quests: BTreeMap<String, Rc<RefCell<Quest>>>,
@@ -66,9 +70,6 @@ pub struct Character {
     pub champion: bool,
     pub merchant: bool,
     pub alive: bool,
-    pub mentioned: bool,
-    pub met: bool,
-    pub met_in_flashback: bool,
     pub mentioned_time: usize,
     pub met_time: usize,
     pub met_in_flashback_time: usize,
@@ -78,10 +79,8 @@ pub struct Character {
 pub struct Location {
     pub name: String,
     pub parent: Option<Rc<RefCell<Location>>>,
-    pub discovered: bool,
     pub typ: LocationType,
     pub dog_treasure: Option<String>,
-    pub dog_treasure_found: bool,
     pub discovered_time: usize,
     pub dog_treasure_found_time: usize,
     pub locations: BTreeMap<String, Rc<RefCell<Location>>>,
@@ -95,14 +94,11 @@ pub enum LocationType {
     Shrine {
         challenge: String,
         quest: Option<Rc<RefCell<Quest>>>,
-        started: bool,
-        completed: bool,
         started_time: usize,
         completed_time: usize,
     },
     Tower,
     TechLab {
-        flame_lit: bool,
         flame_lit_time: usize,
     },
     Town,
@@ -140,12 +136,10 @@ pub enum ItemType {
 
 #[derive(Debug)]
 pub struct Quest {
-    name: String,
-    typ: QuestType,
-    started: bool,
-    completed: bool,
-    started_time: usize,
-    completed_time: usize,
+    pub name: String,
+    pub typ: QuestType,
+    pub started_time: usize,
+    pub completed_time: usize,
 }
 
 #[derive(Clone, Debug)]
@@ -227,6 +221,8 @@ pub enum Region {
 impl Model {
     pub fn new() -> Self {
         let mut model = Self {
+            hearts: 3,
+            stamina: 5,
             characters: Default::default(),
             locations: Default::default(),
             quests: Default::default()
@@ -264,6 +260,30 @@ impl Model {
         self.quests.insert(key, quest);
     }
 
+    pub fn borrow_location_mut(&self, name: &str) -> RefMut<Location> {
+        let get = self.locations.get(name);
+        match get {
+            Some(rc) => RefCell::borrow_mut(rc),
+            None => panic!("Unknown location = \"{}\"", name),
+        }
+    }
+
+    pub fn borrow_quest(&self, name: &str) -> Ref<Quest> {
+        let get = self.quests.get(name);
+        match get {
+            Some(rc) => RefCell::borrow(rc),
+            None => panic!("Unknown quest = \"{}\"", name),
+        }
+    }
+
+    pub fn borrow_quest_mut(&self, name: &str) -> RefMut<Quest> {
+        let get = self.quests.get(name);
+        match get {
+            Some(rc) => RefCell::borrow_mut(rc),
+            None => panic!("Unknown quest = \"{}\"", name),
+        }
+    }
+
     pub fn try_load(&mut self) {
         let start = std::time::Instant::now();
         // Item::load_inventory(self);
@@ -288,7 +308,8 @@ impl Model {
             grouper_race.record_entry(&character.race.to_string());
             let flags = format::list_flags_with_not(
                 &["main", "champion", "merchant", "alive", "mentioned", "met", "met_in_flashback"],
-                &[character.main, character.champion, character.merchant, character.alive, character.mentioned, character.met, character.met_in_flashback]);
+                &[character.main, character.champion, character.merchant, character.alive,
+                    character.is_mentioned(), character.is_met(), character.is_met_in_flashback()]);
             grouper_flag.record_entry(&flags);
         }
         grouper_race.print_by_count(0, None);
@@ -342,6 +363,16 @@ impl Model {
         grouper.print_by_count(0, None);
     }
 
+    /*
+    pub fn apply_event(event: &mut GameEvent) {
+
+
+    }
+
+    pub fn undo_event(event: &mut GameEvent) {
+
+    }
+    */
 }
 
 impl Character {
@@ -353,13 +384,22 @@ impl Character {
             champion,
             merchant,
             alive,
-            mentioned: false,
-            met: false,
-            met_in_flashback: false,
-            mentioned_time: 0,
-            met_time: 0,
-            met_in_flashback_time: 0,
+            mentioned_time: NULL_TIME,
+            met_time: NULL_TIME,
+            met_in_flashback_time: NULL_TIME,
         }
+    }
+
+    pub fn is_mentioned(&self) -> bool {
+        self.mentioned_time != NULL_TIME
+    }
+
+    pub fn is_met(&self) -> bool {
+        self.met_time != NULL_TIME
+    }
+
+    pub fn is_met_in_flashback(&self) -> bool {
+        self.met_in_flashback_time != NULL_TIME
     }
 }
 
@@ -368,12 +408,10 @@ impl Location {
         Self {
             name: name.to_string(),
             parent,
-            discovered: false,
-            discovered_time: 0,
+            discovered_time: NULL_TIME,
             typ,
             dog_treasure: None,
-            dog_treasure_found: false,
-            dog_treasure_found_time: 0,
+            dog_treasure_found_time: NULL_TIME,
             locations: Default::default(),
         }
     }
@@ -384,6 +422,18 @@ impl Location {
         assert!(!self.locations.contains_key(&key), format!("Location {} already exists.", key));
         self.locations.insert(key, location);
     }
+
+    pub fn is_discovered(&self) -> bool {
+        self.discovered_time != NULL_TIME
+    }
+
+    pub fn has_dog_treasure(&self) -> bool {
+        self.dog_treasure.is_some()
+    }
+
+    pub fn is_dog_treasure_found(&self) -> bool {
+        self.dog_treasure_found_time != NULL_TIME
+    }
 }
 
 impl LocationType {
@@ -391,17 +441,14 @@ impl LocationType {
         Self::Shrine {
             challenge: challenge.to_string(),
             quest: None,
-            started: false,
-            completed: false,
-            started_time: 0,
-            completed_time: 0,
+            started_time: NULL_TIME,
+            completed_time: NULL_TIME,
         }
     }
 
     pub fn new_tech_lab() -> Self {
         Self::TechLab {
-            flame_lit: false,
-            flame_lit_time: 0
+            flame_lit_time: NULL_TIME,
         }
     }
 
@@ -424,11 +471,17 @@ impl Quest {
         Self {
             name: name.to_string(),
             typ,
-            started: false,
-            completed: false,
-            started_time: 0,
-            completed_time: 0
+            started_time: NULL_TIME,
+            completed_time: NULL_TIME,
         }
+    }
+
+    pub fn is_started(&self) -> bool {
+        self.started_time != NULL_TIME
+    }
+
+    pub fn is_completed(&self) -> bool {
+        self.completed_time != NULL_TIME
     }
 }
 

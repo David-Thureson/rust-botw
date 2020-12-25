@@ -111,32 +111,6 @@ pub fn section_to_lines(content: String) -> Vec<String> {
         .collect()
 }
 
-/*
-pub fn split_1_or_2<'a>(line: &'a str, pat: &str) -> (&'a str, Option<&'a str>) {
-    let mut split = line.splitn(2, pat);
-    (
-        split.next().expect(&format!("No first split item found for line = \"{}\"", line)),
-        split.next()
-    )
-}
-
-pub fn split_2<'a>(line: &'a str, pat: &str) -> (&'a str, &'a str) {
-    let mut split = line.splitn(2, pat);
-    (
-        split.next().expect(&format!("No first split item found for line = \"{}\"", line)),
-        split.next().expect(&format!("No second split item found for line = \"{}\"", line))
-    )
-}
-
-pub fn rsplit_2<'a>(line: &'a str, pat: &str) -> (&'a str, &'a str) {
-    let mut split = line.rsplitn(2, pat);
-    (
-        split.next().expect(&format!("No first split item found for line = \"{}\"", line)),
-        split.next().expect(&format!("No second split item found for line = \"{}\"", line))
-    )
-}
-*/
-
 pub fn load_locations(model: &mut Model) {
     let file = File::open(FILE_NAME_LOCATIONS).unwrap();
     let reader = BufReader::new(file);
@@ -283,7 +257,7 @@ pub fn load_quests(model: &mut Model) {
                 },
                 "Shrine" => {
                     let (name, shrine_name) = parse::split_2_trim(&line, ":");
-                    dbg!(shrine_name);
+                    //bg!(shrine_name);
                     let shrine_location_rc = model.locations.get(shrine_name).unwrap().clone();
                     let quest_rc = Rc::new(RefCell::new(Quest::new(name, QuestType::new_shrine(shrine_location_rc.clone()))));
                     let mut shrine_location_borrow = RefCell::borrow_mut(&shrine_location_rc);
