@@ -7,7 +7,8 @@ use botw::*;
 pub fn main() {
     println!("\nBotW start\n");
 
-    model_2::model::main();
+    // model_2::model::main();
+    model_2::game_record::try_create_events();
 
     //shell::run("Tracker");
     println!("\nBotW done\n");

@@ -68,6 +68,12 @@ impl GameClock {
         }
     }
 
+    /*
+    pub fn add_seconds(&mut self, seconds: usize) {
+        self.time += seconds;
+    }
+    */
+
     pub fn time_formatted(&self) -> String {
         Self::format_time(self.time())
     }

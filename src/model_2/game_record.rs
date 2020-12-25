@@ -7,6 +7,8 @@ use std::fmt::Display;
 use super::model::*;
 use super::runtime::GameClock;
 use std::cell::RefCell;
+use util_rust::format;
+use serde::Serialize;
 
 pub const NULL_TIME: usize = usize::MAX;
 
@@ -58,6 +60,12 @@ impl GameRecord {
         }
     }
 
+    pub fn add_event(&mut self, model: &mut Model, mut event: GameEvent) {
+        let mut additional_events = event.apply(model);
+        self.events.append(&mut additional_events);
+        self.events.push(event);
+    }
+
     pub fn review(&mut self, event_count: usize) {
         let first_index = if event_count >= self.events.len() {
             0
@@ -66,6 +74,13 @@ impl GameRecord {
         };
         for event in self.events[first_index..].iter() {
             println!("{}", event);
+        }
+    }
+
+    pub fn print_events_serialized(&self) {
+        format::println_indent_tab(0, &self.name);
+        for event in self.events.iter() {
+            format::println_indent_tab(1, &event.to_simple_text());
         }
     }
 }
@@ -79,6 +94,12 @@ impl GameEvent {
             number,
             previous_number: None,
         }
+    }
+
+    pub fn to_simple_text(&self) -> String {
+        let number = self.number.map_or("None".to_string(), |x| x.to_string());
+        let previous_number = self.previous_number.map_or("None".to_string(), |x| x.to_string());
+        format!("{}\t{}\t{}\t{}\t{}", self.time, self.typ.variant_to_string(), self.name, number, previous_number)
     }
 
     pub fn apply(&mut self, model: &mut Model) -> Vec<GameEvent> {
@@ -118,6 +139,7 @@ impl GameEvent {
                 // *completed_time = *time;
             },
             GameEventType::DiscoverLocation => {
+                println!("DiscoverLocation: \"{}\"", &name);
                 let parent_location = model.get_parent_location(name);
                 if let Some(parent_location) = parent_location {
                     let parent_location = RefCell::borrow(&parent_location);
@@ -127,6 +149,7 @@ impl GameEvent {
                     }
                 }
                 let location = model.get_location(name);
+                dbg!(&location);
                 let mut location = RefCell::borrow_mut(&location);
                 assert!(!location.is_discovered());
                 location.discovered_time = *time;
@@ -236,4 +259,63 @@ impl Display for GameEvent {
         let s = format!("{:?}: {}", GameClock::format_time(self.time), type_details);
         write!(f, "{}", s)
     }
+}
+impl GameEventType {
+    pub fn variant_to_string(&self) -> &str {
+        match self {
+            GameEventType::AddToCompendium => "AddToCompendium",
+            GameEventType::CharacterDeath => "CharacterDeath",
+            GameEventType::CompleteQuest => "CompleteQuest",
+            GameEventType::CompleteShrine => "CompleteShrine",
+            GameEventType::DiscoverLocation => "DiscoverLocation",
+            GameEventType::FindDogTreasure => "FindDogTreasure",
+            GameEventType::IdentifyItem => "IdentifyItem",
+            GameEventType::LightFlame => "LightFlame",
+            GameEventType::MeetCharacter => "MeetCharacter",
+            GameEventType::MeetCharacterFlashback => "MeetCharacterFlashback",
+            GameEventType::MentionCharacter => "MentionCharacter",
+            GameEventType::SetArmorLevel => "SetArmorLevel",
+            GameEventType::SetHearts => "SetHearts",
+            GameEventType::SetItemCount => "SetItemCount",
+            GameEventType::SetStamina => "SetStamina",
+            GameEventType::StartQuest => "StartQuest",
+            GameEventType::StartShrine => "StartShrine",
+        }
+    }
+
+    pub fn string_to_variant(s: &str) -> Self {
+        match s {
+            "AddToCompendium" => GameEventType::AddToCompendium,
+            "CharacterDeath" => GameEventType::CharacterDeath,
+            "CompleteQuest" => GameEventType::CompleteQuest,
+            "CompleteShrine" => GameEventType::CompleteShrine,
+            "DiscoverLocation" => GameEventType::DiscoverLocation,
+            "FindDogTreasure" => GameEventType::FindDogTreasure,
+            "IdentifyItem" => GameEventType::IdentifyItem,
+            "LightFlame" => GameEventType::LightFlame,
+            "MeetCharacter" => GameEventType::MeetCharacter,
+            "MeetCharacterFlashback" => GameEventType::MeetCharacterFlashback,
+            "MentionCharacter" => GameEventType::MentionCharacter,
+            "SetArmorLevel" => GameEventType::SetArmorLevel,
+            "SetHearts" => GameEventType::SetHearts,
+            "SetItemCount" => GameEventType::SetItemCount,
+            "SetStamina" => GameEventType::SetStamina,
+            "StartQuest" => GameEventType::StartQuest,
+            "StartShrine" => GameEventType::StartShrine,
+            _ => panic!(format!("Unexpected GameEventType variant name \"{}\".", s))
+        }
+    }
+}
+
+pub fn try_create_events() {
+    let mut model = Model::new();
+    let mut game_record = GameRecord::new("Test");
+    let mut clock = GameClock::new_running(1_000);
+
+    game_record.add_event(&mut model,GameEvent::new(clock.time(), GameEventType::DiscoverLocation, "Phalian Highlands", None));
+
+    // clock.add_seconds(1234);
+
+    game_record.print_events_serialized();
+
 }

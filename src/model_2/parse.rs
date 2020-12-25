@@ -123,7 +123,7 @@ pub fn load_locations(model: &mut Model) {
         //rintln!("{}", line);
         if line.starts_with(PREFIX_HEADER) {
             let name = line.replace(PREFIX_HEADER, "");
-            let region_rc = Rc::new(RefCell::new(Location::new(&name, None, LocationType::Region)));
+            let region_rc = Rc::new(RefCell::new(Location::new(&name, LocationType::Region)));
             region = Some(region_rc.clone());
             model.add_location(region_rc);
         } else if line.starts_with(PREFIX_SUBHEADER) {
@@ -135,7 +135,7 @@ pub fn load_locations(model: &mut Model) {
             let name = name.replace(PREFIX_SUBHEADER, "");
             match region {
                 Some(ref region_rc) => {
-                    let area_rc = Rc::new(RefCell::new(Location::new(&name, None, location_type)));
+                    let area_rc = Rc::new(RefCell::new(Location::new(&name, location_type)));
                     // let area_rc = Rc::new(RefCell::new(Location::new(&name, Some(region_rc.clone()), LocationType::Area)));
                     area = Some(area_rc.clone());
                     RefCell::borrow_mut(&region_rc).add_location(area_rc.clone());
@@ -159,7 +159,7 @@ pub fn load_locations(model: &mut Model) {
             };
             match area {
                 Some(ref area_rc) => {
-                    let location_rc = Rc::new(RefCell::new(Location::new(&name, None, location_type)));
+                    let location_rc = Rc::new(RefCell::new(Location::new(&name, location_type)));
                     // let location_rc = Rc::new(RefCell::new(Location::new(&name, Some(area_rc.clone()), location_type)));
                     RefCell::borrow_mut(&area_rc).add_location(location_rc.clone());
                     model.add_location(location_rc);
@@ -168,8 +168,24 @@ pub fn load_locations(model: &mut Model) {
             }
         }
     }
+    add_location_parent_references(model);
     load_dog_treasures(model);
     load_shrines(model);
+}
+
+fn add_location_parent_references(model: &mut Model) {
+    let mut location_parents = BTreeMap::new();
+    for parent_location in model.locations.values_mut() {
+        let parent_location = RefCell::borrow(parent_location);
+        let parent_name = (&parent_location.name).clone();
+        for child_location in parent_location.locations.values() {
+            // let mut child_location = RefCell::borrow_mut(child_location);
+            // child_location.parent = Some(location.clone());
+            let child_location = RefCell::borrow(child_location);
+            location_parents.insert(child_location.name.clone(), parent_name.clone());
+        }
+    }
+    model.location_parents = location_parents;
 }
 
 fn load_dog_treasures(model: &mut Model) {

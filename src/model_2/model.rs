@@ -60,6 +60,7 @@ pub struct Model {
     pub characters: BTreeMap<String, Rc<RefCell<Character>>>,
     pub locations: BTreeMap<String, Rc<RefCell<Location>>>,
     pub quests: BTreeMap<String, Rc<RefCell<Quest>>>,
+    pub location_parents: BTreeMap<String, String>,
 }
 
 #[derive(Debug)]
@@ -78,7 +79,6 @@ pub struct Character {
 #[derive(Debug)]
 pub struct Location {
     pub name: String,
-    pub parent: Option<Rc<RefCell<Location>>>,
     pub typ: LocationType,
     pub dog_treasure: Option<String>,
     pub discovered_time: usize,
@@ -225,9 +225,10 @@ impl Model {
             stamina: 5,
             characters: Default::default(),
             locations: Default::default(),
-            quests: Default::default()
+            quests: Default::default(),
+            location_parents: Default::default(),
         };
-        // parse::load_characters(&mut model);
+        parse::load_characters(&mut model);
         parse::load_locations(&mut model);
         parse::load_quests(&mut model);
         // parse::load_items(&mut model);
@@ -323,9 +324,10 @@ impl Model {
     */
 
     pub fn get_parent_location(&self, name: &str) -> Option<Rc<RefCell<Location>>> {
-        let location = &self.get_location(name);
-        let location = RefCell::borrow(&location);
-        location.parent.as_ref().map(|rc| rc.clone())
+        // let location = &self.get_location(name);
+        // let location = RefCell::borrow(&location);
+        // location.parent.as_ref().map(|rc| rc.clone())
+        self.location_parents.get(name).map(|parent_name| self.get_location(parent_name))
     }
 
     /*
@@ -529,10 +531,9 @@ impl Character {
 }
 
 impl Location {
-    pub fn new(name: &str, parent: Option<Rc<RefCell<Location>>>, typ: LocationType) -> Self {
+    pub fn new(name: &str, typ: LocationType) -> Self {
         Self {
             name: name.to_string(),
-            parent,
             discovered_time: NULL_TIME,
             typ,
             dog_treasure: None,
