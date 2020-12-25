@@ -1,5 +1,6 @@
 #![allow(unused_variables)]
 
+/*
 use std::io::{stdout, stdin, Write};
 
 use crate::model_2::model::*;
@@ -8,7 +9,6 @@ use std::fmt::Display;
 use serde::export::Formatter;
 use serde::export::fmt::Error;
 
-/*
 pub fn run(game_record_name: &str) {
     let mut paused = true;
     let mut command_options = vec![];

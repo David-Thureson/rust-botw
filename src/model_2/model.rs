@@ -41,7 +41,7 @@ pub fn main() {
 
 fn try_load() {
     let start = std::time::Instant::now();
-    let model = Model::new();
+    let _model = Model::new();
     util_rust::format::print_elapsed_from_start(true, "new", "", start);
 
     // model.report_characters();
@@ -260,6 +260,41 @@ impl Model {
         self.quests.insert(key, quest);
     }
 
+    pub fn get_character(&self, name: &str) -> Rc<RefCell<Character>> {
+        let get = self.characters.get(name);
+        match get {
+            Some(rc) => rc.clone(),
+            None => panic!("Unknown character = \"{}\"", name),
+        }
+    }
+
+    /*
+    pub fn borrow_character(&self, name: &str) -> Ref<Character> {
+        RefCell::borrow(&self.get_character(name))
+    }
+
+    pub fn borrow_character_mut(&self, name: &str) -> RefMut<Character> {
+        RefCell::borrow_mut(&self.get_character(name))
+    }
+
+    pub fn borrow_character_mut(&self, name: &str) -> RefMut<Character> {
+        let get = self.characters.get(name);
+        match get {
+            Some(rc) => RefCell::borrow_mut(rc),
+            None => panic!("Unknown location = \"{}\"", name),
+        }
+    }
+    */
+    
+    /*
+    pub fn borrow_location(&self, name: &str) -> Ref<Location> {
+        let get = self.locations.get(name);
+        match get {
+            Some(rc) => RefCell::borrow(rc),
+            None => panic!("Unknown location = \"{}\"", name),
+        }
+    }
+
     pub fn borrow_location_mut(&self, name: &str) -> RefMut<Location> {
         let get = self.locations.get(name);
         match get {
@@ -267,7 +302,97 @@ impl Model {
             None => panic!("Unknown location = \"{}\"", name),
         }
     }
+    */
 
+    pub fn get_location(&self, name: &str) -> Rc<RefCell<Location>> {
+        let get = self.locations.get(name);
+        match get {
+            Some(rc) => rc.clone(),
+            None => panic!("Unknown location = \"{}\"", name),
+        }
+    }
+
+    /*
+    pub fn borrow_location(&self, name: &str) -> Ref<Location> {
+        RefCell::borrow(&self.get_location(name))
+    }
+
+    pub fn borrow_location_mut(&self, name: &str) -> RefMut<Location> {
+        RefCell::borrow_mut(&self.get_location(name))
+    }
+    */
+
+    pub fn get_parent_location(&self, name: &str) -> Option<Rc<RefCell<Location>>> {
+        let location = &self.get_location(name);
+        let location = RefCell::borrow(&location);
+        location.parent.as_ref().map(|rc| rc.clone())
+    }
+
+    /*
+    pub fn borrow_shrine(&self, name: &str) -> (&String, &Option<Rc<RefCell<Quest>>>, &usize, &usize) {
+        let location = self.get_location(name);
+        let location = RefCell::borrow(&location);
+        match &location.typ {
+            LocationType::Shrine { challenge, quest, started_time, completed_time } =>
+                (challenge, quest, started_time, completed_time),
+            _ => panic!("Location \"{}\" is not a shrine.", name),
+        }
+    }
+
+    pub fn borrow_shrine_mut(&self, name: &str) -> (&mut String, &mut Option<Rc<RefCell<Quest>>>, &mut usize, &mut usize) {
+        let location = self.get_location(name);
+        let mut location =
+        match &mut location.typ {
+            LocationType::Shrine { mut challenge, quest, started_time, completed_time } =>
+                (&mut challenge, quest, started_time, completed_time),
+            _ => panic!("Location \"{}\" is not a shrine.", name),
+        }
+    }
+    */
+
+    pub fn get_shrine_started_completed(&self, name: &str) -> (usize, usize) {
+        let location = self.get_location(name);
+        let location = RefCell::borrow(&location);
+        match location.typ {
+            LocationType::Shrine { challenge: _, quest: _, started_time, completed_time } => (started_time, completed_time),
+            _ => panic!("Location \"{}\" is not a shrine.", name),
+        }
+    }
+
+    pub fn get_shrine_quest(&self, name: &str) -> Option<Rc<RefCell<Quest>>> {
+        let location = self.get_location(name);
+        let location = RefCell::borrow(&location);
+        match &location.typ {
+            LocationType::Shrine { challenge: _, quest, .. } => quest.as_ref().map(|rc| rc.clone()),
+            _ => panic!("Location \"{}\" is not a shrine.", name),
+        }
+    }
+
+    pub fn get_quest(&self, name: &str) -> Rc<RefCell<Quest>> {
+        let get = self.quests.get(name);
+        match get {
+            Some(rc) => rc.clone(),
+            None => panic!("Unknown quest = \"{}\"", name),
+        }
+    }
+
+    /*
+    pub fn borrow_quest(&self, name: &str) -> Ref<Quest> {
+        RefCell::borrow(&self.get_quest(name))
+    }
+
+    pub fn borrow_quest_mut(&self, name: &str) -> RefMut<Quest> {
+        RefCell::borrow_mut(&self.get_quest(name))
+    }
+     */
+
+    pub fn get_quest_started_completed(&self, name: &str) -> (usize, usize) {
+        let quest = self.get_quest(name);
+        let quest = RefCell::borrow(&quest);
+        (quest.started_time, quest.completed_time)
+    }
+
+    /*
     pub fn borrow_quest(&self, name: &str) -> Ref<Quest> {
         let get = self.quests.get(name);
         match get {
@@ -283,7 +408,7 @@ impl Model {
             None => panic!("Unknown quest = \"{}\"", name),
         }
     }
-
+    */
     pub fn try_load(&mut self) {
         let start = std::time::Instant::now();
         // Item::load_inventory(self);

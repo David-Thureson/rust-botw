@@ -6,7 +6,7 @@ use std::fmt::Display;
 
 use super::model::*;
 use super::runtime::GameClock;
-use std::borrow::Borrow;
+use std::cell::RefCell;
 
 pub const NULL_TIME: usize = usize::MAX;
 
@@ -40,6 +40,7 @@ pub enum GameEventType {
     LightFlame,
     MeetCharacter,
     MeetCharacterFlashback,
+    MentionCharacter,
     SetArmorLevel,
     SetHearts,
     SetItemCount,
@@ -85,40 +86,86 @@ impl GameEvent {
         let GameEvent { time, typ, name, number, ref mut previous_number } = self;
         match typ {
             GameEventType::CompleteQuest => {
-                let (is_started, is_completed) = {
-                    let quest = model.borrow_quest(name);
-                    (quest.is_started(), quest.is_completed())
-                };
-                assert!(!is_completed);
-                if !is_started {
+                let (started_time, completed_time) = model.get_quest_started_completed(name);
+                assert!(completed_time == NULL_TIME);
+                if !started_time == NULL_TIME {
                     // The quest is not yet marked as having started so create a StartQuest event
                     // first.
-                    let mut event = GameEvent::new(*time, GameEventType::StartQuest, name, None);
-                    event.apply(model);
-                    additional_events.push(event);
+                    Self::add_and_apply_event(model, &mut additional_events, GameEvent::new(*time, GameEventType::StartQuest, name, None));
                 }
-                model.borrow_quest_mut(name).completed_time = *time;
+                let quest = model.get_quest(name);
+                let mut quest = RefCell::borrow_mut(&quest);
+                quest.completed_time = *time;
+            },
+            GameEventType::CompleteShrine => {
+                // Isolate the borrow in its own scope so that in a few lines if we need to call
+                // Self::add_and_apply_event we're no longer making an immutable borrow of model.
+                let (started_time, completed_time) = model.get_shrine_started_completed(name);
+                if started_time == NULL_TIME {
+                    // Mark the shrine as started.
+                    Self::add_and_apply_event(model, &mut additional_events, GameEvent::new(*time, GameEventType::StartShrine, name, None));
+                }
+                assert!(completed_time == NULL_TIME);
+                let location = model.get_location(name);
+                let mut location = RefCell::borrow_mut(&location);
+                match location.typ {
+                    LocationType::Shrine { challenge: _, quest: _, started_time: _, ref mut completed_time} => {
+                        *completed_time = *time;
+                    },
+                    _ => panic!("Location \"{}\" is not a shrine.", name),
+                }
+                // let (_challenge, _quest, _started_time, completed_time) = model.borrow_shrine_mut(name);
+                // *completed_time = *time;
             },
             GameEventType::DiscoverLocation => {
-                let mut location = model.borrow_location_mut(name);
+                let parent_location = model.get_parent_location(name);
+                if let Some(parent_location) = parent_location {
+                    let parent_location = RefCell::borrow(&parent_location);
+                    if !parent_location.is_discovered() {
+                        // Add an event for the discovery of the parent location.
+                        Self::add_and_apply_event(model, &mut additional_events, GameEvent::new(*time, GameEventType::DiscoverLocation, &parent_location.name, None));
+                    }
+                }
+                let location = model.get_location(name);
+                let mut location = RefCell::borrow_mut(&location);
                 assert!(!location.is_discovered());
                 location.discovered_time = *time;
             },
             GameEventType::FindDogTreasure => {
-                let mut location = model.borrow_location_mut(name);
+                let location = model.get_location(name);
+                let mut location = RefCell::borrow_mut(&location);
                 assert!(location.has_dog_treasure());
                 assert!(!location.is_dog_treasure_found());
                 location.dog_treasure_found_time = *time;
             },
             GameEventType::LightFlame => {
-                let location = model.borrow_location_mut(name);
+                let location = model.get_location(name);
+                let mut location = RefCell::borrow_mut(&location);
                 match location.typ {
-                    LocationType::TechLab { mut flame_lit_time} => {
-                        assert!(flame_lit_time == NULL_TIME);
-                        flame_lit_time = *time;
+                    LocationType::TechLab { ref mut flame_lit_time} => {
+                        assert!(*flame_lit_time == NULL_TIME);
+                        *flame_lit_time = *time;
                     },
                     _ => panic!("GameEventType::LightFlame for non tech lab location \"{}\".", name),
                 }
+            },
+            GameEventType::MeetCharacter => {
+                let character = model.get_character(name);
+                let mut character = RefCell::borrow_mut(&character);
+                assert!(!character.is_met());
+                character.met_time = *time;
+            },
+            GameEventType::MeetCharacterFlashback => {
+                let character = model.get_character(name);
+                let mut character = RefCell::borrow_mut(&character);
+                assert!(!character.is_met_in_flashback());
+                character.met_in_flashback_time = *time;
+            },
+            GameEventType::MentionCharacter => {
+                let character = model.get_character(name);
+                let mut character = RefCell::borrow_mut(&character);
+                assert!(!character.is_mentioned());
+                character.mentioned_time = *time;
             },
             GameEventType::SetHearts => {
                 *previous_number = Some(model.hearts);
@@ -129,14 +176,41 @@ impl GameEvent {
                 model.stamina = number.unwrap();
             },
             GameEventType::StartQuest => {
-                let mut quest = model.borrow_quest_mut(name);
+                let quest = model.get_quest(name);
+                let mut quest = RefCell::borrow_mut(&quest);
                 assert!(!quest.is_started());
                 assert!(!quest.is_completed());
                 quest.started_time = *time;
             },
+            GameEventType::StartShrine => {
+                let (started_time, completed_time) = model.get_shrine_started_completed(name);
+                assert!(started_time == NULL_TIME);
+                assert!(completed_time == NULL_TIME);
+                if let Some(quest) = model.get_shrine_quest(name) {
+                    let quest = RefCell::borrow(&quest);
+                    if !quest.is_completed() {
+                        // Mark the related shrine quest as completed.
+                        Self::add_and_apply_event(model, &mut additional_events, GameEvent::new(*time, GameEventType::CompleteQuest, &quest.name, None));
+                    }
+                }
+                let location = model.get_location(name);
+                let mut location = RefCell::borrow_mut(&location);
+                match location.typ {
+                    LocationType::Shrine { challenge: _, quest: _, ref mut started_time, ..} => {
+                        *started_time = *time;
+                    },
+                    _ => panic!("Location \"{}\" is not a shrine.", name),
+                }
+            },
             _ => unimplemented!()
         }
         additional_events
+    }
+
+    fn add_and_apply_event(model: &mut Model, additional_events: &mut Vec<GameEvent>, mut event: GameEvent) {
+        let mut more_additional_events = event.apply(model);
+        additional_events.append(&mut more_additional_events);
+        additional_events.push(event);
     }
 }
 
@@ -152,6 +226,7 @@ impl Display for GameEvent {
             GameEventType::LightFlame => format!("Lit flame at {}.", self.name),
             GameEventType::MeetCharacter => format!("Met {}.", self.name),
             GameEventType::MeetCharacterFlashback => format!("Met {} in a flashback.", self.name),
+            GameEventType::MentionCharacter => format!("Mentioned {}.", self.name),
             GameEventType::SetArmorLevel => format!("Changed {} from {} to {}.", self.name, self.previous_number.unwrap(), self.number.unwrap()),
             GameEventType::SetHearts => format!("Changed hearts from {} to {}.", self.previous_number.unwrap(), self.number.unwrap()),
             GameEventType::SetItemCount => format!("Changed the count for {} from {} to {}.", self.name, self.previous_number.unwrap(), self.number.unwrap()),
