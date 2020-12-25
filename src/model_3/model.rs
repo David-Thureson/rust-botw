@@ -211,28 +211,28 @@ impl Model {
     }
 
     pub fn add_character(&mut self, character: Character) {
-        let key = character.name.clone();
+        let key = character.name.to_lowercase().to_string();
         assert!(key.trim().len() == key.len(), "character name \"{}\" is not trimmed.", &key);
         assert!(!self.characters.contains_key(&key));
         self.characters.insert(key, character);
     }
 
     pub fn add_location(&mut self, location: Location) {
-        let key = location.name.clone();
+        let key = location.name.to_lowercase().to_string();
         assert!(key.trim().len() == key.len(), "location name \"{}\" is not trimmed.", &key);
         assert!(!self.locations.contains_key(&key), format!("Location {} already exists.", key));
         self.locations.insert(key, location);
     }
 
     pub fn add_quest(&mut self, quest: Quest) {
-        let key = quest.name.clone();
+        let key = quest.name.to_lowercase().to_string();
         assert!(key.trim().len() == key.len(), "quest name \"{}\" is not trimmed.", &key);
         assert!(!self.quests.contains_key(&key));
         self.quests.insert(key, quest);
     }
 
     pub fn get_character<'a>(&'a self, name: &str) -> &'a Character {
-        let get = self.characters.get(name);
+        let get = self.characters.get(&name.to_lowercase());
         match get {
             Some(character) => character,
             None => panic!("Unknown character = \"{}\"", name),
@@ -240,51 +240,15 @@ impl Model {
     }
 
     pub fn get_character_mut<'a>(&'a mut self, name: &str) -> &'a mut Character {
-        let get = self.characters.get_mut(name);
+        let get = self.characters.get_mut(&name.to_lowercase());
         match get {
             Some(character) => character,
             None => panic!("Unknown character = \"{}\"", name),
         }
     }
 
-    /*
-    pub fn borrow_character(&self, name: &str) -> Ref<Character> {
-        RefCell::borrow(&self.get_character(name))
-    }
-
-    pub fn borrow_character_mut(&self, name: &str) -> RefMut<Character> {
-        RefCell::borrow_mut(&self.get_character(name))
-    }
-
-    pub fn borrow_character_mut(&self, name: &str) -> RefMut<Character> {
-        let get = self.characters.get(name);
-        match get {
-            Some(rc) => RefCell::borrow_mut(rc),
-            None => panic!("Unknown location = \"{}\"", name),
-        }
-    }
-    */
-    
-    /*
-    pub fn borrow_location(&self, name: &str) -> Ref<Location> {
-        let get = self.locations.get(name);
-        match get {
-            Some(rc) => RefCell::borrow(rc),
-            None => panic!("Unknown location = \"{}\"", name),
-        }
-    }
-
-    pub fn borrow_location_mut(&self, name: &str) -> RefMut<Location> {
-        let get = self.locations.get(name);
-        match get {
-            Some(rc) => RefCell::borrow_mut(rc),
-            None => panic!("Unknown location = \"{}\"", name),
-        }
-    }
-    */
-
     pub fn get_location<'a>(&'a self, name: &str) -> &'a Location {
-        let get = self.locations.get(name);
+        let get = self.locations.get(&name.to_lowercase());
         match get {
             Some(location) => location,
             None => panic!("Unknown location = \"{}\"", name),
@@ -292,59 +256,16 @@ impl Model {
     }
 
     pub fn get_location_mut<'a>(&'a mut self, name: &str) -> &'a mut Location {
-        let get = self.locations.get_mut(name);
+        let get = self.locations.get_mut(&name.to_lowercase());
         match get {
             Some(location) => location,
             None => panic!("Unknown location = \"{}\"", name),
         }
     }
 
-    /*
-    pub fn borrow_location(&self, name: &str) -> Ref<Location> {
-        RefCell::borrow(&self.get_location(name))
-    }
-
-    pub fn borrow_location_mut(&self, name: &str) -> RefMut<Location> {
-        RefCell::borrow_mut(&self.get_location(name))
-    }
-    */
-
     pub fn get_parent_location<'a>(&'a self, name: &str) -> Option<&'a Location> {
         self.get_location(name).parent_location.as_ref().map(|parent_name| self.get_location(&parent_name))
     }
-
-    /*
-    pub fn borrow_shrine(&self, name: &str) -> (&String, &Option<Rc<RefCell<Quest>>>, &usize, &usize) {
-        let location = self.get_location(name);
-        let location = RefCell::borrow(&location);
-        match &location.typ {
-            LocationType::Shrine { challenge, quest, started_time, completed_time } =>
-                (challenge, quest, started_time, completed_time),
-            _ => panic!("Location \"{}\" is not a shrine.", name),
-        }
-    }
-
-    pub fn borrow_shrine_mut(&self, name: &str) -> (&mut String, &mut Option<Rc<RefCell<Quest>>>, &mut usize, &mut usize) {
-        let location = self.get_location(name);
-        let mut location =
-        match &mut location.typ {
-            LocationType::Shrine { mut challenge, quest, started_time, completed_time } =>
-                (&mut challenge, quest, started_time, completed_time),
-            _ => panic!("Location \"{}\" is not a shrine.", name),
-        }
-    }
-    */
-
-    /*
-    pub fn get_shrine_started_completed(&self, name: &str) -> (usize, usize) {
-        let location = self.get_location(name);
-        let location = RefCell::borrow(&location);
-        match location.typ {
-            LocationType::Shrine { challenge: _, quest: _, started_time, completed_time } => (started_time, completed_time),
-            _ => panic!("Location \"{}\" is not a shrine.", name),
-        }
-    }
-    */
 
     pub fn get_shrine<'a>(&'a self, name: &str) -> &'a Location {
         let location = self.get_location(name);
@@ -367,7 +288,7 @@ impl Model {
     }
 
     pub fn get_quest<'a>(&'a self, name: &str) -> &'a Quest {
-        let get = self.quests.get(name);
+        let get = self.quests.get(&name.to_lowercase());
         match get {
             Some(quest) => quest,
             None => panic!("Unknown quest = \"{}\"", name),
@@ -375,47 +296,13 @@ impl Model {
     }
 
     pub fn get_quest_mut<'a>(&'a mut self, name: &str) -> &'a mut Quest {
-        let get = self.quests.get_mut(name);
+        let get = self.quests.get_mut(&name.to_lowercase());
         match get {
             Some(quest) => quest,
             None => panic!("Unknown quest = \"{}\"", name),
         }
     }
 
-    /*
-    pub fn borrow_quest(&self, name: &str) -> Ref<Quest> {
-        RefCell::borrow(&self.get_quest(name))
-    }
-
-    pub fn borrow_quest_mut(&self, name: &str) -> RefMut<Quest> {
-        RefCell::borrow_mut(&self.get_quest(name))
-    }
-     */
-
-    /*
-    pub fn get_quest_started_completed(&self, name: &str) -> (usize, usize) {
-        let quest = self.get_quest(name);
-        let quest = RefCell::borrow(&quest);
-        (quest.started_time, quest.completed_time)
-    }
-    */
-    /*
-    pub fn borrow_quest(&self, name: &str) -> Ref<Quest> {
-        let get = self.quests.get(name);
-        match get {
-            Some(rc) => RefCell::borrow(rc),
-            None => panic!("Unknown quest = \"{}\"", name),
-        }
-    }
-
-    pub fn borrow_quest_mut(&self, name: &str) -> RefMut<Quest> {
-        let get = self.quests.get(name);
-        match get {
-            Some(rc) => RefCell::borrow_mut(rc),
-            None => panic!("Unknown quest = \"{}\"", name),
-        }
-    }
-    */
     pub fn try_load(&mut self) {
         let start = std::time::Instant::now();
         // Item::load_inventory(self);
@@ -576,6 +463,10 @@ impl Location {
 
     pub fn is_completed(&self) -> bool {
         self.completed_time != NULL_TIME
+    }
+
+    pub fn is_flame_lit(&self) -> bool {
+        self.flame_lit_time != NULL_TIME
     }
 }
 

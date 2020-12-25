@@ -5,6 +5,8 @@
 //use serde::export::fmt::Error;
 use std::time::SystemTime;
 
+const MAX_SUGGESTIONS: usize = 20;
+
 #[derive(Debug)]
 pub enum GameClock {
     Stopped {
