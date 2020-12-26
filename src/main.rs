@@ -8,7 +8,8 @@ pub fn main() {
     println!("\nBotW start\n");
 
     // model_3::model::main();
-    model_3::game_record::try_create_events();
+    // model_3::game_record::try_create_events();
+    model_3::command::try_suggest_commands();
 
     //shell::run("Tracker");
     println!("\nBotW done\n");

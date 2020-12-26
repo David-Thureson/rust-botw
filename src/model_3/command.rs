@@ -1,21 +1,34 @@
 use super::game_record::*;
 use super::model::*;
 
+use util_rust::format;
+
 const MAX_SUGGESTIONS: usize = 20;
 
+#[derive(Debug)]
 pub struct CommandSet {
     pub number_targets: bool,
     pub targets: Vec<CommandTarget>
 }
 
+#[derive(Debug)]
 pub struct CommandTarget {
     pub model_list: ModelList,
     pub target_type: TargetType,
     pub name: String,
     pub status: String,
-    pub events: Vec<GameEvent>,
+    pub command_number: Option<usize>,
+    pub events: Vec<CommandEvent>,
 }
 
+#[derive(Debug)]
+pub struct CommandEvent {
+    pub typ: GameEventType,
+    pub number: Option<usize>,
+    pub command_number: Option<usize>,
+}
+
+#[derive(Debug)]
 pub enum ModelList {
     None,
     Character,
@@ -24,6 +37,7 @@ pub enum ModelList {
     Item,
 }
 
+#[derive(Debug)]
 pub enum TargetType {
     None,
     Armor,
@@ -67,11 +81,23 @@ impl CommandSet {
                     Self::gen_locations(model, &mut command_set, &partial_name);
                     Self::gen_quests(model, &mut command_set, &partial_name);
                 }
-                let command_count = command_set.targets.iter().map(|target| target.events.iter()).flatten().count();
-                if command_count > MAX_SUGGESTIONS {
-                    command_set.number_targets = true;
-                }
             },
+        }
+        let command_count = command_set.targets.iter().map(|target| target.events.iter()).flatten().count();
+        if command_count <= MAX_SUGGESTIONS {
+            command_set.number_targets = false;
+            let mut command_number = 1;
+            for command_event in command_set.targets.iter_mut().map(|target| target.events.iter_mut()).flatten() {
+                command_event.command_number = Some(command_number);
+                command_number += 1;
+            }
+        } else {
+            command_set.number_targets = true;
+            let mut command_number = 1;
+            for command_target in command_set.targets.iter_mut() {
+                command_target.command_number = Some(command_number);
+                command_number += 1;
+            }
         }
         command_set
     }
@@ -84,11 +110,11 @@ impl CommandSet {
         match event_type {
             GameEventType::LinkDeath | GameEventType::KorokSeed | GameEventType::OpenChest | GameEventType::SetWeaponSlots
                 | GameEventType::SetBowSlots | GameEventType::SetShieldSlots => {
-                target.events.push(GameEvent::new(0, event_type.clone(), "", Some(number)));
+                target.events.push(CommandEvent::new(event_type, Some(number)));
             },
             GameEventType::SetHearts | GameEventType::SetStamina => {
-                target.events.push(GameEvent::new(0, event_type.clone(), "", Some(number)));
-                target.events.push(GameEvent::new(0, event_type.clone(), "", Some(number_given)));
+                target.events.push(CommandEvent::new(event_type.clone(), Some(number)));
+                target.events.push(CommandEvent::new(event_type.clone(), Some(number_given)));
             },
             _ => panic!(format!("Unexpected GameEventType variant: {:?}", event_type))
         }
@@ -103,13 +129,13 @@ impl CommandSet {
 
             let mut target = CommandTarget::new(ModelList::Character, TargetType::Character, &character.name, "");
             if !character.is_mentioned() {
-                target.events.push(GameEvent::new(0, GameEventType::MentionCharacter, &character.name, None));
+                target.events.push(CommandEvent::new(GameEventType::MentionCharacter, None));
             }
             if !character.is_met() && character.alive {
-                target.events.push(GameEvent::new(0, GameEventType::MeetCharacter, &character.name, None));
+                target.events.push(CommandEvent::new(GameEventType::MeetCharacter, None));
             }
             if !character.is_met_in_flashback() {
-                target.events.push(GameEvent::new(0, GameEventType::MeetCharacterFlashback, &character.name, None));
+                target.events.push(CommandEvent::new(GameEventType::MeetCharacterFlashback, None));
             }
             command_set.targets.push(target);
         }
@@ -123,23 +149,23 @@ impl CommandSet {
 
             let mut target = CommandTarget::new(ModelList::Location, TargetType::Location, &location.name, "");
             if !location.is_discovered() {
-                target.events.push(GameEvent::new(0, GameEventType::DiscoverLocation, &location.name, None));
+                target.events.push(CommandEvent::new(GameEventType::DiscoverLocation, None));
             }
-            if !location.has_dog_treasure() && !location.is_dog_treasure_found() {
-                target.events.push(GameEvent::new(0, GameEventType::FindDogTreasure, &location.name, None));
+            if location.has_dog_treasure() && !location.is_dog_treasure_found() {
+                target.events.push(CommandEvent::new(GameEventType::FindDogTreasure, None));
             }
             match location.typ {
                 LocationType::Shrine => {
                     if !location.is_started() {
-                        target.events.push(GameEvent::new(0, GameEventType::StartShrine, &location.name, None));
+                        target.events.push(CommandEvent::new(GameEventType::StartShrine, None));
                     }
                     if !location.is_completed() {
-                        target.events.push(GameEvent::new(0, GameEventType::CompleteShrine, &location.name, None));
+                        target.events.push(CommandEvent::new(GameEventType::CompleteShrine, None));
                     }
                 },
                 LocationType::TechLab => {
                     if !location.is_flame_lit() {
-                        target.events.push(GameEvent::new(0, GameEventType::LightFlame, &location.name, None));
+                        target.events.push(CommandEvent::new(GameEventType::LightFlame, None));
                     }
                 }
                 _ => {}
@@ -156,10 +182,10 @@ impl CommandSet {
     
             let mut target = CommandTarget::new(ModelList::Quest, TargetType::Quest, &quest.name, "");
             if !quest.is_started() {
-                target.events.push(GameEvent::new(0, GameEventType::StartQuest, &quest.name, None));
+                target.events.push(CommandEvent::new(GameEventType::StartQuest, None));
             }
             if !quest.is_completed() {
-                target.events.push(GameEvent::new(0, GameEventType::CompleteQuest, &quest.name, None));
+                target.events.push(CommandEvent::new(GameEventType::CompleteQuest, None));
             }
             command_set.targets.push(target);
         }
@@ -178,6 +204,20 @@ impl CommandSet {
             _ => panic!(format!("Unexpected GameEventType variant: {:?}", event_type))
         }
     }
+
+    pub fn print_numbered(&self) {
+        for target in self.targets.iter() {
+            let command_number = target.command_number.map_or("".to_string(), |x| format!("{:>2}: ", x));
+            format::println_indent_space(0, &format!("{}{} \"{}\": {}", command_number, target.target_type.variant_to_string(), target.name, target.status));
+            if !self.number_targets {
+                for event in target.events.iter() {
+                    let command_number = event.command_number.map_or("".to_string(), |x| format!("{:>2}: ", x));
+                    let number = event.number.map_or("".to_string(), |x| format!(": {}", x));
+                    format::println_indent_space(1, &format!("{}{}{}", command_number, event.typ.variant_to_string(), number));
+                }
+            }
+        }
+    }
 }
 
 impl CommandTarget {
@@ -187,27 +227,49 @@ impl CommandTarget {
             target_type,
             name: name.to_string(),
             status: status.to_string(),
+            command_number: None,
             events: vec![]
         }
     }
 }
 
-/*
-AddToCompendium,
-CharacterDeath,
-CompleteQuest,
-CompleteShrine,
-DiscoverLocation,
-FindDogTreasure,
-IdentifyItem,
-LightFlame,
-MeetCharacter,
-MeetCharacterFlashback,
-MentionCharacter,
-SetArmorLevel,
-SetHearts,
-SetItemCount,
-SetStamina,
-StartQuest,
-StartShrine,
-*/
+impl CommandEvent {
+    pub fn new(typ: GameEventType, number: Option<usize>) -> Self {
+        Self {
+            typ,
+            number,
+            command_number: None
+        }
+    }
+}
+
+impl TargetType {
+    pub fn variant_to_string(&self) -> &str {
+        match self {
+            TargetType::None => "None",
+            TargetType::Armor => "Armor",
+            TargetType::Bow => "Bow",
+            TargetType::Character => "Character",
+            TargetType::Creature => "Creature",
+            TargetType::Hearts => "Hearts",
+            TargetType::Location => "Location",
+            TargetType::Material => "Material",
+            TargetType::Monster => "Monster",
+            TargetType::Quest => "Quest",
+            TargetType::Shield => "Shield",
+            TargetType::Special => "Special",
+            TargetType::Stamina => "Stamina",
+        }
+    }
+}
+
+pub fn try_suggest_commands() {
+    let model = Model::new();
+    //bg!(&model.get_location("Mezza Lo Shrine"));
+
+    CommandSet::generate(&model, "MEZ", None).print_numbered();
+
+    CommandSet::generate(&model, "Tarrey", None).print_numbered();
+
+    CommandSet::generate(&model, "bridge", None).print_numbered();
+}
