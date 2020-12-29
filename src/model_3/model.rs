@@ -60,6 +60,7 @@ pub struct Model {
     pub korok_seeds: usize,
     pub chests: usize,
     pub deaths: usize,
+    pub blood_moons: usize,
     pub characters: BTreeMap<String, Character>,
     pub locations: BTreeMap<String, Location>,
     pub quests: BTreeMap<String, Quest>,
@@ -206,6 +207,7 @@ impl Model {
             korok_seeds: 0,
             chests: 0,
             deaths: 0,
+            blood_moons: 0,
             characters: Default::default(),
             locations: Default::default(),
             quests: Default::default(),
@@ -430,6 +432,25 @@ impl Character {
     pub fn is_met_in_flashback(&self) -> bool {
         self.met_in_flashback_time != NULL_TIME
     }
+
+    pub fn status_description(&self, _model: &Model) -> String {
+        match (self.alive, self.is_mentioned(), self.is_met_in_flashback(), self.is_met()) {
+            (false, false, false, _) => "dead, not mentioned or met",
+            (false, false, true, _) => "dead, met in flashback",
+            (false, true, false, _) => "dead, mentioned but not met",
+            (false, true, true, _) => "dead, mentioned and met in flashback",
+            (true, false, false, false) => "not mentioned or met",
+            (true, false, false, true) => "met",
+            (true, false, true, false) => "met in flashback",
+            (true, false, true, true) => "met",
+            (true, true, false, false) => "mentioned, not met",
+            (true, true, false, true) => "mentioned and met",
+            (true, true, true, false) => "mentioned and met in flashback",
+            (true, true, true, true) => "mentioned and met",
+            // (_, _, _, _) => &format!("[[Unexpected combination: {} {} {} {}]]", character.alive, character.is_mentioned(), character.is_met_in_flashback(), character.is_met()),
+        }.to_string()
+    }
+
 }
 
 impl Location {
@@ -461,6 +482,14 @@ impl Location {
         self.discovered_time != NULL_TIME
     }
 
+    pub fn discovery_label(&self) -> &str {
+        if self.is_discovered() {
+            "discovered"
+        } else {
+            "not discovered"
+        }
+    }
+
     pub fn has_dog_treasure(&self) -> bool {
         self.dog_treasure.is_some()
     }
@@ -477,9 +506,58 @@ impl Location {
         self.completed_time != NULL_TIME
     }
 
+    pub fn completion_label(&self) -> &str {
+        if self.is_completed() {
+            "completed"
+        } else if self.is_started() {
+            "started"
+        } else {
+            "not started"
+        }
+    }
+
     pub fn is_flame_lit(&self) -> bool {
         self.flame_lit_time != NULL_TIME
     }
+
+    pub fn name_with_shrine_challenge(&self) -> String {
+        let challenge = self.challenge.as_ref().map_or("".to_string(), |challenge| format!(" ({})", challenge));
+        format!("{}{}", self.name, challenge)
+    }
+
+    pub fn status_description(&self, model: &Model) -> String {
+        let discovered_note = self.discovery_label();
+
+        let dog_treasure_note = if self.has_dog_treasure() && !self.is_dog_treasure_found() {
+            "; has dog treasure".to_string()
+        } else {
+            "".to_string()
+        };
+
+        let shrine_note = match self.typ {
+            LocationType::Shrine => format!("; shrine is {}", self.completion_label()),
+            _ => "".to_string(),
+        };
+
+        let quest_note = match &self.quest {
+            Some(quest_name) => format!("; quest {} is {}", quest_name, model.get_quest(&quest_name).completion_label()),
+            None => "".to_string(),
+        };
+
+        let flame_note = match self.typ {
+            LocationType::TechLab => {
+                if self.is_flame_lit() {
+                    "; flame is lit".to_string()
+                } else {
+                    "; flame is not yet lit".to_string()
+                }
+            },
+            _ => "".to_string(),
+        };
+
+        format!("{}{}{}{}{}", discovered_note, dog_treasure_note, shrine_note, quest_note, flame_note)
+    }
+
 }
 
 impl LocationType {
@@ -528,6 +606,34 @@ impl Quest {
     pub fn is_completed(&self) -> bool {
         self.completed_time != NULL_TIME
     }
+
+    pub fn completion_label(&self) -> &str {
+        if self.is_completed() {
+            "completed"
+        } else if self.is_started() {
+            "started"
+        } else {
+            "not started"
+        }
+    }
+
+    pub fn status_description(&self, model: &Model) -> String {
+
+        let completion_note = self.completion_label();
+
+        let type_note = match self.typ {
+            QuestType::Main => "main quest".to_string(),
+            QuestType::Side => "side quest".to_string(),
+            QuestType::Shrine => {
+                let shrine_name = self.shrine.as_ref().unwrap();
+                let shrine_completion = model.get_shrine(&shrine_name).completion_label();
+                format!("shrine quest for {} ({})", shrine_name, shrine_completion)
+            },
+        };
+
+        format!("{}: {}", completion_note, type_note)
+    }
+
 }
 
 impl QuestType {

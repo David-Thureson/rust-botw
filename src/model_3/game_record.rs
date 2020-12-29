@@ -30,6 +30,7 @@ pub struct GameEvent {
 #[derive(Clone, Debug)]
 pub enum GameEventType {
     AddToCompendium,
+    BloodMoon,
     CharacterDeath,
     CompleteQuest,
     CompleteShrine,
@@ -188,6 +189,9 @@ impl GameEvent {
     pub fn apply(&mut self, model: &mut Model) {
         let GameEvent { time, typ, name, number, ref mut previous_number } = self;
         match typ {
+            GameEventType::BloodMoon => {
+                model.blood_moons += 1;
+            },
             GameEventType::CompleteQuest => {
                 model.get_quest_mut(name).completed_time = *time;
             },
@@ -236,6 +240,7 @@ impl Display for GameEvent {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), Error> {
         let type_details = match self.typ {
             GameEventType::AddToCompendium => format!("Added {} to compendium.", self.name),
+            GameEventType::BloodMoon => "Blood moon.".to_string(),
             GameEventType::CharacterDeath => format!("{} died.", self.name),
             GameEventType::CompleteQuest | GameEventType::CompleteShrine => format!("Completed {}.", self.name),
             GameEventType::DiscoverLocation => format!("Discovered {}.", self.name),
@@ -261,10 +266,12 @@ impl Display for GameEvent {
         write!(f, "{}", s)
     }
 }
+
 impl GameEventType {
     pub fn variant_to_string(&self) -> &str {
         match self {
             GameEventType::AddToCompendium => "AddToCompendium",
+            GameEventType::BloodMoon => "BloodMoon",
             GameEventType::CharacterDeath => "CharacterDeath",
             GameEventType::CompleteQuest => "CompleteQuest",
             GameEventType::CompleteShrine => "CompleteShrine",
@@ -293,6 +300,7 @@ impl GameEventType {
     pub fn string_to_variant(s: &str) -> Self {
         match s {
             "AddToCompendium" => GameEventType::AddToCompendium,
+            "BloodMoon" => GameEventType::BloodMoon,
             "CharacterDeath" => GameEventType::CharacterDeath,
             "CompleteQuest" => GameEventType::CompleteQuest,
             "CompleteShrine" => GameEventType::CompleteShrine,
