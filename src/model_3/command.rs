@@ -9,8 +9,11 @@ const MAX_SUGGESTIONS: usize = 20;
 pub struct CommandSet {
     pub partial_name: String,
     pub number: Option<usize>,
+    pub include_empty_targets: bool,
+    pub force_number_events: bool,
+    pub add_to_special_commands: bool,
     pub number_targets: bool,
-    pub targets: Vec<CommandTarget>
+    pub targets: Vec<CommandTarget>,
 }
 
 #[derive(Debug)]
@@ -61,9 +64,20 @@ impl CommandSet {
         Self {
             partial_name: partial_name.to_lowercase(),
             number: number,
+            include_empty_targets: true,
+            force_number_events: false,
+            add_to_special_commands: false,
             number_targets: false,
             targets: vec![],
         }
+    }
+
+    fn clone_empty(&self, partial_name: &str) -> Self {
+        let mut command_set = Self::new(partial_name, self.number);
+        command_set.add_to_special_commands = self.add_to_special_commands;
+        command_set.force_number_events = self.force_number_events;
+        command_set.include_empty_targets = self.include_empty_targets;
+        command_set
     }
 
     pub fn new_gen(model: &Model, partial_name: &str, number: Option<usize>) -> Self {
@@ -86,16 +100,17 @@ impl CommandSet {
             "he" => self.gen_no_target(model, GameEventType::SetHearts),
             "st" => self.gen_no_target(model, GameEventType::SetStamina),
             "die" => self.gen_no_target(model, GameEventType::LinkDeath),
-            _ => {
-                if !has_number {
-                    self.gen_characters(model);
-                    self.gen_locations(model);
-                    self.gen_quests(model);
-                }
-            },
+            _ => {},
+        };
+        if self.add_to_special_commands || self.targets.is_empty() {
+            if !has_number {
+                self.gen_characters(model);
+                self.gen_locations(model);
+                self.gen_quests(model);
+            }
         }
-        let command_count = self.targets.iter().map(|target| target.events.iter()).flatten().count();
-        if command_count <= MAX_SUGGESTIONS || self.targets.len() == 1 {
+        let command_count = self.command_count();
+        if command_count <= MAX_SUGGESTIONS || self.force_number_events {
             self.number_targets = false;
             let mut command_number = 1;
             for command_event in self.targets.iter_mut().map(|target| target.events.iter_mut()).flatten() {
@@ -118,8 +133,9 @@ impl CommandSet {
         let number_given = self.number.unwrap_or(1);
         let number = current_count + number_given;
         match event_type {
-            GameEventType::LinkDeath | GameEventType::KorokSeed | GameEventType::OpenChest | GameEventType::SetWeaponSlots
-                | GameEventType::SetBowSlots | GameEventType::SetShieldSlots => {
+            GameEventType::BloodMoon | GameEventType::LinkDeath | GameEventType::KorokSeed | GameEventType::OpenChest | GameEventType::SetBowSlots
+                | GameEventType::SetShieldSlots | GameEventType::SetWeaponSlots
+                 => {
                 target.events.push(CommandEvent::new(event_type, Some(number)));
             },
             GameEventType::SetHearts | GameEventType::SetStamina => {
@@ -149,7 +165,9 @@ impl CommandSet {
             if !character.is_met_in_flashback() {
                 target.events.push(CommandEvent::new(GameEventType::MeetCharacterFlashback, None));
             }
-            self.targets.push(target);
+            if self.include_empty_targets || !target.events.is_empty() {
+                self.targets.push(target);
+            }
         }
     }
 
@@ -187,7 +205,9 @@ impl CommandSet {
                 }
                 _ => {}
             }
-            self.targets.push(target);
+            if self.include_empty_targets || !target.events.is_empty() {
+                self.targets.push(target);
+            }
         }
     }
     
@@ -206,22 +226,29 @@ impl CommandSet {
             if !quest.is_completed() {
                 target.events.push(CommandEvent::new(GameEventType::CompleteQuest, None));
             }
-            self.targets.push(target);
+            if self.include_empty_targets || !target.events.is_empty() {
+                self.targets.push(target);
+            }
         }
     }
 
     fn get_current_count_no_target(model: &Model, event_type: &GameEventType) -> usize {
         match event_type {
-            GameEventType::LinkDeath => model.deaths,
+            GameEventType::BloodMoon => model.blood_moons,
             GameEventType::KorokSeed => model.korok_seeds,
+            GameEventType::LinkDeath => model.deaths,
             GameEventType::OpenChest => model.chests,
-            GameEventType::SetWeaponSlots => model.weapon_slots,
             GameEventType::SetBowSlots => model.bow_slots,
-            GameEventType::SetShieldSlots => model.shield_slots,
             GameEventType::SetHearts => model.hearts,
+            GameEventType::SetShieldSlots => model.shield_slots,
             GameEventType::SetStamina => model.stamina,
+            GameEventType::SetWeaponSlots => model.weapon_slots,
             _ => panic!(format!("Unexpected GameEventType variant: {:?}", event_type))
         }
+    }
+
+    pub fn command_count(&self) -> usize {
+        self.targets.iter().map(|target| target.events.iter()).flatten().count()
     }
 
     pub fn print_numbered(&self, model: &Model) {
@@ -250,7 +277,11 @@ impl CommandSet {
             .find(|x| x.command_number.unwrap() == command_number)
             .map(|x| x.name.clone())
             .unwrap();
-        Self::new_gen(model, &name, self.number)
+        let mut command_set = self.clone_empty(&name);
+        command_set.force_number_events = true;
+        command_set.generate(model);
+        assert!(!command_set.number_targets);
+        command_set
     }
 
     pub fn apply_command(&self, model: &mut Model, game_record: &mut GameRecord, time: usize, command_number: usize) {
@@ -264,6 +295,7 @@ impl CommandSet {
             }
         }
     }
+
 }
 
 impl CommandTarget {

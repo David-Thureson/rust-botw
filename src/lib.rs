@@ -6,6 +6,8 @@ use std::collections::BTreeMap;
 extern crate strum;
 extern crate strum_macros;
 
+extern crate rand;
+
 extern crate util_rust;
 pub use util_rust::*;
 // pub use util::format::*;

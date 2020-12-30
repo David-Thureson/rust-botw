@@ -62,14 +62,14 @@ impl GameRecord {
     }
 
     pub fn add_event(&mut self, model: &mut Model, event: GameEvent) {
-        dbg!(&event);
+        //bg!(&event);
         let mut events: Vec<GameEvent> = vec![];
         events.push(event.clone());
         let mut current_event = event;
         // let mut previous_event_string = event.to_simple_text();
         loop {
             let current_event_opt = current_event.gen_predecessor(model);
-            dbg!(&current_event);
+            //bg!(&current_event);
             match current_event_opt {
                 Some(this_event) => {
                     //assert_ne!(event.to_simple_text(), previous_event_string);
@@ -126,7 +126,7 @@ impl GameEvent {
     }
 
     pub fn gen_predecessor(&self, model: &Model) -> Option<GameEvent> {
-        dbg!(&self);
+        //bg!(&self);
         let GameEvent { time, typ, name, .. } = self;
         match typ {
             GameEventType::CompleteQuest => {
@@ -137,8 +137,8 @@ impl GameEvent {
                 }
             },
             GameEventType::CompleteShrine => {
-                dbg!(model.get_shrine(name));
-                dbg!(model.get_shrine(name).is_started());
+                //bg!(model.get_shrine(name));
+                //bg!(model.get_shrine(name).is_started());
                 if !model.get_shrine(name).is_started() {
                     Some(GameEvent::new(*time, GameEventType::StartShrine, name, None))
                 } else {
@@ -201,8 +201,14 @@ impl GameEvent {
             GameEventType::FindDogTreasure => {
                 model.get_location_mut(name).dog_treasure_found_time = *time;
             },
+            GameEventType::KorokSeed => {
+                model.korok_seeds += number.unwrap();
+            },
             GameEventType::LightFlame => {
                 model.get_location_mut(name).flame_lit_time = *time;
+            },
+            GameEventType::LinkDeath => {
+                model.deaths += 1;
             },
             GameEventType::MeetCharacter => {
                 model.get_character_mut(name).met_time = *time;
@@ -213,13 +219,28 @@ impl GameEvent {
             GameEventType::MentionCharacter => {
                 model.get_character_mut(name).mentioned_time = *time;
             },
+            GameEventType::OpenChest => {
+                model.chests += number.unwrap();
+            },
+            GameEventType::SetBowSlots => {
+                *previous_number = Some(model.bow_slots);
+                model.bow_slots = number.unwrap();
+            },
             GameEventType::SetHearts => {
                 *previous_number = Some(model.hearts);
                 model.hearts = number.unwrap();
             },
+            GameEventType::SetShieldSlots => {
+                *previous_number = Some(model.shield_slots);
+                model.shield_slots = number.unwrap();
+            },
             GameEventType::SetStamina => {
                 *previous_number = Some(model.stamina);
                 model.stamina = number.unwrap();
+            },
+            GameEventType::SetWeaponSlots => {
+                *previous_number = Some(model.weapon_slots);
+                model.weapon_slots = number.unwrap();
             },
             GameEventType::StartQuest => {
                 model.get_quest_mut(name).started_time = *time;
@@ -227,7 +248,7 @@ impl GameEvent {
             GameEventType::StartShrine => {
                 model.get_shrine_mut(name).started_time = *time;
             },
-            _ => unimplemented!()
+            _ => unimplemented!("{:?}: {}: {:?}", &typ, &name, number)
         }
     }
 
