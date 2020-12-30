@@ -1,5 +1,7 @@
 #![allow(unused_variables)]
 
+// https://www.joshmcguigan.com/blog/build-your-own-shell-rust/
+
 /*
 use std::io::{stdout, stdin, Write};
 

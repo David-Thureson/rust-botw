@@ -7,6 +7,7 @@ const MAX_SUGGESTIONS: usize = 20;
 
 #[derive(Debug)]
 pub struct CommandSet {
+    pub partial_name: String,
     pub number: Option<usize>,
     pub number_targets: bool,
     pub targets: Vec<CommandTarget>
@@ -56,59 +57,65 @@ pub enum TargetType {
 }
 
 impl CommandSet {
-    fn new() -> Self {
+    pub fn new(partial_name: &str, number: Option<usize>) -> Self {
         Self {
-            number: None,
+            partial_name: partial_name.to_lowercase(),
+            number: number,
             number_targets: false,
             targets: vec![],
         }
     }
 
-    pub fn generate(model: &Model, partial_name: &str, number: Option<usize>) -> CommandSet {
-        let mut command_set = CommandSet::new();
-        let has_number = number.is_some();
-        let partial_name = partial_name.to_lowercase();
-        match partial_name.as_str() {
-            "k" => Self::gen_no_target(model, &mut command_set, GameEventType::KorokSeed, number),
-            "c" => Self::gen_no_target(model, &mut command_set, GameEventType::OpenChest, number),
-            "bl" => Self::gen_no_target(model, &mut command_set, GameEventType::BloodMoon, number),
-            "we" => Self::gen_no_target(model, &mut command_set, GameEventType::SetWeaponSlots, number),
-            "sh" => Self::gen_no_target(model, &mut command_set, GameEventType::SetBowSlots, number),
-            "bo" => Self::gen_no_target(model, &mut command_set, GameEventType::SetShieldSlots, number),
-            "he" => Self::gen_no_target(model, &mut command_set, GameEventType::SetHearts, number),
-            "st" => Self::gen_no_target(model, &mut command_set, GameEventType::SetStamina, number),
-            "die" => Self::gen_no_target(model, &mut command_set, GameEventType::LinkDeath, number),
+    pub fn new_gen(model: &Model, partial_name: &str, number: Option<usize>) -> Self {
+        let mut command_set = Self::new(partial_name, number);
+        command_set.generate(model);
+        command_set
+    }
+
+    pub fn generate(&mut self, model: &Model) {
+        self.number_targets = false;
+        self.targets.clear();
+        let has_number = self.number.is_some();
+        match self.partial_name.as_str() {
+            "k" => self.gen_no_target(model, GameEventType::KorokSeed),
+            "c" => self.gen_no_target(model, GameEventType::OpenChest),
+            "bl" => self.gen_no_target(model, GameEventType::BloodMoon),
+            "we" => self.gen_no_target(model, GameEventType::SetWeaponSlots),
+            "sh" => self.gen_no_target(model, GameEventType::SetBowSlots),
+            "bo" => self.gen_no_target(model, GameEventType::SetShieldSlots),
+            "he" => self.gen_no_target(model, GameEventType::SetHearts),
+            "st" => self.gen_no_target(model, GameEventType::SetStamina),
+            "die" => self.gen_no_target(model, GameEventType::LinkDeath),
             _ => {
                 if !has_number {
-                    Self::gen_characters(model, &mut command_set, &partial_name);
-                    Self::gen_locations(model, &mut command_set, &partial_name);
-                    Self::gen_quests(model, &mut command_set, &partial_name);
+                    self.gen_characters(model);
+                    self.gen_locations(model);
+                    self.gen_quests(model);
                 }
             },
         }
-        let command_count = command_set.targets.iter().map(|target| target.events.iter()).flatten().count();
-        if command_count <= MAX_SUGGESTIONS || command_set.targets.len() == 1 {
-            command_set.number_targets = false;
+        let command_count = self.targets.iter().map(|target| target.events.iter()).flatten().count();
+        if command_count <= MAX_SUGGESTIONS || self.targets.len() == 1 {
+            self.number_targets = false;
             let mut command_number = 1;
-            for command_event in command_set.targets.iter_mut().map(|target| target.events.iter_mut()).flatten() {
+            for command_event in self.targets.iter_mut().map(|target| target.events.iter_mut()).flatten() {
                 command_event.command_number = Some(command_number);
                 command_number += 1;
             }
         } else {
-            command_set.number_targets = true;
+            self.number_targets = true;
             let mut command_number = 1;
-            for command_target in command_set.targets.iter_mut() {
+            for command_target in self.targets.iter_mut() {
                 command_target.command_number = Some(command_number);
                 command_number += 1;
             }
         }
-        command_set
     }
 
-    fn gen_no_target(model: &Model, command_set: &mut CommandSet, event_type: GameEventType, number: Option<usize>) {
+    fn gen_no_target(&mut self, model: &Model, event_type: GameEventType) {
         let mut target = CommandTarget::new(ModelList::None, TargetType::None, "", "");
         let current_count = Self::get_current_count_no_target(model, &event_type);
-        let number_given = number.unwrap_or(1);
+        let number_given = self.number.unwrap_or(1);
         let number = current_count + number_given;
         match event_type {
             GameEventType::LinkDeath | GameEventType::KorokSeed | GameEventType::OpenChest | GameEventType::SetWeaponSlots
@@ -121,10 +128,11 @@ impl CommandSet {
             },
             _ => panic!(format!("Unexpected GameEventType variant: {:?}", event_type))
         }
-        command_set.targets.push(target);
+        self.targets.push(target);
     }
 
-    fn gen_characters(model: &Model, command_set: &mut CommandSet, partial_name: &str) {
+    fn gen_characters(&mut self, model: &Model) {
+        let partial_name = self.partial_name.clone();
         for (_key, character) in model
             .characters
             .iter()
@@ -141,12 +149,12 @@ impl CommandSet {
             if !character.is_met_in_flashback() {
                 target.events.push(CommandEvent::new(GameEventType::MeetCharacterFlashback, None));
             }
-            command_set.targets.push(target);
+            self.targets.push(target);
         }
     }
 
-    fn gen_locations(model: &Model, command_set: &mut CommandSet, partial_name: &str) {
-        let partial_name= partial_name.to_lowercase();
+    fn gen_locations(&mut self, model: &Model) {
+        let partial_name = self.partial_name.clone();
         for (_key, location) in model
             .locations
             .iter()
@@ -179,11 +187,12 @@ impl CommandSet {
                 }
                 _ => {}
             }
-            command_set.targets.push(target);
+            self.targets.push(target);
         }
     }
     
-    fn gen_quests(model: &Model, command_set: &mut CommandSet, partial_name: &str) {
+    fn gen_quests(&mut self, model: &Model) {
+        let partial_name = self.partial_name.clone();
         for (_key, quest) in model
             .quests
             .iter()
@@ -197,7 +206,7 @@ impl CommandSet {
             if !quest.is_completed() {
                 target.events.push(CommandEvent::new(GameEventType::CompleteQuest, None));
             }
-            command_set.targets.push(target);
+            self.targets.push(target);
         }
     }
 
@@ -234,14 +243,14 @@ impl CommandSet {
         }
     }
 
-    pub fn regen_with_chosen_target(&self, model: &Model, command_number: usize) -> CommandSet {
+    pub fn regen_with_chosen_target(&self, model: &Model, command_number: usize) -> Self {
         assert!(self.number_targets);
         let name = self.targets
             .iter()
             .find(|x| x.command_number.unwrap() == command_number)
             .map(|x| x.name.clone())
             .unwrap();
-        Self::generate(model, &name, self.number)
+        Self::new_gen(model, &name, self.number)
     }
 
     pub fn apply_command(&self, model: &mut Model, game_record: &mut GameRecord, time: usize, command_number: usize) {
@@ -308,5 +317,5 @@ pub fn try_suggest_commands() {
     // CommandSet::generate(&model, "Tarrey", None).print_numbered();
     // CommandSet::generate(&model, "bridge", None).print_numbered();
     // CommandSet::generate(&model, "blessing", None).print_numbered(&model);
-    CommandSet::generate(&model, "test", None).print_numbered(&model);
+    CommandSet::new_gen(&model, "test", None).print_numbered(&model);
 }

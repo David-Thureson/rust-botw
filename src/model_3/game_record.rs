@@ -1,8 +1,6 @@
-// https://www.joshmcguigan.com/blog/build-your-own-shell-rust/
 
-use serde::export::Formatter;
-use serde::export::fmt::Error;
-use std::fmt::Display;
+use serde::{Deserialize, Serialize};
+use std::fmt;
 use std::{thread, time};
 
 use super::model::*;
@@ -11,13 +9,13 @@ use util_rust::format;
 
 pub const NULL_TIME: usize = usize::MAX;
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize, Serialize)]
 pub struct GameRecord {
     pub name: String,
     pub events: Vec<GameEvent>,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct GameEvent {
     time: usize,
     typ: GameEventType,
@@ -26,8 +24,7 @@ pub struct GameEvent {
     previous_number: Option<usize>,
 }
 
-#[derive(serde::Serialize)]
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub enum GameEventType {
     AddToCompendium,
     BloodMoon,
@@ -236,8 +233,8 @@ impl GameEvent {
 
 }
 
-impl Display for GameEvent {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), Error> {
+impl fmt::Display for GameEvent {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let type_details = match self.typ {
             GameEventType::AddToCompendium => format!("Added {} to compendium.", self.name),
             GameEventType::BloodMoon => "Blood moon.".to_string(),
@@ -350,5 +347,9 @@ pub fn try_create_events() {
     // be completed. Maybe the predecessor function should return an array.
 
     game_record.print_events_serialized();
+
+    let json = serde_json::to_string(&game_record).unwrap();
+    let new_game_record: GameRecord = serde_json::from_str(&json).unwrap();
+    new_game_record.print_events_serialized();
 
 }
