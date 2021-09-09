@@ -7,7 +7,7 @@ use std::fmt::Display;
 use super::model::*;
 use super::runtime::GameClock;
 use std::cell::RefCell;
-use util_rust::format;
+use util::format;
 use serde::Serialize;
 
 pub const NULL_TIME: usize = usize::MAX;

@@ -42,7 +42,7 @@ pub fn main() {
 fn try_load() {
     let start = std::time::Instant::now();
     let _model = Model::new();
-    util_rust::format::print_elapsed_from_start(true, "new", "", start);
+    util::format::print_elapsed_from_start(true, "new", "", start);
 
     // model.report_characters();
     // model.report_location_types();
@@ -414,7 +414,7 @@ impl Model {
     pub fn try_load(&mut self) {
         let start = std::time::Instant::now();
         // Item::load_inventory(self);
-        util_rust::format::print_elapsed_from_start(true, "load inventory", "", start);
+        util::format::print_elapsed_from_start(true, "load inventory", "", start);
 
         // let include_jewelry = false;
         // self.set_needed_items(include_jewelry);
@@ -428,8 +428,8 @@ impl Model {
     }
 
     pub fn report_characters(&self) {
-        let mut grouper_race = util_rust::group::Grouper::new("Character Races");
-        let mut grouper_flag = util_rust::group::Grouper::new("Character Flags");
+        let mut grouper_race = util::group::Grouper::new("Character Races");
+        let mut grouper_flag = util::group::Grouper::new("Character Flags");
         for character in self.characters.values() {
             let character = RefCell::borrow(character);
             grouper_race.record_entry(&character.race.to_string());
@@ -444,7 +444,7 @@ impl Model {
     }
 
     pub fn report_location_types(&self) {
-        let mut grouper = util_rust::group::Grouper::new("Location Types");
+        let mut grouper = util::group::Grouper::new("Location Types");
         for type_name in self
             .locations
             .values()
@@ -456,8 +456,8 @@ impl Model {
     }
 
     pub fn report_shrines(&self) {
-        let mut grouper_challenge = util_rust::group::Grouper::new("Shrine Challenges");
-        let mut grouper_has_quest = util_rust::group::Grouper::new("Shrine Has Quest");
+        let mut grouper_challenge = util::group::Grouper::new("Shrine Challenges");
+        let mut grouper_has_quest = util::group::Grouper::new("Shrine Has Quest");
         for (challenge, has_quest) in self
             .locations
             .values()
@@ -479,7 +479,7 @@ impl Model {
     }
 
     pub fn report_quest_types(&self) {
-        let mut grouper = util_rust::group::Grouper::new("Quest Types");
+        let mut grouper = util::group::Grouper::new("Quest Types");
         for type_name in self
             .quests
             .values()

@@ -1,7 +1,7 @@
 use super::game_record::*;
 use super::model::*;
 
-use util_rust::format;
+use util::format;
 
 const MAX_SUGGESTIONS: usize = 20;
 

@@ -4,7 +4,7 @@ use std::str::FromStr;
 
 use crate::*;
 use super::model::*;
-use util_rust::parse;
+use util::parse;
 
 pub const PREFIX_HEADER: &str = "#";
 pub const PREFIX_SUBHEADER: &str = ">";
@@ -241,7 +241,7 @@ pub fn load_quests(model: &mut Model) {
                     model.add_quest(Quest::new_main(&line));
                 },
                 "Side" => {
-                    let (name, notes) = parse::extract_optional(&line, "(", ")");
+                    let (name, notes) = extract::extract_optional(&line, "(", ")");
                     model.add_quest(Quest::new_side(name.trim(), notes.clone()));
                 },
                 "Shrine" => {

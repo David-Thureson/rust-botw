@@ -5,7 +5,7 @@ use std::{thread, time};
 
 use super::model::*;
 use super::runtime::GameClock;
-use util_rust::format;
+use util::format;
 
 pub const NULL_TIME: usize = usize::MAX;
 
