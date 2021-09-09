@@ -15,6 +15,7 @@ pub use util::*;
 
 pub mod model_3;
 pub mod parse_one_time;
+pub mod timed;
 
 const FILE_REPORT: &str = "Report.txt";
 
