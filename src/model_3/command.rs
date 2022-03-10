@@ -142,7 +142,7 @@ impl CommandSet {
                 target.events.push(CommandEvent::new(event_type.clone(), Some(number)));
                 target.events.push(CommandEvent::new(event_type.clone(), Some(number_given)));
             },
-            _ => panic!(format!("Unexpected GameEventType variant: {:?}", event_type))
+            _ => panic!("Unexpected GameEventType variant: {:?}", event_type)
         }
         self.targets.push(target);
     }
@@ -243,7 +243,7 @@ impl CommandSet {
             GameEventType::SetShieldSlots => model.shield_slots,
             GameEventType::SetStamina => model.stamina,
             GameEventType::SetWeaponSlots => model.weapon_slots,
-            _ => panic!(format!("Unexpected GameEventType variant: {:?}", event_type))
+            _ => panic!("Unexpected GameEventType variant: {:?}", event_type)
         }
     }
 

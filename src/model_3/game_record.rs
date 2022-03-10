@@ -341,7 +341,7 @@ impl GameEventType {
             "SetWeaponSlots" => GameEventType::SetWeaponSlots,
             "StartQuest" => GameEventType::StartQuest,
             "StartShrine" => GameEventType::StartShrine,
-            _ => panic!(format!("Unexpected GameEventType variant name \"{}\".", s))
+            _ => panic!("Unexpected GameEventType variant name \"{}\".", s)
         }
     }
 }

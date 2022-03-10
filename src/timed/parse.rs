@@ -4,12 +4,14 @@ use std::io::BufRead;
 use util::tab::*;
 use super::*;
 
+#[allow(dead_code)]
 const PATH_DATA: &str = r"T:\Docs\Games\Breath of the Wild";
 
 pub fn main() {
-    let game = parse_game();
+    // let game = parse_game();
 }
 
+#[allow(dead_code)]
 fn parse_game() -> Game {
 
     /*
@@ -30,6 +32,7 @@ fn parse_game() -> Game {
     game
 }
 
+#[allow(dead_code)]
 fn parse_sessions(game: &mut Game) {
     let file = File::open(format!("{}/{}", PATH_DATA, "Sess.txt")).unwrap();
     for (line_index, raw_line_result) in io::BufReader::new(file).lines().enumerate() {

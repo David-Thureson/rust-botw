@@ -1,5 +1,3 @@
-#![feature(str_split_once)]
-
 use std::fs;
 use std::collections::BTreeMap;
 

@@ -39,7 +39,7 @@ pub fn main() {
 fn try_load() {
     let start = std::time::Instant::now();
     let model = Model::new();
-    util::format::print_elapsed_from_start(true, "new", "", start);
+    util::date_time::print_elapsed_from_start(true, "new", "", start);
 
     model.report_characters();
     model.report_location_types();
@@ -234,7 +234,7 @@ impl Model {
     pub fn add_location(&mut self, location: Location) {
         let key = location.name.to_lowercase().to_string();
         assert!(key.trim().len() == key.len(), "location name \"{}\" is not trimmed.", &key);
-        assert!(!self.locations.contains_key(&key), format!("Location {} already exists.", key));
+        assert!(!self.locations.contains_key(&key), "Location {} already exists.", key);
         self.locations.insert(key, location);
     }
 
@@ -320,7 +320,7 @@ impl Model {
     pub fn try_load(&mut self) {
         let start = std::time::Instant::now();
         // Item::load_inventory(self);
-        util::format::print_elapsed_from_start(true, "load inventory", "", start);
+        util::date_time::print_elapsed_from_start(true, "load inventory", "", start);
 
         // let include_jewelry = false;
         // self.set_needed_items(include_jewelry);
@@ -474,7 +474,7 @@ impl Location {
     pub fn add_child_location(&mut self, name: &str) {
         let name = name.to_string();
         assert!(name.trim().len() == name.len(), "location name \"{}\" is not trimmed.", &name);
-        assert!(!self.child_locations.contains(&name), format!("Location {} already exists.", name));
+        assert!(!self.child_locations.contains(&name), "Location {} already exists.", name);
         self.child_locations.push(name);
     }
 
